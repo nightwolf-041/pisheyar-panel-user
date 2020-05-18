@@ -965,12 +965,12 @@ button {
         height: 530px;
     }
     .loginRegisterRegisterBoxMinHeight {
-        right: 10px;
+        right: 3.5%;
         width: 280px;
         height: 410px;
     }
     .loginRegisterLoginBox {
-        top: -12%;
+        top: -10%%;
         width: 280px;
         height: 390px;
         right: 10px;

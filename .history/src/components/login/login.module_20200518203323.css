@@ -24,6 +24,7 @@ button {
     position: relative;
     width: 100vw;
     height: 100vh;
+    margin-bottom: 10rem;
 }
 
 .loginRegisterSwitch {
@@ -297,8 +298,6 @@ button {
     background-color: #fff;
     border-radius: 30px;
     box-shadow: 1px 6px 12px #0b103357;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
 }
 
 .loginRegisterRegisterBoxMinHeight {
@@ -311,8 +310,6 @@ button {
     background-color: #fff;
     border-radius: 30px;
     box-shadow: 1px 6px 12px #0b103357;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
 }
 
 .loginRegisterRegisterHead {
@@ -792,6 +789,51 @@ button {
     right: 10%;
 }
 
+.reLoginAlert {
+    position: fixed;
+    top: 0;
+    left: auto;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 2200px;
+    height: 380px;
+    padding-top: 25px;
+    background-color: #283593;
+    border-radius: 22% 23% 21% 20% / 18% 16% 24% 18%;
+}
+
+.reLoginAlertIcon {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 15px;
+}
+
+.reLoginAlertTitle {
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.reLoginAlertButton {
+    background: none;
+    border: 1px solid #2979FF;
+    color: #fff;
+    outline: none;
+    padding: 8px 14px;
+    transition: 0.5s background-color ease;
+    -webkit-transition: 0.5s background-color ease;
+    -o-transition: 0.5s background-color ease;
+    -moz-transition: 0.5s background-color ease;
+}
+
+.reLoginAlertButton:hover {
+    background-color: #2979FF;
+    color: #fff;
+    border: 1px solid rgb(133, 172, 240);
+}
+
 .timerBox {
     margin-bottom: -50px;
     margin-top: 20px;
@@ -882,6 +924,13 @@ button {
     }
 }
 
+
+/* @media screen and (max-width: 745px) {
+    .loginRegisterRegisterBox {
+        right: 46%;
+    }
+} */
+
 @media screen and (max-width: 730px) {
     .loginPageMain {
         height: 120vh;
@@ -890,7 +939,7 @@ button {
         width: 350px;
         top: 20%;
         height: 500px;
-        /* margin-bottom: 20rem; */
+        margin-bottom: 20rem;
     }
     .loginRegisterLoginBox {
         top: -20%;
@@ -965,14 +1014,15 @@ button {
         height: 530px;
     }
     .loginRegisterRegisterBoxMinHeight {
-        right: 10px;
+        right: 3.5%;
         width: 280px;
         height: 410px;
     }
     .loginRegisterLoginBox {
-        top: -12%;
         width: 280px;
         height: 390px;
+    }
+    .loginRegisterLoginBox {
         right: 10px;
     }
     .loginRegisterRegisterBox {

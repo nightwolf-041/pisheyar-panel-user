@@ -6,14 +6,21 @@ button {
     cursor: pointer;
 }
 
+
+/* body {
+    overflow-y: auto !important;
+} */
+
 .loginKeeper {
     position: relative;
     width: 100%;
     height: 100vh;
+    /* overflow: hidden; */
     background-color: #17304977;
     background-image: url('../../assets/images/WideBackgroundFooter.svg');
     background-position: center;
     background-size: cover;
+    /* padding: 45px 0; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,6 +43,7 @@ button {
     margin-left: auto;
     height: 300px;
     background-color: #0b1033 !important;
+    /* background-color: #173049; */
     transition: 0.4s all ease;
 }
 
@@ -167,12 +175,14 @@ button {
     transition: 0.5s all ease;
     position: absolute;
     top: -15%;
+    /* right: 5%; */
     right: 45px;
     width: 350px;
     height: 420px;
     background-color: #fff;
     border-radius: 30px;
     box-shadow: 1px 6px 12px #0b103357;
+    /* overflow: hidden; */
 }
 
 .loginRegisterLoginHead {
@@ -188,6 +198,32 @@ button {
     border-top-right-radius: 2rem;
     color: #34bf49;
 }
+
+.asd {}
+
+
+/* .loginBottomShadowBox {
+    width: 100%;
+    height: 6rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    box-shadow: 0 -1px 12px 6px rgba(11, 16, 51, 0.2);
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+} */
+
+
+/* .registerBottomShadowBox {
+    width: 100%;
+    height: 6rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    box-shadow: 0 -1px 12px 6px rgba(11, 16, 51, 0.2);
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+} */
 
 .loginRegisterLoginForm {
     position: absolute;
@@ -238,6 +274,52 @@ button {
     display: flex;
     justify-content: flex-end;
 }
+
+
+/* .loginRegisterLoginPassword,
+.loginRegisterLoginPasswordInvalid {
+    width: 85%;
+    padding: 7px 7px;
+    border: none;
+    outline: none;
+}
+
+.loginRegisterLoginPassword {
+    border-bottom: 1px solid rgba(11, 16, 51, 0.5);
+}
+
+.loginRegisterLoginPasswordInvalid {
+    border-bottom: 1px solid #e57373;
+}
+
+.loginPasswordErrorSpan {
+    margin-top: 7px;
+    font-size: 14px;
+    color: #f44336;
+    width: 94%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.loginRegisterLoginPassword:focus::placeholder,
+.loginRegisterLoginPasswordInvalid:focus::placeholder {
+    visibility: hidden;
+}
+
+.loginRegisterLoginPassword:focus:-moz-placeholder,
+.loginRegisterLoginPasswordInvalid:focus:-moz-placeholde {
+    visibility: hidden;
+}
+
+.loginRegisterPasswordForgot {
+    position: absolute;
+    top: 67%;
+    right: 7%;
+}
+
+.loginRegisterPasswordForgot:hover {
+    text-decoration: none;
+} */
 
 .loginRegisterLoginButton {
     position: absolute;
@@ -291,28 +373,28 @@ button {
     transition: 0.5s all ease;
     position: absolute;
     top: -30%;
+    /* right: 51%; */
     right: calc(100% - 400px);
     width: 350px;
     height: 530px;
     background-color: #fff;
     border-radius: 30px;
     box-shadow: 1px 6px 12px #0b103357;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
+    /* overflow: hidden; */
 }
 
 .loginRegisterRegisterBoxMinHeight {
     transition: 0.5s all ease;
     position: absolute;
     top: -15%;
+    /* right: 51%; */
     right: calc(100% - 400px);
     width: 350px;
     height: 420px;
     background-color: #fff;
     border-radius: 30px;
     box-shadow: 1px 6px 12px #0b103357;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
+    /* overflow: hidden; */
 }
 
 .loginRegisterRegisterHead {
@@ -350,6 +432,19 @@ button {
     outline: none;
     direction: rtl;
 }
+
+
+/* .loginRegisterRegisterName::placeholder {
+    font-size: 15px;
+}
+
+.loginRegisterRegisterName::-webkit-input-placeholder {
+    font-size: 15px;
+}
+
+.loginRegisterRegisterName::-moz-placeholder {
+    font-size: 15px;
+} */
 
 .loginRegisterRegisterName {
     border-bottom: 1px solid rgba(11, 16, 51, 0.5);
@@ -417,6 +512,35 @@ button {
     justify-content: flex-end;
 }
 
+
+/* .loginRegisterRegisterEmail,
+.loginRegisterRegisterEmailInvalid {
+    width: 85%;
+    padding: 7px 7px;
+    margin-bottom: 20px;
+    border: none;
+    outline: none;
+    direction: rtl;
+}
+
+.loginRegisterRegisterEmail {
+    border-bottom: 1px solid rgba(11, 16, 51, 0.5);
+}
+
+.loginRegisterRegisterEmailInvalid {
+    border-bottom: 1px solid #e57373;
+}
+
+.loginRegisterRegisterEmail:focus::placeholder,
+.loginRegisterRegisterEmailInvalid:focus::placeholder {
+    visibility: hidden;
+}
+
+.loginRegisterRegisterEmail:focus:-moz-placeholder,
+:focus::placeholder:focus:-moz-placeholder {
+    visibility: hidden;
+} */
+
 .loginRegisterRegisterSelectsbox {
     width: 85%;
     display: flex;
@@ -437,11 +561,15 @@ button {
     background: none;
     border-bottom: 1px solid rgba(11, 16, 51, 0.5);
     outline: none;
+    /* border-radius: 2rem; */
     padding: 0.4rem 0.7rem;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     color: rgba(11, 16, 51, 0.75);
+    /* z-index: 4; */
 }
+
+.loginRegisterRegisterSelectGenderBox {}
 
 .loginRegisterRegisterSelectGender {
     height: 2.1rem;
@@ -453,12 +581,41 @@ button {
     background: none;
     border-bottom: 1px solid rgba(11, 16, 51, 0.5);
     outline: none;
+    /* border-radius: 2rem; */
     padding: 0.4rem 0.7rem;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     color: rgba(11, 16, 51, 0.75);
     margin-bottom: 20px;
 }
+
+
+/* .loginRegisterRegisterCity,
+.loginRegisterRegisterCountry {
+    width: 45%;
+    padding: 7px 7px 0px 7px;
+    border: none;
+    outline: none !important;
+    box-shadow: none !important;
+    border-bottom: 1px solid rgba(11, 16, 51, 0.5);
+    direction: rtl;
+} */
+
+
+/* .bools {
+    color: red;
+} */
+
+
+/* .registerEmailErrorSpan {
+    margin-top: -13px;
+    padding-right: 15px;
+    font-size: 14px;
+    color: #f44336;
+    width: 94%;
+    display: flex;
+    justify-content: flex-end;
+} */
 
 .loginRegisterRegisterPhoneNumber,
 .loginRegisterRegisterPhoneNumberInvalid {
@@ -792,13 +949,77 @@ button {
     right: 10%;
 }
 
+.reLoginAlert {
+    position: fixed;
+    top: 0;
+    left: auto;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 2200px;
+    height: 380px;
+    padding-top: 25px;
+    background-color: #283593;
+    border-radius: 22% 23% 21% 20% / 18% 16% 24% 18%;
+}
+
+.reLoginAlertIcon {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 15px;
+}
+
+.reLoginAlertTitle {
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.reLoginAlertButton {
+    background: none;
+    border: 1px solid #2979FF;
+    color: #fff;
+    outline: none;
+    padding: 8px 14px;
+    transition: 0.5s background-color ease;
+    -webkit-transition: 0.5s background-color ease;
+    -o-transition: 0.5s background-color ease;
+    -moz-transition: 0.5s background-color ease;
+}
+
+.reLoginAlertButton:hover {
+    background-color: #2979FF;
+    color: #fff;
+    border: 1px solid rgb(133, 172, 240);
+}
+
 .timerBox {
     margin-bottom: -50px;
     margin-top: 20px;
     color: #f44336;
 }
 
+
+/* media aueries /////////////////////// */
+
+
+/* @media screen and (max-width: 1340px) {
+    .loginRegisterRegisterBox {
+        right: 50%;
+    }
+}
+
+@media screen and (max-width: 1320px) {
+    .loginRegisterRegisterBox {
+        right: 49%;
+    }
+} */
+
 @media screen and (max-width: 1290px) {
+    /* .loginRegisterRegisterBox {
+        right: 47%;
+    } */
     .registerSideBox {
         left: -6%;
     }
@@ -813,25 +1034,71 @@ button {
     }
 }
 
+
+/* @media screen and (max-width: 1220px) {
+    .loginRegisterRegisterBox {
+        right: 45%;
+    }
+} */
+
 @media screen and (max-width: 1170px) {
+    /* .loginRegisterRegisterBox {
+        right: 50%;
+    } */
     .loginRegisterSwitch {
         width: 70%;
     }
 }
 
+
+/* @media screen and (max-width: 1100px) {
+    .loginRegisterRegisterBox {
+        right: 48%;
+    }
+} */
+
 @media screen and (max-width: 1060px) {
+    /* .loginRegisterRegisterBox {
+        right: 52%;
+    } */
     .loginRegisterSwitch {
         width: 80%;
     }
 }
 
+
+/* @media screen and (max-width: 1020px) {
+    .loginRegisterRegisterBox {
+        right: 50%;
+    }
+}
+
+@media screen and (max-width: 980px) {
+    .loginRegisterRegisterBox {
+        right: 48%;
+    }
+} */
+
 @media screen and (max-width: 930px) {
+    /* .loginRegisterRegisterBox {
+        right: 51%;
+    } */
     .loginRegisterSwitch {
         width: 90%;
     }
 }
 
+
+/* @media screen and (max-width: 880px) {
+    .loginRegisterRegisterBox {
+        right: 49%;
+    }
+} */
+
 @media screen and (max-width: 850px) {
+    /* .loginRegisterRegisterBox {
+        right: 47%;
+    } */
     .registerSideBox {
         left: -11%;
     }
@@ -853,7 +1120,15 @@ button {
     .loginboxDesc {
         font-size: 14px;
     }
+    /* .loginboxButton */
 }
+
+
+/* @media screen and (max-width: 810px) {
+    .loginRegisterRegisterBox {
+        right: 45%;
+    }
+} */
 
 @media screen and (max-width: 780px) {
     .loginRegisterRegisterBox {
@@ -882,15 +1157,21 @@ button {
     }
 }
 
+
+/* @media screen and (max-width: 745px) {
+    .loginRegisterRegisterBox {
+        right: 46%;
+    }
+} */
+
 @media screen and (max-width: 730px) {
     .loginPageMain {
-        height: 120vh;
+        height: 800px;
     }
     .loginRegisterSwitch {
         width: 350px;
-        top: 20%;
+        top: 15%;
         height: 500px;
-        /* margin-bottom: 20rem; */
     }
     .loginRegisterLoginBox {
         top: -20%;
@@ -904,31 +1185,9 @@ button {
         right: 25px;
         top: 40%;
     }
-    .loginSideBox {
-        width: 100%;
-        top: 10%;
-        left: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        right: 0;
-    }
-    .loginSideBoxHidden {
-        width: 100%;
-        top: 10%;
-        left: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        right: 0;
-    }
-    .loginboxButton {
-        left: calc(50% - 50px);
-        width: 100px;
-        margin-top: 5rem;
-    }
+    .loginSideBox {}
+    .loginSideBoxHidden {}
     .registerSideBox {
-        width: 100%;
         top: 67%;
         left: 0;
         display: flex;
@@ -937,7 +1196,6 @@ button {
         right: 0;
     }
     .registerSideBoxHidden {
-        width: 100%;
         top: 67%;
         left: 0;
         display: flex;
@@ -945,19 +1203,49 @@ button {
         align-items: center;
         right: 0;
     }
+    .loginSideBox {
+        top: 10%;
+    }
+    .loginSideBoxHidden {
+        top: 10%;
+    }
     .registerboxButton {
+        position: absolute;
         left: calc(50% - 50px);
         width: 100px;
         margin-top: 5rem;
+        padding: 7px 15px;
+        color: #ffd617;
+        background: none;
+        outline: none;
+        border: 1px solid #ffd617;
+        transition: 0.3s all ease;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .reLoginAlert {
+        height: 340px;
+    }
+    .reLoginAlertIcon {
+        width: 150px;
+        height: 150px;
+    }
+    .reLoginAlertTitle {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    .reLoginAlertButton {
+        font-size: 16px;
+        padding: 6px 10px;
     }
 }
 
 @media screen and (max-width: 375px) {
     .loginRegisterSwitch {
         width: 300px;
-        top: 15%;
-        height: 550px;
-        margin-bottom: 14rem;
+        top: 10%;
+        height: 500px;
     }
     .loginRegisterRegisterBox {
         right: 48%;
@@ -965,14 +1253,15 @@ button {
         height: 530px;
     }
     .loginRegisterRegisterBoxMinHeight {
-        right: 10px;
+        right: 3.5%;
         width: 280px;
         height: 410px;
     }
     .loginRegisterLoginBox {
-        top: -12%;
         width: 280px;
         height: 390px;
+    }
+    .loginRegisterLoginBox {
         right: 10px;
     }
     .loginRegisterRegisterBox {
@@ -1008,6 +1297,14 @@ button {
         right: 5px;
         top: 40%;
     }
+    .registerSideBox {
+        top: 67%;
+        left: -44%;
+    }
+    .registerSideBoxHidden {
+        top: 67%;
+        left: -44%;
+    }
     .registerboxHead {
         font-size: 14px;
     }
@@ -1022,9 +1319,40 @@ button {
     }
 }
 
+@media screen and (min-width: 1291px) {
+    .registerSideBox {
+        left: -4%;
+    }
+    .registerSideBoxHidden {
+        left: -4%;
+    }
+    .loginSideBox {
+        right: 6%;
+    }
+    .loginSideBoxHidden {
+        right: 6%;
+    }
+}
+
 @media screen and (min-width: 1350px) {
+    .loginPageMain {
+        height: 900px;
+        background-position: bottom;
+    }
     .loginRegisterRegisterBox {
         right: 52%;
+    }
+    .registerSideBox {
+        left: -1%;
+    }
+    .registerSideBoxHidden {
+        left: -1%;
+    }
+    .loginSideBox {
+        right: 10%;
+    }
+    .loginSideBoxHidden {
+        right: 10%;
     }
 }
 
@@ -1037,5 +1365,19 @@ button {
 @media screen and (min-width: 1440px) {
     .loginRegisterRegisterBox {
         right: 55%;
+    }
+}
+
+@media screen and (min-width: 1550px) {
+    .loginPageMain {
+        height: 1000px;
+        background-position: bottom;
+    }
+}
+
+@media screen and (min-width: 1900px) {
+    .loginPageMain {
+        height: 1100px;
+        background-position: bottom;
     }
 }

@@ -264,7 +264,7 @@ class LoginPage extends Component {
                         // registerStepTwoSwitch: true
                     })
 
-                    toast('کاربر مورد نظر در سامانه ثبت شده است', {type: toast.TYPE.ERROR})
+                    toast('کاربر مورد نظر یافت نشد', {type: toast.TYPE.ERROR})
 
                 }
                 if(res.data.state === 3) {
@@ -279,22 +279,7 @@ class LoginPage extends Component {
                         // registerStepTwoSwitch: true
                     })
 
-                    toast('جنسیت نامعتبر است', {type: toast.TYPE.ERROR})
-
-                }
-                if(res.data.state === 3) {
-                    const registerStatus = {...this.state.registerStatus}
-                    registerStatus.loading = false
-                    registerStatus.success = false
-                    registerStatus.error = true
-                    registerStatus.errorMsg = res.data.message
-
-                    this.setState({
-                        registerStatus: registerStatus,
-                        // registerStepTwoSwitch: true
-                    })
-
-                    toast('اطلاعات مکانی نامعتبر است', {type: toast.TYPE.ERROR})
+                    toast('اکانت مورد نظر بسته شده', {type: toast.TYPE.ERROR})
 
                 }
 
@@ -634,10 +619,11 @@ class LoginPage extends Component {
       
         return (
             <>
-
+<PerfectScrollbar >
             <div className={classes.loginKeeper}>
-                <PerfectScrollbar >
-                <div className={classes.loginPageMain}>
+                
+                {/* <div className={classes.loginPageMain}> */}
+                    
                     <div className={classes.loginRegisterSwitch}>
 
                         <div className={
@@ -1069,11 +1055,12 @@ class LoginPage extends Component {
                             }
                         </div>
                     </div>
-                </div>
+                {/* </div> */}
                 {/* <div className={classes.loginPageBottom}></div> */}
 
-                </PerfectScrollbar>
+                
                 </div>
+                </PerfectScrollbar>
 
                 <ToastContainer
                     autoClose={4000}

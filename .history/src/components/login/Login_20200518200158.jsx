@@ -294,7 +294,7 @@ class LoginPage extends Component {
                         // registerStepTwoSwitch: true
                     })
 
-                    toast('اطلاعات مکانی نامعتبر است', {type: toast.TYPE.ERROR})
+                    toast('جنسیت نامعتبر است', {type: toast.TYPE.ERROR})
 
                 }
 

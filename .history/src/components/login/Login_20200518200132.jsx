@@ -279,22 +279,7 @@ class LoginPage extends Component {
                         // registerStepTwoSwitch: true
                     })
 
-                    toast('جنسیت نامعتبر است', {type: toast.TYPE.ERROR})
-
-                }
-                if(res.data.state === 3) {
-                    const registerStatus = {...this.state.registerStatus}
-                    registerStatus.loading = false
-                    registerStatus.success = false
-                    registerStatus.error = true
-                    registerStatus.errorMsg = res.data.message
-
-                    this.setState({
-                        registerStatus: registerStatus,
-                        // registerStepTwoSwitch: true
-                    })
-
-                    toast('اطلاعات مکانی نامعتبر است', {type: toast.TYPE.ERROR})
+                    toast('اکانت مورد نظر بسته شده', {type: toast.TYPE.ERROR})
 
                 }
 

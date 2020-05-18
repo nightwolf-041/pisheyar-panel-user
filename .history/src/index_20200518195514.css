@@ -1,0 +1,20 @@
+@font-face {
+    font-family: Yekan;
+    src: url('./assets/fonts/iran-yekan/iranyekan.woff')
+}
+
+*,
+* * {
+    font-family: Yekan !important;
+}
+
+body {
+    margin: 0 auto;
+    font-family: Yekan !important;
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
