@@ -682,6 +682,7 @@ class LoginPage extends Component {
                                 handleSellerByerSubmit={this.handleSellerByerSubmit}
                                 />
                                 :
+                                // <div></div>
                                 <RegisterBoxSteps 
                                 registerStepTwoSwitch={this.state.registerStepTwoSwitch}
                                 registerReactCodeInputCganger={val => this.registerReactCodeInputCganger(val)}

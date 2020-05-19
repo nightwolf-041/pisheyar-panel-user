@@ -682,35 +682,7 @@ class LoginPage extends Component {
                                 handleSellerByerSubmit={this.handleSellerByerSubmit}
                                 />
                                 :
-                                <RegisterBoxSteps 
-                                registerStepTwoSwitch={this.state.registerStepTwoSwitch}
-                                registerReactCodeInputCganger={val => this.registerReactCodeInputCganger(val)}
-                                minutes={this.state.minutes}
-                                seconds={this.state.seconds}
-                                registerStep2ClickHandler={this.registerStep2ClickHandler}
-                                registerStep2Status={this.state.registerStep2Status}
-                                registerStep2BackHandler={this.registerStep2BackHandler}
-                                registerNameValidMsg={this.state.registerNameValidMsg}
-                                registerNameChangeHandler={this.registerNameChangeHandler}
-                                registerNameValue={this.state.registerNameValue}
-                                registerFamlyValidMsg={this.state.registerFamlyValidMsg}
-                                registerFamilyChangeHandler={this.registerFamilyChangeHandler}
-                                registerFamlyValue={this.state.registerFamlyValue}
-                                cityValidMsg={this.state.cityValidMsg}
-                                countriesLoading={this.state.countriesLoading}
-                                countries={this.state.countries}
-                                countryChanger={val => this.countryChanger(val)}
-                                citiesLoading={this.state.citiesLoading}
-                                cities={this.state.cities}
-                                cityChanger={val => this.cityChanger(val)}
-                                genderValue={this.state.genderValue}
-                                genderChanger={val => this.genderChanger(val)}
-                                registerPhoneNumberValidMsg={this.state.registerPhoneNumberValidMsg}
-                                registerPhoneNumberChangeHandler={this.registerPhoneNumberChangeHandler}
-                                registerPhoneNumberValue={this.state.registerPhoneNumberValue}
-                                registerStep1ClickHandler={this.registerStep1ClickHandler}
-                                registerStatus={this.state.registerStatus}
-                                /> 
+                                <div></div>
                             }
                         </div>
                     </div>

@@ -10,13 +10,14 @@ button {
     position: relative;
     width: 100%;
     height: 100vh;
-    background-color: #1730491f;
+    background-color: #17304917;
     background-image: url('../../assets/images/WideBackgroundFooter.svg');
     background-position: center;
     background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 0.8;
     overflow: hidden;
 }
 

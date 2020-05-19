@@ -668,6 +668,82 @@ class LoginPage extends Component {
                         }>
 
                             {this.state.loginRegisterSwitch === false ?
+                                // <div>
+                                //     <h4 className={classes.loginRegisterLoginHead}>
+                                //         {this.state.loginStepTwoSwitch ?
+                                //         'کد دریافتی را وارد کنید'
+                                //         :
+                                //         'ورود'
+                                //         }
+                                //     </h4>
+
+                                //     {this.state.loginStepTwoSwitch ?
+                                    
+                                //     <div className={classes.loginRegisterLoginForm}>
+
+                                //         <ReactCodeInput type='text' fields={6} onChange={val => this.loginCodeInputChangeHandler(val)} />
+
+                                //         <div className={classes.timerBox}>
+                                //             <span>
+                                //                 {this.state.minutes2}:{this.state.seconds2 < 10 ? `0${this.state.seconds2}` : this.state.seconds2}
+                                //             </span>
+                                //         </div>
+                                        
+                                //         <div className={classes.registerStep2Buttonsbox}>
+                                //             <button type="button"
+                                //             onClick={this.loginStep2ClickHandler}
+                                //             disabled={this.state.registerStep2Status.loading}
+                                //             className={classes.loginStep2Button}>
+                                //             ورود
+                                //             </button>
+
+                                //             <button type="button"
+                                //             onClick={this.loginStep2BackHandler}
+                                //             disabled={this.state.registerStep2Status.loading}
+                                //             className={classes.loginStep2BackButton}>
+                                //                 بازگشت
+                                //             </button>
+                                //         </div>
+                                //     </div>
+                                //      : 
+                              
+                                // <div className={classes.loginRegisterLoginForm}>
+                                //     <input
+                                //     className={!this.state.loginPhoneNumberValidMsg ?
+                                //         classes.loginRegisterLoginPhoneNumber
+                                //         : classes.loginRegisterLoginPhoneNumberInvalid}
+                                //     type="text"
+                                //     name="mobile"
+                                //     onChange={this.loginPhoneNumberChangeHandler}
+                                //     // onBlur={handleBlur}
+                                //     value={this.state.loginPhoneNumberValue}
+                                //     placeholder="شماره موبایل"
+                                // />
+                                // {this.state.loginPhoneNumberValidMsg && (
+                                //         <div className={classes.loginMobileErrorSpan}>{this.state.loginPhoneNumberValidMsg}</div>
+                                //     )
+                                // }
+                                // <button type="button"
+                                //     onClick={() => this.handleSellerByerSubmit('959b10a3-b8ed-4a9d-bdf3-17ec9b2ceb15')}
+                                //     disabled={this.state.loginStatus.loading}
+                                //     className={classes.loginRegisterLoginButton}>
+                                //     {this.state.loginStatus.loading ?
+                                //     'صبور باشید' :
+                                //     'ورود ادمین'}
+                                // </button>
+                                // <button type="button"
+                                //     onClick={() => this.handleSellerByerSubmit('91b3cdab-39c1-40fb-b077-a2d6e611f50a')}
+                                //     disabled={this.state.loginStatus.loading}
+                                //     className={classes.loginRegisterLoginButtonByer}>
+                                //     {this.state.loginStatus.loading ?
+                                //     'صبور باشید' :
+                                //     'ورود مشتری'}
+                                // </button>
+                                // </div>
+                                //      }
+                                   
+
+                                // </div>
                                 <LoginBixSteps
                                 loginStepTwoSwitch={this.state.loginStepTwoSwitch}
                                 minutes2={this.state.minutes2}
@@ -698,19 +774,183 @@ class LoginPage extends Component {
                                 registerFamlyValue={this.state.registerFamlyValue}
                                 cityValidMsg={this.state.cityValidMsg}
                                 countriesLoading={this.state.countriesLoading}
+                                customStyles={this.customStyles}
                                 countries={this.state.countries}
                                 countryChanger={val => this.countryChanger(val)}
                                 citiesLoading={this.state.citiesLoading}
                                 cities={this.state.cities}
                                 cityChanger={val => this.cityChanger(val)}
                                 genderValue={this.state.genderValue}
+                                genders={this.genders}
                                 genderChanger={val => this.genderChanger(val)}
                                 registerPhoneNumberValidMsg={this.state.registerPhoneNumberValidMsg}
                                 registerPhoneNumberChangeHandler={this.registerPhoneNumberChangeHandler}
                                 registerPhoneNumberValue={this.state.registerPhoneNumberValue}
                                 registerStep1ClickHandler={this.registerStep1ClickHandler}
                                 registerStatus={this.state.registerStatus}
-                                /> 
+                                />
+                                // <div>
+                                //     <h4 className={classes.loginRegisterRegisterHead}>
+                                //         {this.state.registerStepTwoSwitch ?
+                                //         'کد دریافتی را وارد کنید' :
+                                //         'ثبت نام'
+                                //         }
+                                //     </h4>
+
+                                  
+
+                                //     {this.state.registerStepTwoSwitch ?
+                                   
+                                //     <div className={classes.loginRegisterLoginForm}>
+                                //         <ReactCodeInput type='tezt'  fields={6} onChange={val => this.registerReactCodeInputCganger(val)} />
+
+                                //         <div className={classes.timerBox}>
+                                //             <span>
+                                //                 {this.state.minutes}:{this.state.seconds < 10 ? `0${this.state.seconds}` : this.state.seconds}
+                                //             </span>
+                                //         </div>
+                                        
+                                //         <div className={classes.registerStep2Buttonsbox}>
+                                //             <button type="submit"
+                                //             onClick={this.registerStep2ClickHandler}
+                                //             disabled={this.state.registerStep2Status.loading}
+                                //             className={classes.registerStep2Button}>
+                                //             {this.state.registerStep2Status.loading ?
+                                //             'صبور باشید' :
+                                //             'ثبت نهایی'}
+                                //             </button>
+
+                                //             <button type="button"
+                                //             onClick={this.registerStep2BackHandler}
+                                //             disabled={this.state.registerStep2Status.loading}
+                                //             className={classes.registerStep2BackButton}>
+                                //                 بازگشت
+                                //             </button>
+                                //         </div>
+                                //     </div>
+                                    
+                                //     :
+                                //     <>
+                                //     <div className={classes.loginRegisterRegisterForm}>
+
+                                //         <input
+                                //             className={!this.state.registerNameValidMsg ?
+                                //             classes.loginRegisterRegisterName :
+                                //             classes.loginRegisterRegisterNameInvalid}
+                                //             type="text"
+                                //             name="name"
+                                //             onChange={this.registerNameChangeHandler}
+                                //             // onBlur={handleBlur}
+                                //             value={this.state.registerNameValue}
+                                //             placeholder="نام"
+                                //         />
+                                //         {this.state.registerNameValidMsg && (
+                                //             <div className={classes.registerNameErrorSpan}>{this.state.registerNameValidMsg}</div>
+                                //         )}
+
+                                //         <input
+                                //             className={!this.state.registerFamlyValidMsg ?
+                                //             classes.loginRegisterRegisterFamily :
+                                //             classes.loginRegisterRegisterFamilyInvalid}
+                                //             type="text"
+                                //             name="name"
+                                //             onChange={this.registerFamilyChangeHandler}
+                                //             // onBlur={handleBlur}
+                                //             value={this.state.registerFamlyValue}
+                                //             placeholder="نام خانوادگی"
+                                //         />
+                                //         {this.state.registerFamlyValidMsg && (
+                                //             <div className={classes.registerFamilyErrorSpan}>{this.state.registerFamlyValidMsg}</div>
+                                //         )}
+
+                                //         <div className={classes.loginRegisterRegisterSelectsbox}>
+                                //             <Select
+                                //                 inputId="loginRegisterRegisterSelectContry"
+                                //                 instanceId="loginRegisterRegisterSelectContry"
+                                //                 placeholder="استان"
+                                //                 className={!this.state.cityValidMsg ?
+                                //                     classes.loginRegisterRegisterSelectContry :
+                                //                     classes.loginRegisterRegisterSelectContryInvalid
+                                //                 }
+                                //                 // defaultValue={this.state.countryValue}
+                                //                 label="Single select"
+                                //                 // loadingMessage="درال بارگیری"
+                                //                 isRtl={true}
+                                //                 isLoading={this.state.countriesLoading}
+                                //                 loadingMessage={() => "درحال بارگیری..."}
+                                //                 noOptionsMessage={() => "نتیجه ای یافت نشد"}
+                                //                 styles={customStyles}
+                                //                 options={this.state.countries}
+                                //                 onChange={val => this.countryChanger(val)}
+                                //             />
+                                //             <Select
+                                //                 inputId="loginRegisterRegisterSelectCity"
+                                //                 instanceId="loginRegisterRegisterSelectCity"
+                                //                 placeholder="شهر"
+                                //                 className={!this.state.cityValidMsg ?
+                                //                     classes.loginRegisterRegisterSelectCity : 
+                                //                     classes.loginRegisterRegisterSelectCityInvalid
+                                //                 }
+                                //                 // defaultValue={this.state.cityValue}
+                                //                 label="Single select"
+                                //                 isRtl={true}
+                                //                 isLoading={this.state.citiesLoading}
+                                //                 loadingMessage={() => "درحال بارگیری..."}
+                                //                 noOptionsMessage={() => "نتیجه ای یافت نشد"}
+                                //                 styles={customStyles}
+                                //                 options={this.state.cities}
+                                //                 onChange={val => this.cityChanger(val)}
+                                //             />
+                                //         </div>
+                                //         {this.state.cityValidMsg && (
+                                //             <div className={classes.registerCityErrorSpan}>{this.state.cityValidMsg}</div>
+                                //         )}
+
+                                //         <Select
+                                //             inputId="loginRegisterRegisterSelectGender"
+                                //             instanceId="loginRegisterRegisterSelectGender"
+                                //             placeholder="جنسیت"
+                                //             className={classes.loginRegisterRegisterSelectGender}
+                                //             defaultValue={this.state.genderValue}
+                                //             label="Single select"
+                                //             isRtl={true}
+                                //             // isLoading={this.state.countriesLoading}
+                                //             loadingMessage={() => "درحال بارگیری..."}
+                                //             noOptionsMessage={() => "نتیجه ای یافت نشد"}
+                                //             styles={customStyles}
+                                //             options={genders}
+                                //             onChange={val => this.genderChanger(val)}
+                                //         />
+
+                                //         <input
+                                //             className={!this.state.registerPhoneNumberValidMsg ?
+                                //             classes.loginRegisterRegisterPhoneNumber :
+                                //             classes.loginRegisterRegisterPhoneNumberInvalid}
+                                //             type="text"
+                                //             name="password"
+                                //             onChange={this.registerPhoneNumberChangeHandler}
+                                //             // onBlur={handleBlur}
+                                //             value={this.state.registerPhoneNumberValue}
+                                //             placeholder="شماره موبایل"
+                                //         />
+
+                                //         {this.state.registerPhoneNumberValidMsg && (
+                                //             <div className={classes.registerPhoneNumberErrorSpan}>{this.state.registerPhoneNumberValidMsg}</div>
+                                //         )}
+
+                                //         <button type="button"
+                                //         onClick={this.registerStep1ClickHandler}
+                                //             disabled={this.state.registerStatus.loading}
+                                //             className={classes.loginRegisterRegisterButton}>
+                                //             {this.state.registerStatus.loading ?
+                                //             'صبور باشید':
+                                //             'ثبت نام'}
+                                //         </button>
+                                //         </div>
+                                //     {/* <div className={classes.registerBottomShadowBox}></div> */}
+                                //     </>
+                                // }
+                                // </div>
                             }
                         </div>
                     </div>

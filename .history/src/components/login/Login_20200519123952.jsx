@@ -668,6 +668,82 @@ class LoginPage extends Component {
                         }>
 
                             {this.state.loginRegisterSwitch === false ?
+                                // <div>
+                                //     <h4 className={classes.loginRegisterLoginHead}>
+                                //         {this.state.loginStepTwoSwitch ?
+                                //         'کد دریافتی را وارد کنید'
+                                //         :
+                                //         'ورود'
+                                //         }
+                                //     </h4>
+
+                                //     {this.state.loginStepTwoSwitch ?
+                                    
+                                //     <div className={classes.loginRegisterLoginForm}>
+
+                                //         <ReactCodeInput type='text' fields={6} onChange={val => this.loginCodeInputChangeHandler(val)} />
+
+                                //         <div className={classes.timerBox}>
+                                //             <span>
+                                //                 {this.state.minutes2}:{this.state.seconds2 < 10 ? `0${this.state.seconds2}` : this.state.seconds2}
+                                //             </span>
+                                //         </div>
+                                        
+                                //         <div className={classes.registerStep2Buttonsbox}>
+                                //             <button type="button"
+                                //             onClick={this.loginStep2ClickHandler}
+                                //             disabled={this.state.registerStep2Status.loading}
+                                //             className={classes.loginStep2Button}>
+                                //             ورود
+                                //             </button>
+
+                                //             <button type="button"
+                                //             onClick={this.loginStep2BackHandler}
+                                //             disabled={this.state.registerStep2Status.loading}
+                                //             className={classes.loginStep2BackButton}>
+                                //                 بازگشت
+                                //             </button>
+                                //         </div>
+                                //     </div>
+                                //      : 
+                              
+                                // <div className={classes.loginRegisterLoginForm}>
+                                //     <input
+                                //     className={!this.state.loginPhoneNumberValidMsg ?
+                                //         classes.loginRegisterLoginPhoneNumber
+                                //         : classes.loginRegisterLoginPhoneNumberInvalid}
+                                //     type="text"
+                                //     name="mobile"
+                                //     onChange={this.loginPhoneNumberChangeHandler}
+                                //     // onBlur={handleBlur}
+                                //     value={this.state.loginPhoneNumberValue}
+                                //     placeholder="شماره موبایل"
+                                // />
+                                // {this.state.loginPhoneNumberValidMsg && (
+                                //         <div className={classes.loginMobileErrorSpan}>{this.state.loginPhoneNumberValidMsg}</div>
+                                //     )
+                                // }
+                                // <button type="button"
+                                //     onClick={() => this.handleSellerByerSubmit('959b10a3-b8ed-4a9d-bdf3-17ec9b2ceb15')}
+                                //     disabled={this.state.loginStatus.loading}
+                                //     className={classes.loginRegisterLoginButton}>
+                                //     {this.state.loginStatus.loading ?
+                                //     'صبور باشید' :
+                                //     'ورود ادمین'}
+                                // </button>
+                                // <button type="button"
+                                //     onClick={() => this.handleSellerByerSubmit('91b3cdab-39c1-40fb-b077-a2d6e611f50a')}
+                                //     disabled={this.state.loginStatus.loading}
+                                //     className={classes.loginRegisterLoginButtonByer}>
+                                //     {this.state.loginStatus.loading ?
+                                //     'صبور باشید' :
+                                //     'ورود مشتری'}
+                                // </button>
+                                // </div>
+                                //      }
+                                   
+
+                                // </div>
                                 <LoginBixSteps
                                 loginStepTwoSwitch={this.state.loginStepTwoSwitch}
                                 minutes2={this.state.minutes2}
@@ -710,7 +786,9 @@ class LoginPage extends Component {
                                 registerPhoneNumberValue={this.state.registerPhoneNumberValue}
                                 registerStep1ClickHandler={this.registerStep1ClickHandler}
                                 registerStatus={this.state.registerStatus}
-                                /> 
+                                />
+                                
+                             
                             }
                         </div>
                     </div>

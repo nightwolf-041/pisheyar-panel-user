@@ -10,7 +10,7 @@ button {
     position: relative;
     width: 100%;
     height: 100vh;
-    background-color: #1730491f;
+    background-color: #17304938;
     background-image: url('../../assets/images/WideBackgroundFooter.svg');
     background-position: center;
     background-size: cover;
@@ -224,6 +224,11 @@ button {
     visibility: hidden;
 }
 
+.loginRegisterLoginPhoneNumber:focus:-moz-placeholder,
+.loginRegisterLoginPhoneNumberInvalid:focus:-moz-placeholder {
+    visibility: hidden;
+}
+
 .loginMobileErrorSpan {
     margin-top: -12px;
     padding-right: 15px;
@@ -341,7 +346,6 @@ button {
     width: 85%;
     padding: 7px 7px;
     margin-bottom: 20px;
-    color: rgba(11, 16, 51, 0.95);
     border: none;
     outline: none;
     direction: rtl;
@@ -360,6 +364,11 @@ button {
     visibility: hidden;
 }
 
+.loginRegisterRegisterName:focus:-moz-placeholder,
+.loginRegisterRegisterNameInvalid:focus:-moz-placeholder {
+    visibility: hidden;
+}
+
 .registerNameErrorSpan {
     margin-top: -13px;
     padding-right: 15px;
@@ -375,7 +384,6 @@ button {
     width: 85%;
     padding: 7px 7px;
     margin-bottom: 20px;
-    color: rgba(11, 16, 51, 0.95);
     border: none;
     outline: none;
     direction: rtl;
@@ -391,6 +399,11 @@ button {
 
 .loginRegisterRegisterFamily:focus::placeholder,
 .loginRegisterRegisterFamilyInvalid:focus::placeholder {
+    visibility: hidden;
+}
+
+.loginRegisterRegisterFamily:focus:-moz-placeholder,
+.loginRegisterRegisterFamilyInvalid:focus:-moz-placeholder {
     visibility: hidden;
 }
 
@@ -437,11 +450,10 @@ button {
     padding: 0.4rem 0.7rem;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
-    color: rgba(11, 16, 51, 0.95);
+    color: rgba(11, 16, 51, 0.75);
 }
 
-.loginRegisterRegisterSelectContryInvalid,
-.loginRegisterRegisterSelectCityInvalid {
+.loginRegisterRegisterSelectContryInvalid {
     height: 2.1rem;
     display: flex;
     justify-content: center;
@@ -454,7 +466,7 @@ button {
     padding: 0.4rem 0.7rem;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
-    color: rgba(11, 16, 51, 0.95);
+    color: rgba(11, 16, 51, 0.75);
 }
 
 .loginRegisterRegisterSelectGender {
@@ -470,7 +482,7 @@ button {
     padding: 0.4rem 0.7rem;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
-    color: rgba(11, 16, 51, 0.95);
+    color: rgba(11, 16, 51, 0.75);
     margin-bottom: 20px;
 }
 
@@ -479,7 +491,6 @@ button {
     width: 85%;
     padding: 7px 7px;
     margin-bottom: 20px;
-    color: rgba(11, 16, 51, 0.95);
     border: none;
     outline: none;
     direction: rtl;
@@ -495,6 +506,11 @@ button {
 
 .loginRegisterRegisterPhoneNumber:focus::placeholder,
 .loginRegisterRegisterPhoneNumberInvalid:focus::placeholder {
+    visibility: hidden;
+}
+
+.loginRegisterRegisterPhoneNumber:focus:-moz-placeholder,
+.loginRegisterRegisterPhoneNumberInvalid:focus:-moz-placeholder {
     visibility: hidden;
 }
 
@@ -528,6 +544,11 @@ button {
 
 .registerStep2CodeInput:focus::placeholder,
 .registerStep2CodeInputInvalid:focus::placeholder {
+    visibility: hidden;
+}
+
+.registerStep2CodeInput:focus:-moz-placeholder,
+.registerStep2CodeInputInvalid:-moz-placeholder {
     visibility: hidden;
 }
 
