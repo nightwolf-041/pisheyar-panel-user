@@ -1,0 +1,89 @@
+.ordersPageMain {
+    position: absolute;
+    top: 5rem;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 10rem);
+    background-color: #F2F2F2;
+}
+
+.orderPageItem {
+    width: 95%;
+    margin: 1rem auto;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid #0b1033;
+    border-radius: 1rem;
+}
+
+.orderPageItemRight {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.orderPageItemTitle {
+    color: #0b1033;
+    font-size: 1rem;
+    margin: 1rem 0;
+    text-align: right;
+    direction: rtl;
+}
+
+.orderPageItemDescBox {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.orderPageItemDescBox h4 {
+    direction: rtl;
+    font-size: 0.9rem;
+    color: #0b1033;
+    margin: 0;
+}
+
+.orderPageItemDescBox p {
+    font-size: 0.9rem;
+    color: #0b1033;
+}
+
+.orderPageItemLeft {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.orderPageItemLeftIgnoreButton {
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0.5rem;
+    border: none;
+    outline: none !important;
+    border-radius: 100%;
+    background-color: #ffd617;
+}
+
+.orderPageItemLeftIgnoreIcon {
+    width: 1rem;
+    color: #0b1033;
+}
+
+.orderPageItemLeftAcceptButton {
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0.5rem;
+    border: none;
+    outline: none !important;
+    border-radius: 100%;
+    background-color: #0b1033;
+}
+
+.orderPageItemLeftAcceptIcon {
+    width: 1rem;
+    color: #ffd617;
+}

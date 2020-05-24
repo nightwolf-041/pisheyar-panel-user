@@ -1,0 +1,106 @@
+.resumeMain {
+    position: absolute;
+    top: 5rem;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 10rem);
+    background-color: #F2F2F2;
+}
+
+.resumeBackButtonBox {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    width: 2rem;
+    height: 2rem;
+    background-color: #0b1033;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.resumeBackButtonIocn {
+    width: 100%;
+    color: #ffd617;
+}
+
+.resumeContent {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.resumeContentImage {
+    width: 5rem;
+    margin-bottom: 1.5rem;
+}
+
+.resumeContentTitle {
+    font-size: 1rem;
+    color: #0b1033;
+    margin-bottom: 1rem;
+}
+
+.resumeContentSubtitle {
+    font-size: 0.9rem;
+    color: #0b1033;
+    margin-bottom: 1rem;
+}
+
+.resumeContentRateBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.resumeContentRateBoxLeft {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #0b1033;
+}
+
+.resumeContentRateBoxMidd {
+    font-size: 0.8rem;
+    color: #0b1033;
+    margin: 0 0.2rem;
+}
+
+.resumeContentRateBoxRight {
+    font-size: 0.8rem;
+    color: #0b1033;
+}
+
+.resumeContentInfo {
+    position: relative;
+    width: 90%;
+    height: auto;
+    border: 2px solid #0b1033;
+    border-radius: 1rem;
+    margin: 0 auto;
+    padding: 2rem 1rem 1rem 1rem;
+}
+
+.resumeContentInfoTitle {
+    position: absolute;
+    top: -2rem;
+    right: 2rem;
+    width: 6rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f2f2f2;
+    border: none;
+    outline: none;
+}
+
+.resumeContentInfoItem {
+    width: 100%;
+    font-size: 1rem;
+    text-align: right;
+    margin: 0.5rem 0;
+}

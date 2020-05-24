@@ -1,0 +1,125 @@
+.resumeMain {
+    position: absolute;
+    top: 5rem;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 10rem);
+    background-color: #F2F2F2;
+}
+
+.resumeBackButtonBox {
+    position: sticky;
+    top: 1rem;
+    left: calc(100% - 3rem);
+    width: 2rem;
+    height: 2rem;
+    background-color: #0b1033;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.resumeBackButtonIocn {
+    width: 100%;
+    color: #ffd617;
+}
+
+.resumeContent {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+.resumeContentImageBox {
+    width: 14rem;
+    height: 14rem;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.resumeContentImage {
+    width: 100%;
+    height: 100%;
+}
+
+.resumeContentTitle {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #0b1033;
+    margin-bottom: 0.8rem;
+}
+
+.resumeContentSubtitle {
+    font-size: 0.9rem;
+    color: rgba(11, 16, 51, 0.75);
+    margin-bottom: 0.8rem;
+}
+
+.resumeContentRateBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.resumeContentRateBoxLeft {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #0b1033;
+}
+
+.resumeContentRateBoxMidd {
+    font-size: 0.8rem;
+    color: rgba(11, 16, 51, 0.75);
+    margin: 0 0.2rem;
+}
+
+.resumeContentRateBoxRight {
+    font-size: 0.8rem;
+    color: rgba(11, 16, 51, 0.75);
+}
+
+.resumeContentInfo {
+    position: relative;
+    width: 90%;
+    height: auto;
+    border: 2px solid #0b1033;
+    border-radius: 0.5rem;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 1rem 1rem;
+}
+
+.resumeContentInfoTitle {
+    position: absolute;
+    top: -1.7rem;
+    right: 2rem;
+    width: 6rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    background-color: #f2f2f2;
+    border: none;
+    outline: none;
+}
+
+.resumeContentInfoItem {
+    direction: rtl;
+    width: 100%;
+    font-size: 1rem;
+    text-align: right;
+    margin: 0.7rem 0;
+    color: rgba(11, 16, 51, 0.75);
+}
