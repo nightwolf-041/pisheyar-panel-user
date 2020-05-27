@@ -29,7 +29,6 @@ function ContractorChatSidebar(props) {
         })
     }, [])
     // recentMessage client
-    console.log(contractorChats);
 
     return (
         <div className="chatbox-sidebar"

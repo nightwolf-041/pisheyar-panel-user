@@ -663,7 +663,7 @@
 
 .chatbox-main-content-empty {
     position: absolute;
-    top: 0;
+    top: 85px;
     left: 0;
     width: 100%;
     height: calc(100vh - 85px);
@@ -677,7 +677,7 @@
 
 .chatbox-main-content-stateTwoThree {
     position: absolute;
-    top: 0;
+    top: 85px;
     left: 0;
     width: 100%;
     height: calc(100vh - 85px);
@@ -693,8 +693,7 @@
     width: 100%;
     text-align: center;
     color: #0b1033;
-    font-size: 1rem;
-    margin-top: 2rem;
+    font-size: 0.9rem;
 }
 
 .chatbox-main-content-no-message {
@@ -706,17 +705,7 @@
     justify-content: center;
     align-items: center;
     color: #0b1033;
-    font-size: 1rem;
-}
-
-.chatbox-main-content-sended-right-desc-text {
-    width: 100%;
-    word-break: break-word;
-}
-
-.chatbox-main-content-sended-left-desc-text {
-    width: 100%;
-    word-break: break-word;
+    font-size: 0.9rem;
 }
 
 

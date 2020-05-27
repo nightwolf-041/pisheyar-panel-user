@@ -423,18 +423,22 @@ class ClientChat extends Component {
     start()
 
     connection.onclose(() => {
-        start()
+      setTimeout(start(), 5000)
     })
 
-    connection.on('ReceiveMessage', (clientName, text, sentAt, from) => {
+    connection.on('ReceiveMessage', (clientName, text, sendAt, from) => {
       console.log('received message: ' + text)
       const chatMessages = this.state.chatMessages
-      console.log(sentAt, from)
-
+      console.log(sendAt, from)
+      // let newMsg = {
+      //   text,
+      //   sendAt,
+      //   from,
+      // };
       if(chatMessages !== null) {
         chatMessages.push({
             text,
-            sentAt,
+            sendAt,
             from
         })
       } 
@@ -443,7 +447,7 @@ class ClientChat extends Component {
           chatMessages: chatMessages
         },
         () => {
-          if(this.state.chatMessages !== null && this.state.chatMessages !== [] && chatMessages !== null && chatMessages !== [] && chatMessages.length > 0 && this.state.chatMessages.length > 0) {
+          if(this.state.chatMessages !== null) {
             this._scrollRef.scrollTo(0, this._scrollRef.scrollHeight)
           }
         }
@@ -455,12 +459,40 @@ class ClientChat extends Component {
   componentDidUpdate = () => {
     const connection = this.state.connection
 
+    // connection.on('ReceiveMessage', (clientName, text, sendAt, from) => {
+    //     console.log('received message: ' + text)
+    //     const chatMessages = this.state.chatMessages
+    //     console.log(sendAt, from)
+    //     // let newMsg = {
+    //     //   text,
+    //     //   sendAt,
+    //     //   from,
+    //     // };
+    //     chatMessages.push({
+    //       text,
+    //       sendAt,
+    //       from
+    //     })
+    //     this.setState(
+    //       {
+    //         chatMessages: chatMessages
+    //       },
+    //       () => {
+    //         if(this.state.chatMessages.length > 0) {
+    //           this._scrollRef.scrollTo(0, this._scrollRef.scrollHeight)
+    //         }
+    //       }
+    //     )
+    //     console.log(chatMessages)
+    // })
+
     connection.onclose(() => {
-        connection.start().catch((err) => {
+        setTimeout(connection.start().catch((err) => {
             console.log(err);
-        })
-    })
-}  
+        }), 5000);
+    });
+}
+    
 
   toggleCurrentOrder = () => {
     this.setState({
@@ -555,27 +587,17 @@ class ClientChat extends Component {
         }
       )
       .then(res => {
-        connection.invoke('JoinRoomAsync', guid).catch(err => console.log(err))
+        connection.invoke('JoinRoomAsync', guid)
 
         console.log(res.data)
-        if(res.data.state === 1){
-            this.setState({
-                orderRequestAcceptState: res.data.state,
-                orderRequestAcceptMsg: res.data.message,
-                chatMessages: res.data.chatMessages
-            })
-            if(this.state.chatMessages !== null && this.state.chatMessages !== [] && this.state.chatMessages.length > 0) {
-                this._scrollRef.scrollTo(0, this._scrollRef.scrollHeight)
-            }
+        this.setState({
+          orderRequestAcceptState: res.data.state,
+          orderRequestAcceptMsg: res.data.message,
+          chatMessages: res.data.chatMessages
+        })
+        if(this.state.chatMessages !== null) {
+            this._scrollRef.scrollTo(0, this._scrollRef.scrollHeight)
         }
-        if(res.data.state === 2 || res.data.state === 3 || res.data.state === 4) {
-            this.setState({
-                orderRequestAcceptState: res.data.state,
-                orderRequestAcceptMsg: res.data.message,
-                chatMessages: []
-            })
-        }
-        
       })
   }
 
@@ -589,16 +611,16 @@ class ClientChat extends Component {
     const connection = this.state.connection
     const value = this.state.messageTextAreaValue
 
+    console.log(value)
     if(value.length > 0) {
         this.setState({orderRequestAcceptState: 1})
     }
 
-    connection.invoke('SendMessageAsync', this.state.clickedOrderGuid, value).catch(err => console.log(err))
+    connection.invoke('SendMessageAsync', this.state.clickedOrderGuid, value)
   }
 
-
   renderByAcceptState = () => {
-      if(this.state.orderRequestAcceptState === 1 || this.state.orderRequestAcceptState === 4) {
+      if(this.state.orderRequestAcceptState === 1) {
           return (
             <div className='chatbox-main'>
             <div className='chatbox-main-header'>
@@ -645,36 +667,30 @@ class ClientChat extends Component {
                     // option={{suppressScrollX: true}}
                   >
                     <div className='chatbox-main-content-loader'> </div>
-                    {this.state.orderRequestAcceptState === 4 ? 
-                        <div className="chatbox-main-content-no-message">
-                            نتیجه ای یافت نشد
-                        </div>
-                        :null
-                    }
-                    {this.state.chatMessages !== null && this.state.chatMessages !== [] && this.state.orderRequestAcceptState === 1
-                        ? this.state.chatMessages.map((msg, index) => {
-                            if (msg.from === 'سرویس دهنده') {
-                              return (
-                                <ChatRightMessage
-                                  key={index}
-                                  message={msg.text}
-                                  date={msg.sentAt}
-                                  image={amooLogo}
-                                />
-                              )
-                            } else {
-                              return (
-                                <ChatLeftMessage
-                                  key={index}
-                                  message={msg.text}
-                                  date={msg.sentAt}
-                                  image={rubyLogo}
-                                />
-                              )
-                            }
-                            return null
-                          })
-                        : null}
+                    {this.state.chatMessages !== []
+                      ? this.state.chatMessages.map((msg, index) => {
+                          if (msg.from === 'سرویس دهنده') {
+                            return (
+                              <ChatRightMessage
+                                key={index}
+                                message={msg.text}
+                                date={msg.sentAt}
+                                image={amooLogo}
+                              />
+                            )
+                          } else {
+                            return (
+                              <ChatLeftMessage
+                                key={index}
+                                message={msg.text}
+                                date={msg.sentAt}
+                                image={rubyLogo}
+                              />
+                            )
+                          }
+                          return null
+                        })
+                      : null}
                   </PerfectScrollbar>
                 </div>
                 <div className='chatbox-main-content-sended-bottom'>
@@ -702,31 +718,111 @@ class ClientChat extends Component {
           </div>
           )
       }else if (this.state.orderRequestAcceptState === 2) {
-        return (
-            <div className='chatbox-main'>
-                <div className="chatbox-main-content-stateTwoThree">
-                    <p className="chatbox-main-content-stateTwoThree-desc">
-                        کاربر مورد نظر یافت نشد
-                    </p>
-                </div>
-            </div>
-        )
+        console.log('کاربر یافت نشد');
       }else if (this.state.orderRequestAcceptState === 3) {
+        console.log('درخواست یافت نشد');
+      }else if (this.state.orderRequestAcceptState === 4) {
         return (
             <div className='chatbox-main'>
-                <div className="chatbox-main-content-stateTwoThree">
-                    <p className="chatbox-main-content-stateTwoThree-desc">
-                        درخواست سفارش مورد نظر یافت نشد
-                    </p>
+            <div className='chatbox-main-header'>
+              <button
+                className='chatbox-main-header-ignore-button'
+                onClick={this.showPesronAcceptModal}
+              >
+                قبول / رد کردن
+              </button>
+              <div className='chatbox-main-header-person'>
+                <div className='chatbox-main-header-person-profile'>
+                  <img
+                    src={rubyLogo}
+                    alt=''
+                    className='chatbox-main-header-person-profile-img'
+                  />
                 </div>
+                <div className='chatbox-main-header-person-desc-box'>
+                  <p className='chatbox-main-header-person-desc-top'>
+                    روزبه شامخی
+                  </p>
+                  <p className='chatbox-main-header-person-desc-bottom'>
+                    روزبه شامخی
+                  </p>
+                </div>
+              </div>
             </div>
-        )
+            {this.state.showOrdersPage ? (
+              <OrdersPage
+                hideOrdersPage={this.hideOrdersPage}
+                showContractAcceptModal={this.showContractAcceptModal}
+              />
+            ) : (
+              <>
+                <div
+                  className='chatbox-main-content'
+                  ref={ref => (this.chatBoxMainRef = ref)}
+                >
+                  <PerfectScrollbar
+                    onScrollY={container =>
+                      console.log(`scrolled to: ${container.scrollTop}.`)
+                    }
+                    containerRef={ref => (this._scrollRef = ref)}
+                    // option={{suppressScrollX: true}}
+                  >
+                    <div className='chatbox-main-content-loader'> </div>
+                    <div className="chatbox-main-content-no-message">
+                        نتیجه ای یافت نشد
+                    </div>
+                    {/* {this.state.chatMessages !== [] || this.state.chatMessages !== null
+                      ? this.state.chatMessages.map((msg, index) => {
+                          if (msg.from === 'سرویس دهنده') {
+                            return (
+                              <ChatRightMessage
+                                key={index}
+                                message={msg.text}
+                                date={msg.sentAt}
+                                image={amooLogo}
+                              />
+                            )
+                          } else {
+                            return (
+                              <ChatLeftMessage
+                                key={index}
+                                message={msg.text}
+                                date={msg.sentAt}
+                                image={rubyLogo}
+                              />
+                            )
+                          }
+                          return null
+                        })
+                      : null} */}
+                  </PerfectScrollbar>
+                </div>
+                <div className='chatbox-main-content-sended-bottom'>
+                  <div className='chatbox-main-content-sended-bottom-icons'>
+                    <FontAwesomeIcon
+                      icon={faArrowLeft}
+                      onClick={this.sendMessageHandler}
+                      className='chatbox-main-content-sended-bottom-tel-icon'
+                    />
+                    <FontAwesomeIcon
+                      icon={faPaperclip}
+                      className='chatbox-main-content-sended-bottom-att-icon'
+                    />
+                  </div>
+                  <textarea
+                    rows='4'
+                    cols='50'
+                    className='chatbox-main-content-sended-textarea'
+                    onChange={e => this.messageTextAreaChangeHandler(e)}
+                    placeholder='پیام خود را بنویسید...'
+                  ></textarea>
+                </div>
+              </>
+            )}
+          </div>
+          )
       }else{
-        return (
-            <div className='chatbox-main'>
-                <div className="chatbox-main-content-empty"></div>
-            </div>
-        )
+        return <div className='chatbox-main-content-empty'> </div>
       }
   }
 

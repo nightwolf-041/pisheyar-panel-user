@@ -423,7 +423,7 @@ class ClientChat extends Component {
     start()
 
     connection.onclose(() => {
-        start()
+      setTimeout(start(), 5000)
     })
 
     connection.on('ReceiveMessage', (clientName, text, sentAt, from) => {
@@ -443,7 +443,7 @@ class ClientChat extends Component {
           chatMessages: chatMessages
         },
         () => {
-          if(this.state.chatMessages !== null && this.state.chatMessages !== [] && chatMessages !== null && chatMessages !== [] && chatMessages.length > 0 && this.state.chatMessages.length > 0) {
+          if(this.state.chatMessages !== null || this.state.chatMessages !== []) {
             this._scrollRef.scrollTo(0, this._scrollRef.scrollHeight)
           }
         }
@@ -456,10 +456,10 @@ class ClientChat extends Component {
     const connection = this.state.connection
 
     connection.onclose(() => {
-        connection.start().catch((err) => {
+        setTimeout(connection.start().catch((err) => {
             console.log(err);
-        })
-    })
+        }), 5000);
+    });
 }  
 
   toggleCurrentOrder = () => {
@@ -555,27 +555,25 @@ class ClientChat extends Component {
         }
       )
       .then(res => {
-        connection.invoke('JoinRoomAsync', guid).catch(err => console.log(err))
+        connection.invoke('JoinRoomAsync', guid)
 
         console.log(res.data)
-        if(res.data.state === 1){
+        if(res.data.state === 1 ){
             this.setState({
                 orderRequestAcceptState: res.data.state,
                 orderRequestAcceptMsg: res.data.message,
                 chatMessages: res.data.chatMessages
             })
-            if(this.state.chatMessages !== null && this.state.chatMessages !== [] && this.state.chatMessages.length > 0) {
-                this._scrollRef.scrollTo(0, this._scrollRef.scrollHeight)
-            }
-        }
-        if(res.data.state === 2 || res.data.state === 3 || res.data.state === 4) {
+        }else{
             this.setState({
                 orderRequestAcceptState: res.data.state,
                 orderRequestAcceptMsg: res.data.message,
                 chatMessages: []
             })
         }
-        
+        if(this.state.chatMessages !== null && this.state.chatMessages !== []) {
+            this._scrollRef.scrollTo(0, this._scrollRef.scrollHeight)
+        }
       })
   }
 
@@ -593,7 +591,7 @@ class ClientChat extends Component {
         this.setState({orderRequestAcceptState: 1})
     }
 
-    connection.invoke('SendMessageAsync', this.state.clickedOrderGuid, value).catch(err => console.log(err))
+    connection.invoke('SendMessageAsync', this.state.clickedOrderGuid, value)
   }
 
 
@@ -651,7 +649,7 @@ class ClientChat extends Component {
                         </div>
                         :null
                     }
-                    {this.state.chatMessages !== null && this.state.chatMessages !== [] && this.state.orderRequestAcceptState === 1
+                    {(this.state.chatMessages !== null || this.state.chatMessages !== []) && this.state.orderRequestAcceptState === 1
                         ? this.state.chatMessages.map((msg, index) => {
                             if (msg.from === 'سرویس دهنده') {
                               return (
@@ -675,6 +673,7 @@ class ClientChat extends Component {
                             return null
                           })
                         : null}
+                    }
                   </PerfectScrollbar>
                 </div>
                 <div className='chatbox-main-content-sended-bottom'>
@@ -703,30 +702,22 @@ class ClientChat extends Component {
           )
       }else if (this.state.orderRequestAcceptState === 2) {
         return (
-            <div className='chatbox-main'>
-                <div className="chatbox-main-content-stateTwoThree">
-                    <p className="chatbox-main-content-stateTwoThree-desc">
-                        کاربر مورد نظر یافت نشد
-                    </p>
-                </div>
+            <div className="chatbox-main-content-stateTwoThree">
+                <p className="chatbox-main-content-stateTwoThree-desc">
+                    کاربر مورد نظر یافت نشد
+                </p>
             </div>
         )
       }else if (this.state.orderRequestAcceptState === 3) {
         return (
-            <div className='chatbox-main'>
-                <div className="chatbox-main-content-stateTwoThree">
-                    <p className="chatbox-main-content-stateTwoThree-desc">
-                        درخواست سفارش مورد نظر یافت نشد
-                    </p>
-                </div>
+            <div className="chatbox-main-content-stateTwoThree">
+                <p className="chatbox-main-content-stateTwoThree-desc">
+                    درخواست سفارش مورد نظر یافت نشد
+                </p>
             </div>
         )
       }else{
-        return (
-            <div className='chatbox-main'>
-                <div className="chatbox-main-content-empty"></div>
-            </div>
-        )
+        return <div className="chatbox-main-content-empty"></div>
       }
   }
 

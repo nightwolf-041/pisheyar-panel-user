@@ -711,12 +711,12 @@
 
 .chatbox-main-content-sended-right-desc-text {
     width: 100%;
-    word-break: break-word;
+    word-break: break-all;
 }
 
 .chatbox-main-content-sended-left-desc-text {
     width: 100%;
-    word-break: break-word;
+    word-break: break-all;
 }
 
 

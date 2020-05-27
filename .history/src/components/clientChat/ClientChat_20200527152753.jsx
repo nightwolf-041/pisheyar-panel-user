@@ -1,8 +1,8 @@
-// // this file is chat page of panel and in the end import in panelMainPathes directory and use in ChatBox component 
+
 
 // import React, { Component } from 'react';
-// import {withRouter} from 'react-router-dom'
 // import axios from 'axios'
+// import {withRouter} from 'react-router-dom'
 // import {HubConnectionBuilder, HubInvocationMessage, LogLevel}from '@aspnet/signalr'
 // import { withCookies } from 'react-cookie';
 // import PerfectScrollbar from 'react-perfect-scrollbar'
@@ -12,14 +12,13 @@
 // import Header from '../header/Header';
 // import ClientChatMessageModal from '../UI/ClientChatMessageModal';
 // import ClientAcceptModal from '../UI/ClientAcceptModal';
-// import ContractAcceptModal from '../UI/ContractAcceptModal';
-// import OrdersPage from '../ordersPage/OrdersPage';
+// import ContractorResume from '../contractorResume/ContractorResume';
 // import 'react-accessible-accordion/dist/fancy-example.css';
-// import ContractorChatSidebar from './ContractorChatSidebar';
-// import './contractorChat.css'
+// import ClientChatSidebar from './ClientChatSidebar';
+// import './clientChat.css'
 
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faTimes, faSearch, faPaperclip, faArrowLeft, faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
+// import { faPaperclip, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 // import amooLogo from '../../assets/images/johnny-sins.jpg'
 // import miaLogo from '../../assets/images/mia-khalife.jpg'
@@ -47,18 +46,21 @@
 //             collapsibleTriggerOpen: false,
 //             messageModalHidden: true,
 //             acceptModalHidden: true,
-//             contractAcceptModalHidden: true,
-//             showOrdersPage: false,
-//             orderRequestAcceptState: 0,
+//             showResumePage: false,
 //             clickedOrderGuid: null,
-//             messageTextAreaValue: '',
-//             chatMessages: []
+//             orderRequestAcceptState: 0,
+//             OrderRequestAccept: 0,
+//             chatMessages: [],
+
+//             messageTextAreaValue: ''
 //          };
 //          this.chatSidebar = React.createRef()
+//          this.chatBoxMainRef = React.createRef()
 //          this._scrollRef = null
 //     }
 
-//     componentDidMount = () => {
+
+//     componentDidMount() {
 //         const {cookies} = this.props
 //         const token = cookies.get('token')
 //         if(token === undefined) {
@@ -69,7 +71,7 @@
         
 //         // const start = async () => {
 //         //     await connection.start().catch(err => {
-//         //         console.log(err);
+//         //     console.log(err);
 //         //     })
 //         //   }
 //         // start();
@@ -85,6 +87,7 @@
 //             setTimeout(start(), 5000);
 //           });
 
+
 //         connection.on('ReceiveMessage', (clientName, text, sendAt) => {
 //             console.log('received message: ' + text);
 //             const chatMessages = this.state.chatMessages
@@ -92,7 +95,7 @@
 //             let newMsg = {
 //                 text, 
 //                 sendAt,
-//                 from: "سرویس دهنده"
+//                 from: "سرویس گیرنده"
 //             }
 //             chatMessages.push(newMsg)
 //             this.setState({chatMessages: chatMessages}, () => {
@@ -101,16 +104,16 @@
 //             console.log(chatMessages);
 //         })
 
-//         // connection.onclose(() => {
-//         //     setInterval(() => {
-//         //         start()
-//         //     }, 5000)
-//         // })
+//         connection.onclose(() => {
+//             setInterval(() => {
+//                 start()
+//             }, 5000)
+//         })
 //     }
 
 //     componentDidUpdate = () => {
 //         const connection = this.state.connection
-
+        
 //         connection.on('ReceiveMessage', (clientName, text, sendAt) => {
 //             console.log('received message: ' + text);
 //             const chatMessages = this.state.chatMessages
@@ -134,7 +137,9 @@
 //           });
 //     }
 
-//     toggleCurrentOrder = () => {
+
+
+//     toggleCurrentTicket = () => {
 //         this.setState({currentTab: false})
 //     }
 //     toggleCurrentMessage = () => {
@@ -154,8 +159,12 @@
 //         this.setState({hamburgerMenuToggle: false})
 //     }
 
-//     showPesronMessageModal = () => {
-//         this.setState({messageModalHidden: false})
+//     showPesronMessageModal = (reqGuid) => {
+//         console.log(reqGuid);
+//         this.setState({
+//             messageModalHidden: false,
+//             clickedOrderGuid: reqGuid
+//         })
 //     }
 //     hidePersonMessageModal = () => {
 //         this.setState({messageModalHidden: true})
@@ -168,37 +177,41 @@
 //         this.setState({acceptModalHidden: true})
 //     }
 
-//     showOrdersPage = () => {
-//         this.setState({showOrdersPage: true})
+//     showResumePage = () => {
+//         this.setState({showResumePage: true})
 //     }
-//     hideOrdersPage = () => {
-//         this.setState({showOrdersPage: false})
-//     }
-
-//     showContractAcceptModal = () => {
-//         this.setState({contractAcceptModalHidden: false})
-//     }
-//     hideContractAcceptModal = () => {
-//         this.setState({contractAcceptModalHidden: true})
+    
+//     hideResumePage = () => {
+//         this.setState({showResumePage: false})
 //     }
 
-//     startChatHandler = (guid) => {
-//         const {cookies} = this.props
+//     startChatHandler = () => {
 //         const connection = this.state.connection
+//         const guid = this.state.clickedOrderGuid
+//         const {cookies} = this.props
+//         const token = cookies.get('token')
 
-//         this.setState({clickedOrderGuid: guid})
-
-//         axios.get(`http://185.94.97.164/api/OrderRequest/GetChatMessages?orderRequestGuid=${guid}`, {
-//             headers: { Authorization: "Bearer " + cookies.get('token') }
+//         axios.post('http://185.94.97.164/api/OrderRequest/Accept', {
+//             orderRequestGuid: guid
+//         }, {
+//             headers: { Authorization: "Bearer " + token }
 //         }).then(res => {
-//             connection.invoke('JoinRoomAsync', guid)
-
 //             console.log(res.data);
+//             console.log(this.state.clickedOrderGuid);
 //             this.setState({
 //                 orderRequestAcceptState: res.data.state,
-//                 chatMessages: res.data.chatMessages
+//                 messageModalHidden: true
 //             })
-//             this._scrollRef.scrollTo(0, this._scrollRef.scrollHeight)
+
+//             connection.invoke('JoinRoomAsync', guid)
+
+//             axios.get(`http://185.94.97.164/api/OrderRequest/GetChatMessages?orderRequestGuid=${guid}`, {
+//                 headers: { Authorization: "Bearer " + token }
+//             }).then(res => {
+//                 console.log(res.data);
+//                 this.setState({chatMessages: res.data.chatMessages})
+//                 this._scrollRef.scrollTo(0, this._scrollRef.scrollHeight)
+//             })
 //         })
 //     }
 
@@ -215,8 +228,7 @@
 //             value,
 //         );
 //     }
-
-
+ 
 //     render() {
 
 //         return (
@@ -224,43 +236,46 @@
 //             <Header showHamburgerMenu={this.showHamburgerMenu} />
 
 //             <ClientChatMessageModal hidden={this.state.messageModalHidden}
-//             hidePersonMessageModal={this.hidePersonMessageModal} />
+//             hidePersonMessageModal={this.hidePersonMessageModal}
+//             startChatHandler={this.startChatHandler} />
 
 //             <ClientAcceptModal hidden={this.state.acceptModalHidden}
 //              hidePersonAcceptModal={this.hidePersonAcceptModal} />
 
-//             <ContractAcceptModal hidden={this.state.contractAcceptModalHidden}
-//             showContractAcceptModal={this.showContractAcceptModal}
-//             hideContractAcceptModal={this.hideContractAcceptModal} />
-
 //             <div className="chatboxkeeper">
-//                 <ContractorChatSidebar 
-//                 miaLogo={miaLogo}
-//                 amooLogo={amooLogo}
+//                 <ClientChatSidebar
 //                 hamburgerMenuToggle={this.state.hamburgerMenuToggle}
 //                 hideHamburgerMenu={this.hideHamburgerMenu}
+//                 amooLogo={amooLogo}
+//                 miaLogo={miaLogo}
 //                 removeCookie={this.removeCookie}
 //                 currentTab={this.state.currentTab}
-//                 toggleCurrentOrder={this.toggleCurrentOrder}
+//                 toggleCurrentTicket={this.toggleCurrentTicket}
 //                 toggleCurrentMessage={this.toggleCurrentMessage}
-//                 hideOrdersPage={this.hideOrdersPage}
-//                 showOrdersPage={this.showOrdersPage}
-//                 startChatHandler={guid => this.startChatHandler(guid)}
+//                 showPesronMessageModal={(reqGuid) => this.showPesronMessageModal(reqGuid)}
 //                 />
-
-//             {this.state.orderRequestAcceptState === 1 ? 
+          
+//           {this.state.orderRequestAcceptState === 1 ?
 //             <div className="chatbox-main">
+                
+
+//                 {this.state.showResumePage ? 
+//                 <ContractorResume hideResumePage={this.hideResumePage} />
+//                 :
+//                 <>
 //                 <div className="chatbox-main-header">
 //                 <button className="chatbox-main-header-ignore-button"
 //                 onClick={this.showPesronAcceptModal}>
 //                     قبول / رد کردن
 //                 </button>
 //                     <div className="chatbox-main-header-person">
-//                         <div className="chatbox-main-header-person-profile">
+//                         <div className="chatbox-main-header-person-profile"
+//                         onClick={this.showResumePage}>
 //                             <img src={rubyLogo} alt="" className="chatbox-main-header-person-profile-img" />
 //                         </div>
 //                         <div className="chatbox-main-header-person-desc-box">
-//                             <p className="chatbox-main-header-person-desc-top">
+//                             <p className="chatbox-main-header-person-desc-top"
+//                             onClick={this.showResumePage}>
 //                                 روزبه شامخی
 //                             </p>
 //                             <p className="chatbox-main-header-person-desc-bottom">
@@ -269,13 +284,7 @@
 //                         </div>
 //                     </div>
 //                 </div>
-
-//                 {this.state.showOrdersPage ? 
-//                 <OrdersPage hideOrdersPage={this.hideOrdersPage}
-//                 showContractAcceptModal={this.showContractAcceptModal} />
-//                 :
-//                 <>
-//                   <div className="chatbox-main-content" ref={ref => this.chatBoxMainRef = ref}>
+//                 <div className="chatbox-main-content" ref={ref => this.chatBoxMainRef = ref}>
 //                     <PerfectScrollbar
 //                     onScrollY={container => console.log(`scrolled to: ${container.scrollTop}.`)}
 //                     containerRef={ref => this._scrollRef = ref}
@@ -287,7 +296,7 @@
 //                     {
 //                     this.state.chatMessages !== [] ?
 //                         this.state.chatMessages.map((msg, index) => {
-//                             if (msg.from === "سرویس دهنده") {
+//                             if (msg.from === "سرویس گیرنده") {
 //                                 return <ChatRightMessage
 //                                 key={index}
 //                                 message={msg.text}
@@ -314,10 +323,12 @@
 //                 <div className="chatbox-main-content-sended-bottom">
 //                     <div className="chatbox-main-content-sended-bottom-icons">
 //                     <FontAwesomeIcon icon={faArrowLeft} 
-//                     onClick={this.sendMessageHandler}className="chatbox-main-content-sended-bottom-tel-icon"/>
+//                     onClick={this.sendMessageHandler}
+//                     className="chatbox-main-content-sended-bottom-tel-icon"/>
 //                     <FontAwesomeIcon icon={faPaperclip} className="chatbox-main-content-sended-bottom-att-icon"/>
 //                     </div>
-//                     <textarea rows="4" cols="50" className="chatbox-main-content-sended-textarea" onChange={e => this.messageTextAreaChangeHandler(e)} placeholder="پیام خود را بنویسید..."></textarea>
+//                     <textarea rows="4" cols="50" className="chatbox-main-content-sended-textarea"
+//                     onChange={e => this.messageTextAreaChangeHandler(e)} placeholder="پیام خود را بنویسید..."></textarea>
 //                 </div>
 //                 </>
 //                 }
@@ -335,11 +346,10 @@
 // export default withRouter(withCookies(ClientChat));
 
 
-// this file is chat page of panel and in the end import in panelMainPathes directory and use in ChatBox component
 
 import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
 import axios from 'axios'
+import { withRouter } from 'react-router-dom'
 import {
   HubConnectionBuilder,
   HubInvocationMessage,
@@ -353,21 +363,13 @@ import ChatRightMessage from '../chatMessages/ChatRightMessage'
 import Header from '../header/Header'
 import ClientChatMessageModal from '../UI/ClientChatMessageModal'
 import ClientAcceptModal from '../UI/ClientAcceptModal'
-import ContractAcceptModal from '../UI/ContractAcceptModal'
-import OrdersPage from '../ordersPage/OrdersPage'
+import ContractorResume from '../contractorResume/ContractorResume'
 import 'react-accessible-accordion/dist/fancy-example.css'
-import ContractorChatSidebar from './ContractorChatSidebar'
-import './contractorChat.css'
+import ClientChatSidebar from './ClientChatSidebar'
+import './clientChat.css'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faTimes,
-  faSearch,
-  faPaperclip,
-  faArrowLeft,
-  faAngleDown,
-  faAngleUp
-} from '@fortawesome/free-solid-svg-icons'
+import { faPaperclip, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 import amooLogo from '../../assets/images/johnny-sins.jpg'
 import miaLogo from '../../assets/images/mia-khalife.jpg'
@@ -394,15 +396,16 @@ class ClientChat extends Component {
       collapsibleTriggerOpen: false,
       messageModalHidden: true,
       acceptModalHidden: true,
-      contractAcceptModalHidden: true,
-      showOrdersPage: false,
-      orderRequestAcceptState: 0,
-      orderRequestAcceptMsg: '',
+      showResumePage: false,
       clickedOrderGuid: null,
-      messageTextAreaValue: '',
-      chatMessages: []
+      orderRequestAcceptState: 0,
+      OrderRequestAccept: 0,
+      chatMessages: [],
+
+      messageTextAreaValue: ''
     }
     this.chatSidebar = React.createRef()
+    this.chatBoxMainRef = React.createRef()
     this._scrollRef = null
   }
 
@@ -423,29 +426,27 @@ class ClientChat extends Component {
     start()
 
     connection.onclose(() => {
-        start()
+      setTimeout(start(), 5000)
     })
 
-    connection.on('ReceiveMessage', (clientName, text, sentAt, from) => {
+    connection.on('ReceiveMessage', (clientName, text, sendAt, from) => {
       console.log('received message: ' + text)
       const chatMessages = this.state.chatMessages
-      console.log(sentAt, from)
-
-      if(chatMessages !== null) {
-        chatMessages.push({
-            text,
-            sentAt,
-            from
-        })
-      } 
+      console.log(sendAt)
+      let newMsg = {
+        text,
+        sendAt,
+        from
+      }
+      chatMessages.push(newMsg)
       this.setState(
         {
           chatMessages: chatMessages
         },
         () => {
-          if(this.state.chatMessages !== null && this.state.chatMessages !== [] && chatMessages !== null && chatMessages !== [] && chatMessages.length > 0 && this.state.chatMessages.length > 0) {
-            this._scrollRef.scrollTo(0, this._scrollRef.scrollHeight)
-          }
+            if(this.state.chatMessages.length > 0) {
+                this._scrollRef.scrollTo(0, this._scrollRef.scrollHeight)
+            }
         }
       )
       console.log(chatMessages)
@@ -455,14 +456,35 @@ class ClientChat extends Component {
   componentDidUpdate = () => {
     const connection = this.state.connection
 
-    connection.onclose(() => {
-        connection.start().catch((err) => {
-            console.log(err);
-        })
-    })
-}  
+    // connection.on('ReceiveMessage', (clientName, text, sendAt, from) => {
+    //     console.log('received message: ' + text)
+    //     const chatMessages = this.state.chatMessages
+    //     console.log(sendAt)
+    //     let newMsg = {
+    //       text,
+    //       sendAt,
+    //       from
+    //     }
+    //     chatMessages.push(newMsg)
+    //     this.setState(
+    //       {
+    //         chatMessages: chatMessages
+    //       },
+    //       () => {
+    //         this._scrollRef.scrollTo(0, this._scrollRef.scrollHeight)
+    //       }
+    //     )
+    //     console.log(chatMessages)
+    // })
 
-  toggleCurrentOrder = () => {
+    connection.onclose(() => {
+        setTimeout(connection.start().catch((err) => {
+            console.log(err);
+        }), 5000);
+    });
+}
+
+  toggleCurrentTicket = () => {
     this.setState({
       currentTab: false
     })
@@ -492,9 +514,11 @@ class ClientChat extends Component {
     })
   }
 
-  showPesronMessageModal = () => {
+  showPesronMessageModal = reqGuid => {
+    console.log(reqGuid)
     this.setState({
-      messageModalHidden: false
+      messageModalHidden: false,
+      clickedOrderGuid: reqGuid
     })
   }
   hidePersonMessageModal = () => {
@@ -514,68 +538,64 @@ class ClientChat extends Component {
     })
   }
 
-  showOrdersPage = () => {
+  showResumePage = () => {
     this.setState({
-      showOrdersPage: true
-    })
-  }
-  hideOrdersPage = () => {
-    this.setState({
-      showOrdersPage: false
+      showResumePage: true
     })
   }
 
-  showContractAcceptModal = () => {
+  hideResumePage = () => {
     this.setState({
-      contractAcceptModalHidden: false
-    })
-  }
-  hideContractAcceptModal = () => {
-    this.setState({
-      contractAcceptModalHidden: true
+      showResumePage: false
     })
   }
 
-  startChatHandler = guid => {
-
-    const { cookies } = this.props
+  startChatHandler = () => {
     const connection = this.state.connection
-
-    this.setState({
-      clickedOrderGuid: guid
-    })
+    const guid = this.state.clickedOrderGuid
+    const { cookies } = this.props
+    const token = cookies.get('token')
 
     axios
-      .get(
-        `http://185.94.97.164/api/OrderRequest/GetChatMessages?orderRequestGuid=${guid}`,
+      .post(
+        'http://185.94.97.164/api/OrderRequest/Accept',
+        {
+          orderRequestGuid: guid
+        },
         {
           headers: {
-            Authorization: 'Bearer ' + cookies.get('token')
+            Authorization: 'Bearer ' + token
           }
         }
       )
       .then(res => {
-        connection.invoke('JoinRoomAsync', guid).catch(err => console.log(err))
-
         console.log(res.data)
-        if(res.data.state === 1){
+        console.log(this.state.clickedOrderGuid)
+        this.setState({
+          orderRequestAcceptState: res.data.state,
+          messageModalHidden: true
+        })
+
+        connection.invoke('JoinRoomAsync', guid)
+
+        axios
+          .get(
+            `http://185.94.97.164/api/OrderRequest/GetChatMessages?orderRequestGuid=${guid}`,
+            {
+              headers: {
+                Authorization: 'Bearer ' + token
+              }
+            }
+          )
+          .then(res => {
+            console.log(res.data)
             this.setState({
-                orderRequestAcceptState: res.data.state,
-                orderRequestAcceptMsg: res.data.message,
-                chatMessages: res.data.chatMessages
+              chatMessages: res.data.chatMessages
             })
-            if(this.state.chatMessages !== null && this.state.chatMessages !== [] && this.state.chatMessages.length > 0) {
+            if(this.state.chatMessages.length > 0) {
                 this._scrollRef.scrollTo(0, this._scrollRef.scrollHeight)
             }
-        }
-        if(res.data.state === 2 || res.data.state === 3 || res.data.state === 4) {
-            this.setState({
-                orderRequestAcceptState: res.data.state,
-                orderRequestAcceptMsg: res.data.message,
-                chatMessages: []
-            })
-        }
-        
+          })
       })
   }
 
@@ -588,216 +608,74 @@ class ClientChat extends Component {
   sendMessageHandler = () => {
     const connection = this.state.connection
     const value = this.state.messageTextAreaValue
-
-    if(value.length > 0) {
-        this.setState({orderRequestAcceptState: 1})
-    }
-
-    connection.invoke('SendMessageAsync', this.state.clickedOrderGuid, value).catch(err => console.log(err))
-  }
-
-
-  renderByAcceptState = () => {
-      if(this.state.orderRequestAcceptState === 1 || this.state.orderRequestAcceptState === 4) {
-          return (
-            <div className='chatbox-main'>
-            <div className='chatbox-main-header'>
-              <button
-                className='chatbox-main-header-ignore-button'
-                onClick={this.showPesronAcceptModal}
-              >
-                قبول / رد کردن
-              </button>
-              <div className='chatbox-main-header-person'>
-                <div className='chatbox-main-header-person-profile'>
-                  <img
-                    src={rubyLogo}
-                    alt=''
-                    className='chatbox-main-header-person-profile-img'
-                  />
-                </div>
-                <div className='chatbox-main-header-person-desc-box'>
-                  <p className='chatbox-main-header-person-desc-top'>
-                    روزبه شامخی
-                  </p>
-                  <p className='chatbox-main-header-person-desc-bottom'>
-                    روزبه شامخی
-                  </p>
-                </div>
-              </div>
-            </div>
-            {this.state.showOrdersPage ? (
-              <OrdersPage
-                hideOrdersPage={this.hideOrdersPage}
-                showContractAcceptModal={this.showContractAcceptModal}
-              />
-            ) : (
-              <>
-                <div
-                  className='chatbox-main-content'
-                  ref={ref => (this.chatBoxMainRef = ref)}
-                >
-                  <PerfectScrollbar
-                    onScrollY={container =>
-                      console.log(`scrolled to: ${container.scrollTop}.`)
-                    }
-                    containerRef={ref => (this._scrollRef = ref)}
-                    // option={{suppressScrollX: true}}
-                  >
-                    <div className='chatbox-main-content-loader'> </div>
-                    {this.state.orderRequestAcceptState === 4 ? 
-                        <div className="chatbox-main-content-no-message">
-                            نتیجه ای یافت نشد
-                        </div>
-                        :null
-                    }
-                    {this.state.chatMessages !== null && this.state.chatMessages !== [] && this.state.orderRequestAcceptState === 1
-                        ? this.state.chatMessages.map((msg, index) => {
-                            if (msg.from === 'سرویس دهنده') {
-                              return (
-                                <ChatRightMessage
-                                  key={index}
-                                  message={msg.text}
-                                  date={msg.sentAt}
-                                  image={amooLogo}
-                                />
-                              )
-                            } else {
-                              return (
-                                <ChatLeftMessage
-                                  key={index}
-                                  message={msg.text}
-                                  date={msg.sentAt}
-                                  image={rubyLogo}
-                                />
-                              )
-                            }
-                            return null
-                          })
-                        : null}
-                  </PerfectScrollbar>
-                </div>
-                <div className='chatbox-main-content-sended-bottom'>
-                  <div className='chatbox-main-content-sended-bottom-icons'>
-                    <FontAwesomeIcon
-                      icon={faArrowLeft}
-                      onClick={this.sendMessageHandler}
-                      className='chatbox-main-content-sended-bottom-tel-icon'
-                    />
-                    <FontAwesomeIcon
-                      icon={faPaperclip}
-                      className='chatbox-main-content-sended-bottom-att-icon'
-                    />
-                  </div>
-                  <textarea
-                    rows='4'
-                    cols='50'
-                    className='chatbox-main-content-sended-textarea'
-                    onChange={e => this.messageTextAreaChangeHandler(e)}
-                    placeholder='پیام خود را بنویسید...'
-                  ></textarea>
-                </div>
-              </>
-            )}
-          </div>
-          )
-      }else if (this.state.orderRequestAcceptState === 2) {
-        return (
-            <div className='chatbox-main'>
-                <div className="chatbox-main-content-stateTwoThree">
-                    <p className="chatbox-main-content-stateTwoThree-desc">
-                        کاربر مورد نظر یافت نشد
-                    </p>
-                </div>
-            </div>
-        )
-      }else if (this.state.orderRequestAcceptState === 3) {
-        return (
-            <div className='chatbox-main'>
-                <div className="chatbox-main-content-stateTwoThree">
-                    <p className="chatbox-main-content-stateTwoThree-desc">
-                        درخواست سفارش مورد نظر یافت نشد
-                    </p>
-                </div>
-            </div>
-        )
-      }else{
-        return (
-            <div className='chatbox-main'>
-                <div className="chatbox-main-content-empty"></div>
-            </div>
-        )
-      }
+    connection.invoke('SendMessageAsync', this.state.clickedOrderGuid, value)
   }
 
   render () {
-    console.log(this.state.chatMessages)
-    console.log(this.state.orderRequestAcceptState)
-    console.log(this.state.orderRequestAcceptMsg)
     return (
       <>
         <Header showHamburgerMenu={this.showHamburgerMenu} />
         <ClientChatMessageModal
           hidden={this.state.messageModalHidden}
           hidePersonMessageModal={this.hidePersonMessageModal}
+          startChatHandler={this.startChatHandler}
         />
         <ClientAcceptModal
           hidden={this.state.acceptModalHidden}
           hidePersonAcceptModal={this.hidePersonAcceptModal}
         />
-        <ContractAcceptModal
-          hidden={this.state.contractAcceptModalHidden}
-          showContractAcceptModal={this.showContractAcceptModal}
-          hideContractAcceptModal={this.hideContractAcceptModal}
-        />
         <div className='chatboxkeeper'>
-          <ContractorChatSidebar
-            miaLogo={miaLogo}
-            amooLogo={amooLogo}
+          <ClientChatSidebar
             hamburgerMenuToggle={this.state.hamburgerMenuToggle}
             hideHamburgerMenu={this.hideHamburgerMenu}
+            amooLogo={amooLogo}
+            miaLogo={miaLogo}
             removeCookie={this.removeCookie}
             currentTab={this.state.currentTab}
-            toggleCurrentOrder={this.toggleCurrentOrder}
+            toggleCurrentTicket={this.toggleCurrentTicket}
             toggleCurrentMessage={this.toggleCurrentMessage}
-            hideOrdersPage={this.hideOrdersPage}
-            showOrdersPage={this.showOrdersPage}
-            startChatHandler={guid => this.startChatHandler(guid)}
+            showPesronMessageModal={reqGuid =>
+              this.showPesronMessageModal(reqGuid)
+            }
           />
-          {/* {this.state.orderRequestAcceptState === 1 ? (
+          {this.state.orderRequestAcceptState === 1 ? (
             <div className='chatbox-main'>
-              <div className='chatbox-main-header'>
-                <button
-                  className='chatbox-main-header-ignore-button'
-                  onClick={this.showPesronAcceptModal}
-                >
-                  قبول / رد کردن
-                </button>
-                <div className='chatbox-main-header-person'>
-                  <div className='chatbox-main-header-person-profile'>
-                    <img
-                      src={rubyLogo}
-                      alt=''
-                      className='chatbox-main-header-person-profile-img'
-                    />
-                  </div>
-                  <div className='chatbox-main-header-person-desc-box'>
-                    <p className='chatbox-main-header-person-desc-top'>
-                      روزبه شامخی
-                    </p>
-                    <p className='chatbox-main-header-person-desc-bottom'>
-                      روزبه شامخی
-                    </p>
-                  </div>
-                </div>
-              </div>
-              {this.state.showOrdersPage ? (
-                <OrdersPage
-                  hideOrdersPage={this.hideOrdersPage}
-                  showContractAcceptModal={this.showContractAcceptModal}
-                />
+              
+              {this.state.showResumePage ? (
+                <ContractorResume hideResumePage={this.hideResumePage} />
               ) : (
                 <>
+                  <div className='chatbox-main-header'>
+                    <button
+                      className='chatbox-main-header-ignore-button'
+                      onClick={this.showPesronAcceptModal}
+                    >
+                      قبول / رد کردن
+                    </button>
+                    <div className='chatbox-main-header-person'>
+                      <div
+                        className='chatbox-main-header-person-profile'
+                        onClick={this.showResumePage}
+                      >
+                        <img
+                          src={rubyLogo}
+                          alt=''
+                          className='chatbox-main-header-person-profile-img'
+                        />
+                      </div>
+                      <div className='chatbox-main-header-person-desc-box'>
+                        <p
+                          className='chatbox-main-header-person-desc-top'
+                          onClick={this.showResumePage}
+                        >
+                          روزبه شامخی
+                        </p>
+                        <p className='chatbox-main-header-person-desc-bottom'>
+                          روزبه شامخی
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                   <div
                     className='chatbox-main-content'
                     ref={ref => (this.chatBoxMainRef = ref)}
@@ -812,7 +690,7 @@ class ClientChat extends Component {
                       <div className='chatbox-main-content-loader'> </div>
                       {this.state.chatMessages !== []
                         ? this.state.chatMessages.map((msg, index) => {
-                            if (msg.from === 'سرویس دهنده') {
+                            if (msg.from === 'سرویس گیرنده') {
                               return (
                                 <ChatRightMessage
                                   key={index}
@@ -861,9 +739,7 @@ class ClientChat extends Component {
             </div>
           ) : (
             <div className='chatbox-main-content-empty'> </div>
-          )
-          } */}
-          {this.renderByAcceptState()}
+          )}
         </div>
       </>
     )

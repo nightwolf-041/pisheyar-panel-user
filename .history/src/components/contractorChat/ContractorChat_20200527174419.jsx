@@ -423,7 +423,7 @@ class ClientChat extends Component {
     start()
 
     connection.onclose(() => {
-        start()
+      setTimeout(start(), 7000)
     })
 
     connection.on('ReceiveMessage', (clientName, text, sentAt, from) => {
@@ -456,9 +456,9 @@ class ClientChat extends Component {
     const connection = this.state.connection
 
     connection.onclose(() => {
-        connection.start().catch((err) => {
+        setTimeout(connection.start().catch((err) => {
             console.log(err);
-        })
+        }), 7000);
     })
 }  
 

@@ -423,7 +423,7 @@ class ClientChat extends Component {
     start()
 
     connection.onclose(() => {
-        start()
+      setTimeout(start(), 5000)
     })
 
     connection.on('ReceiveMessage', (clientName, text, sentAt, from) => {
@@ -456,10 +456,10 @@ class ClientChat extends Component {
     const connection = this.state.connection
 
     connection.onclose(() => {
-        connection.start().catch((err) => {
+        setTimeout(connection.start().catch((err) => {
             console.log(err);
-        })
-    })
+        }), 5000);
+    });
 }  
 
   toggleCurrentOrder = () => {
@@ -555,7 +555,7 @@ class ClientChat extends Component {
         }
       )
       .then(res => {
-        connection.invoke('JoinRoomAsync', guid).catch(err => console.log(err))
+        connection.invoke('JoinRoomAsync', guid)
 
         console.log(res.data)
         if(res.data.state === 1){
@@ -593,7 +593,7 @@ class ClientChat extends Component {
         this.setState({orderRequestAcceptState: 1})
     }
 
-    connection.invoke('SendMessageAsync', this.state.clickedOrderGuid, value).catch(err => console.log(err))
+    connection.invoke('SendMessageAsync', this.state.clickedOrderGuid, value)
   }
 
 
@@ -675,6 +675,7 @@ class ClientChat extends Component {
                             return null
                           })
                         : null}
+                    }
                   </PerfectScrollbar>
                 </div>
                 <div className='chatbox-main-content-sended-bottom'>
