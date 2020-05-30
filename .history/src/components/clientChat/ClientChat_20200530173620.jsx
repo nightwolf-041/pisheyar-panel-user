@@ -61,7 +61,6 @@ class ClientChat extends Component {
       prevClickedOrderGuid: null,
       clickedOrderMessage: null,
       clickedOrderContractor: null,
-      clickedOrderContractorForHeader: null,
       clickedOrderPrice: null,
       clickedOrderIsAllowed: null,
 
@@ -172,8 +171,7 @@ class ClientChat extends Component {
     this.setState({prevClickedOrderGuid: this.state.clickedOrderGuid}, () => {
       this.setState({
         // clickedOrderContractor: contractor,
-        clickedOrderIsAllowed: isAllowed,
-        clickedOrderGuid: reqGuid
+        clickedOrderIsAllowed: isAllowed
       })
     })
 
@@ -192,8 +190,8 @@ class ClientChat extends Component {
        if(res.data.allowingStatus === true) {
 
             this.setState({
-              clickedOrderContractorForHeader: contractor,
-              // clickedOrderGuid: reqGuid
+              clickedOrderContractor: contractor,
+              clickedOrderGuid: reqGuid
             })
 
             connection.invoke('LeaveRoomAsync', this.state.prevClickedOrderGuid).catch(err => console.log(err))
@@ -450,7 +448,7 @@ class ClientChat extends Component {
                         className='chatbox-main-header-person-desc-top'
                         onClick={this.showResumePage}
                       >
-                        {this.state.clickedOrderContractorForHeader}
+                        {this.state.clickedOrderContractor}
                       </p>
                       {/* <p className='chatbox-main-header-person-desc-bottom'>
                         روزبه شامخی

@@ -368,7 +368,6 @@ button:disabled {
     position: fixed;
     top: 8rem;
     left: calc(50% - 25rem);
-    /* left: 5rem; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -431,7 +430,7 @@ button:disabled {
 .clientFinishModalTextarea {
     direction: rtl;
     width: 100%;
-    height: 7rem;
+    height: 9rem;
     background-color: #ffffff;
     color: #0b1033;
     font-size: 0.9rem;
@@ -570,14 +569,6 @@ button:disabled {
         left: calc(50% - 12rem);
         width: 24rem;
     }
-    .clientFinishModal {
-        left: calc(50% - 12rem);
-        width: 24rem;
-    }
-    .clientFinishModalHidden {
-        left: calc(50% - 12rem);
-        width: 24rem;
-    }
 }
 
 @media screen and (max-width: 576px) {
@@ -606,19 +597,9 @@ button:disabled {
         left: 5%;
         width: 90% !important;
     }
-    .clientFinishModal {
-        left: 5%;
-        width: 90% !important;
-        padding: 2rem;
-    }
-    .clientFinishModalHidden {
-        left: 5%;
-        width: 90% !important;
-    }
     .acceptModalButtonsBox,
     .messageModalButtonsBox,
-    .contractAcceptModalButtonsBox,
-    .clientFinishModalButtonsBox {
+    .contractAcceptModalButtonsBox {
         flex-direction: column;
         align-items: center;
         /* margin-top: 3rem; */
@@ -626,13 +607,9 @@ button:disabled {
     .contractAcceptModalButton {
         width: 70%;
     }
-    .clientFinishModalButton {
-        width: 70%;
-    }
     .messageModalButton:nth-child(2),
     .acceptModalButton:nth-child(2),
-    .contractAcceptModalButton:nth-child(2),
-    .clientFinishModalButton:nth-child(2) {
+    .contractAcceptModalButton:nth-child(2) {
         margin: 0.6rem 0 0 0;
     }
 }

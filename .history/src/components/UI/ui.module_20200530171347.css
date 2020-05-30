@@ -365,7 +365,7 @@ button:disabled {
 /* client finish  */
 
 .clientFinishModal {
-    position: fixed;
+    position: absolute;
     top: 8rem;
     left: calc(50% - 25rem);
     /* left: 5rem; */

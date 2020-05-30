@@ -26,7 +26,6 @@ import { faPaperclip, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import amooLogo from '../../assets/images/johnny-sins.jpg'
 import miaLogo from '../../assets/images/mia-khalife.jpg'
 import rubyLogo from '../../assets/images/ruby-rose.jpg'
-import ClientFinishJobModal from '../UI/ClientFinishJobModal'
 
 class ClientChat extends Component {
   constructor (props) {
@@ -53,15 +52,12 @@ class ClientChat extends Component {
       acceptModalAcceptLoading: false,
       acceptModalAccepted: false,
 
-      ClientFinishJobModalHidden: true,
-
       showResumePage: false,
 
       clickedOrderGuid: null,
       prevClickedOrderGuid: null,
       clickedOrderMessage: null,
       clickedOrderContractor: null,
-      clickedOrderContractorForHeader: null,
       clickedOrderPrice: null,
       clickedOrderIsAllowed: null,
 
@@ -71,7 +67,7 @@ class ClientChat extends Component {
 
       AllowingStatusForChatRoom: false,
 
-      messageTextAreaValue: '',
+      messageTextAreaValue: ''
     }
     this.chatSidebar = React.createRef()
     this.chatBoxMainRef = React.createRef()
@@ -171,9 +167,11 @@ class ClientChat extends Component {
 
     this.setState({prevClickedOrderGuid: this.state.clickedOrderGuid}, () => {
       this.setState({
-        // clickedOrderContractor: contractor,
-        clickedOrderIsAllowed: isAllowed,
-        clickedOrderGuid: reqGuid
+        clickedOrderGuid: reqGuid,
+        clickedOrderMessage: message,
+        clickedOrderContractor: contractor,
+        clickedOrderPrice: price,
+        clickedOrderIsAllowed: isAllowed
       })
     })
 
@@ -190,11 +188,6 @@ class ClientChat extends Component {
           AllowingStatusForChatRoom: res.data.allowingStatus
       })
        if(res.data.allowingStatus === true) {
-
-            this.setState({
-              clickedOrderContractorForHeader: contractor,
-              // clickedOrderGuid: reqGuid
-            })
 
             connection.invoke('LeaveRoomAsync', this.state.prevClickedOrderGuid).catch(err => console.log(err))
 
@@ -233,18 +226,15 @@ class ClientChat extends Component {
                     })
                 }
             })
-            this.setState({
-              messageModalHidden: true,
-              // orderRequestAcceptState: 1
-            })
+    // })
+          this.setState({
+            messageModalHidden: true,
+            // orderRequestAcceptState: 1
+          })
           
        }else{
           this.setState({
             messageModalHidden: false,
-            clickedOrderMessage: message,
-            // clickedOrderContractor: contractor,
-            clickedOrderPrice: price,
-            // clickedOrderIsAllowed: isAllowed
             // clickedOrderGuid: reqGuid,
           })
        }
@@ -267,18 +257,6 @@ class ClientChat extends Component {
   hidePersonAcceptModal = () => {
     this.setState({
       acceptModalHidden: true
-    })
-  }
-  
-
-  showClientFinishModal = () => {
-    this.setState({
-      ClientFinishJobModalHidden: false
-    })
-  }
-  hideClientFinishModal = () => {
-    this.setState({
-      ClientFinishJobModalHidden: true
     })
   }
 
@@ -429,8 +407,7 @@ class ClientChat extends Component {
                       قبول کردن
                     </button>
                     :
-                    <button className='chatbox-main-header-ignore-button'
-                    onClick={this.showClientFinishModal}>
+                    <button className='chatbox-main-header-ignore-button'>
                       اتمام کار
                     </button>
                   }
@@ -450,7 +427,7 @@ class ClientChat extends Component {
                         className='chatbox-main-header-person-desc-top'
                         onClick={this.showResumePage}
                       >
-                        {this.state.clickedOrderContractorForHeader}
+                        {this.state.clickedOrderContractor}
                       </p>
                       {/* <p className='chatbox-main-header-person-desc-bottom'>
                         روزبه شامخی
@@ -462,14 +439,14 @@ class ClientChat extends Component {
                   className='chatbox-main-content'
                   ref={ref => (this.chatBoxMainRef = ref)}
                 >
-                  {/* {!this.state.clickedOrderIsAllowed ?
+                  {!this.state.clickedOrderIsAllowed ?
                       <div className="client-chat-allowed-message">
                         <p>
                           چت بسته شده است
                         </p>
                       </div>
                     :null
-                  } */}
+                    }
                   <PerfectScrollbar
                     // onScrollY={container =>
                     //   console.log(`scrolled to: ${container.scrollTop}.`)
@@ -595,12 +572,6 @@ class ClientChat extends Component {
           orderGuid={this.state.clickedOrderGuid}
           disable={this.state.acceptModalAcceptLoading}
         />
-
-        <ClientFinishJobModal
-        hideClientFinishModal={this.hideClientFinishModal}
-        orderReqGuid={this.state.clickedOrderGuid}
-        hidden={this.state.ClientFinishJobModalHidden} />
-
         <div className='chatboxkeeper'>
           <ClientChatSidebar
             hamburgerMenuToggle={this.state.hamburgerMenuToggle}

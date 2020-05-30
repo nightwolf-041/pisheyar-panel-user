@@ -17,7 +17,7 @@ function ClientSubOrders(props) {
         axios.get(`http://185.94.97.164/api/OrderRequest/GetOrderRequestsForClient?orderGuid=${props.guid}`, {
             headers: { Authorization: "Bearer " + cookies.token }
             }).then(res => {
-                // console.log(res.data);
+                console.log(res.data.isAllowed);
                 setRequestLoading(false)
                 setSubOrderIsAllowed(res.data.isAllowed)
                 setSubOrderRequestsForClient(res.data.orders)
@@ -35,7 +35,7 @@ function ClientSubOrders(props) {
                     subOrderReq.message,
                     subOrderReq.contractor,
                     subOrderReq.offeredPrice,
-                    subOrderReq.isAllowed)}
+                    subOrderIsAllowed)}
                     >
                     <div className="chatbox-sidebar-content-message-person-line bg-success"></div>
                     <div className="chatbox-sidebar-content-message-person-main">

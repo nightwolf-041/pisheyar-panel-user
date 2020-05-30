@@ -571,7 +571,7 @@ button:disabled {
         width: 24rem;
     }
     .clientFinishModal {
-        left: calc(50% - 12rem);
+        left: calc(50% - 6rem);
         width: 24rem;
     }
     .clientFinishModalHidden {

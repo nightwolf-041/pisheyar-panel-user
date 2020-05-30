@@ -368,7 +368,6 @@ button:disabled {
     position: fixed;
     top: 8rem;
     left: calc(50% - 25rem);
-    /* left: 5rem; */
     display: flex;
     flex-direction: column;
     align-items: center;

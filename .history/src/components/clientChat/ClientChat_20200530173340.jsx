@@ -61,7 +61,6 @@ class ClientChat extends Component {
       prevClickedOrderGuid: null,
       clickedOrderMessage: null,
       clickedOrderContractor: null,
-      clickedOrderContractorForHeader: null,
       clickedOrderPrice: null,
       clickedOrderIsAllowed: null,
 
@@ -169,13 +168,7 @@ class ClientChat extends Component {
 
     console.log(isAllowed);
 
-    this.setState({prevClickedOrderGuid: this.state.clickedOrderGuid}, () => {
-      this.setState({
-        // clickedOrderContractor: contractor,
-        clickedOrderIsAllowed: isAllowed,
-        clickedOrderGuid: reqGuid
-      })
-    })
+    this.setState({prevClickedOrderGuid: this.state.clickedOrderGuid})
 
     axios.get(`http://185.94.97.164/api/OrderRequest/GetAllowingStatus?orderRequestGuid=${reqGuid}`,
     {
@@ -191,10 +184,7 @@ class ClientChat extends Component {
       })
        if(res.data.allowingStatus === true) {
 
-            this.setState({
-              clickedOrderContractorForHeader: contractor,
-              // clickedOrderGuid: reqGuid
-            })
+            this.setState({clickedOrderGuid: reqGuid})
 
             connection.invoke('LeaveRoomAsync', this.state.prevClickedOrderGuid).catch(err => console.log(err))
 
@@ -242,9 +232,9 @@ class ClientChat extends Component {
           this.setState({
             messageModalHidden: false,
             clickedOrderMessage: message,
-            // clickedOrderContractor: contractor,
+            clickedOrderContractor: contractor,
             clickedOrderPrice: price,
-            // clickedOrderIsAllowed: isAllowed
+            clickedOrderIsAllowed: isAllowed
             // clickedOrderGuid: reqGuid,
           })
        }
@@ -450,7 +440,7 @@ class ClientChat extends Component {
                         className='chatbox-main-header-person-desc-top'
                         onClick={this.showResumePage}
                       >
-                        {this.state.clickedOrderContractorForHeader}
+                        {this.state.clickedOrderContractor}
                       </p>
                       {/* <p className='chatbox-main-header-person-desc-bottom'>
                         روزبه شامخی
