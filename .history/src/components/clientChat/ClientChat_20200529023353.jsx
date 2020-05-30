@@ -299,6 +299,8 @@ class ClientChat extends Component {
     const { cookies } = this.props
     const token = cookies.get('token')
 
+    console.log('object');
+
     axios
       .post(
         'http://185.94.97.164/api/OrderRequest/AllowContractorToChatByClient',
@@ -375,7 +377,7 @@ class ClientChat extends Component {
             messageTextAreaValue: '',
             // orderRequestAcceptState: 1
         })
-      if(this.state.clickedOrderIsAllowed) {
+        if(!this.state.AllowingStatusForChatRoom) {
           this.setState({
             // messageTextAreaValue: '',
             orderRequestAcceptState: 1
@@ -437,7 +439,7 @@ class ClientChat extends Component {
                   className='chatbox-main-content'
                   ref={ref => (this.chatBoxMainRef = ref)}
                 >
-                  {!this.state.clickedOrderIsAllowed ?
+                  {this.state.clickedOrderIsAllowed ?
                       <div className="client-chat-allowed-message">
                         <p>
                           چت بسته شده است

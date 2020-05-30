@@ -730,26 +730,6 @@
     overflow: hidden;
 }
 
-.client-chat-allowed-message {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 0.5rem;
-}
-
-.client-chat-allowed-message p {
-    color: #FF1F1F;
-    font-size: 0.9rem;
-    text-align: center;
-    background-color: #dadada;
-    border-radius: 4rem;
-    padding: 0.2rem 0.4rem;
-}
-
 .chatbox-main-content-empty {
     position: absolute;
     top: 0;

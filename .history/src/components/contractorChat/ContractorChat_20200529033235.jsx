@@ -298,7 +298,7 @@ class ClientChat extends Component {
             messageTextAreaValue: '',
             // orderRequestAcceptState: 1
         })
-        if(this.state.clickedOrderIsAllowed) {
+        if(!this.state.clickedOrderIsAllowed) {
           this.setState({
             // messageTextAreaValue: '',
             orderRequestAcceptState: 1
@@ -359,7 +359,7 @@ class ClientChat extends Component {
                   ref={ref => (this.chatBoxMainRef = ref)}
                 >
 
-                  {!this.state.clickedOrderIsAllowed ?
+                  {this.state.clickedOrderIsAllowed ?
                       <div className="client-chat-allowed-message">
                         <p>
                           چت بسته شده است

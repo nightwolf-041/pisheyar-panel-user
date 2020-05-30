@@ -121,7 +121,7 @@ function ContractorChatSidebar(props) {
                     contractorChats.map((chat, index) => (
                         <div className="chatbox-sidebar-content-message-person-contract"
                         key={index}
-                        onClick={() => props.startChatHandler(chat.orderRequestGuid, chat.isAllow)}>
+                        onClick={() => props.startChatHandler(chat.orderRequestGuid)}>
                             <div className="chatbox-sidebar-content-message-person-line bg-success"></div>
                             <div className="chatbox-sidebar-content-message-person-main">
                                 <div className="chatbox-sidebar-content-message-person-profile">

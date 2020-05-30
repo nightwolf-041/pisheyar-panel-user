@@ -50,7 +50,7 @@ const LoginBixSteps = (props) => {
                     classes.loginRegisterLoginPhoneNumber
                     : classes.loginRegisterLoginPhoneNumberInvalid}
                 type="text"
-                name="loginMobile"
+                name="mobile"
                 onChange={props.loginPhoneNumberChangeHandler}
                 // onBlur={handleBlur}
                 value={props.loginPhoneNumberValue}

@@ -61,11 +61,7 @@ class ClientChat extends Component {
       showOrdersPage: false,
       orderRequestAcceptState: 0,
       orderRequestAcceptMsg: '',
-
       clickedOrderGuid: null,
-      prevClickedOrderGuid: null,
-      clickedOrderIsAllowed: null,
-
       messageTextAreaValue: '',
       chatMessages: [],
 
@@ -235,50 +231,45 @@ class ClientChat extends Component {
 
   }
 
-  startChatHandler = (guid, isAllowed) => {
+  startChatHandler = guid => {
 
     const { cookies } = this.props
     const connection = this.state.connection
 
-    this.setState({prevClickedOrderGuid: this.state.clickedOrderGuid}, () => {
-      this.setState({
-        clickedOrderGuid: guid,
-        clickedOrderIsAllowed: isAllowed,
-        showOrdersPage: false
-      })
+    this.setState({
+      clickedOrderGuid: guid,
+      showOrdersPage: false
     })
 
-      axios
-        .get(
-          `http://185.94.97.164/api/OrderRequest/GetChatMessages?orderRequestGuid=${guid}`,
-          {
-            headers: {
-              Authorization: 'Bearer ' + cookies.get('token')
+    axios
+      .get(
+        `http://185.94.97.164/api/OrderRequest/GetChatMessages?orderRequestGuid=${guid}`,
+        {
+          headers: {
+            Authorization: 'Bearer ' + cookies.get('token')
+          }
+        }
+      )
+      .then(res => {
+        connection.invoke('JoinRoomAsync', guid).catch(err => console.log(err))
+
+        if(res.data.state === 1){
+            this.setState({
+                orderRequestAcceptState: res.data.state,
+                orderRequestAcceptMsg: res.data.message,
+                chatMessages: res.data.chatMessages
+            })
+            if(this.state.chatMessages !== null && this.state.chatMessages !== [] && this.state.chatMessages.length > 0 && this.state.showOrdersPage === false) {
+                this._scrollRef.scrollTo(0, this._scrollRef.scrollHeight)
             }
-          }
-        )
-        .then(res => {
-
-          connection.invoke('LeaveRoomAsync', this.state.prevClickedOrderGuid).catch(err => console.log(err))
-          connection.invoke('JoinRoomAsync', guid).catch(err => console.log(err))
-
-          if(res.data.state === 1){
-              this.setState({
-                  orderRequestAcceptState: res.data.state,
-                  orderRequestAcceptMsg: res.data.message,
-                  chatMessages: res.data.chatMessages
-              })
-              if(this.state.chatMessages !== null && this.state.chatMessages !== [] && this.state.chatMessages.length > 0 && this.state.showOrdersPage === false) {
-                  this._scrollRef.scrollTo(0, this._scrollRef.scrollHeight)
-              }
-          }
-          if(res.data.state === 2 || res.data.state === 3 || res.data.state === 4) {
-              this.setState({
-                  orderRequestAcceptState: res.data.state,
-                  orderRequestAcceptMsg: res.data.message,
-                  chatMessages: []
-              })
-          }
+        }
+        if(res.data.state === 2 || res.data.state === 3 || res.data.state === 4) {
+            this.setState({
+                orderRequestAcceptState: res.data.state,
+                orderRequestAcceptMsg: res.data.message,
+                chatMessages: []
+            })
+        }
         
       })
   }
@@ -296,14 +287,8 @@ class ClientChat extends Component {
     if(value.length > 0) {
         this.setState({
             messageTextAreaValue: '',
-            // orderRequestAcceptState: 1
-        })
-        if(this.state.clickedOrderIsAllowed) {
-          this.setState({
-            // messageTextAreaValue: '',
             orderRequestAcceptState: 1
-          })
-        }
+        })
     }
 
     connection.invoke('SendMessageAsync', this.state.clickedOrderGuid, value).catch(err => console.log(err))
@@ -358,8 +343,8 @@ class ClientChat extends Component {
                   className='chatbox-main-content'
                   ref={ref => (this.chatBoxMainRef = ref)}
                 >
-
-                  {!this.state.clickedOrderIsAllowed ?
+                  
+                  {this.state.clickedOrderIsAllowed ?
                       <div className="client-chat-allowed-message">
                         <p>
                           چت بسته شده است
@@ -494,7 +479,7 @@ class ClientChat extends Component {
             toggleCurrentMessage={this.toggleCurrentMessage}
             hideOrdersPage={this.hideOrdersPage}
             showOrdersPage={orderGuid => this.showOrdersPage(orderGuid)}
-            startChatHandler={(guid, isAllowed) => this.startChatHandler(guid, isAllowed)}
+            startChatHandler={guid => this.startChatHandler(guid)}
           />
      
           {this.renderByAcceptState()}

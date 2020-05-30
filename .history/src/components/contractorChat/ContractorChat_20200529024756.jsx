@@ -235,7 +235,7 @@ class ClientChat extends Component {
 
   }
 
-  startChatHandler = (guid, isAllowed) => {
+  startChatHandler = guid => {
 
     const { cookies } = this.props
     const connection = this.state.connection
@@ -243,7 +243,6 @@ class ClientChat extends Component {
     this.setState({prevClickedOrderGuid: this.state.clickedOrderGuid}, () => {
       this.setState({
         clickedOrderGuid: guid,
-        clickedOrderIsAllowed: isAllowed,
         showOrdersPage: false
       })
     })
@@ -296,14 +295,8 @@ class ClientChat extends Component {
     if(value.length > 0) {
         this.setState({
             messageTextAreaValue: '',
-            // orderRequestAcceptState: 1
-        })
-        if(this.state.clickedOrderIsAllowed) {
-          this.setState({
-            // messageTextAreaValue: '',
             orderRequestAcceptState: 1
-          })
-        }
+        })
     }
 
     connection.invoke('SendMessageAsync', this.state.clickedOrderGuid, value).catch(err => console.log(err))
@@ -359,7 +352,7 @@ class ClientChat extends Component {
                   ref={ref => (this.chatBoxMainRef = ref)}
                 >
 
-                  {!this.state.clickedOrderIsAllowed ?
+                  {this.state.clickedOrderIsAllowed ?
                       <div className="client-chat-allowed-message">
                         <p>
                           چت بسته شده است
@@ -494,7 +487,7 @@ class ClientChat extends Component {
             toggleCurrentMessage={this.toggleCurrentMessage}
             hideOrdersPage={this.hideOrdersPage}
             showOrdersPage={orderGuid => this.showOrdersPage(orderGuid)}
-            startChatHandler={(guid, isAllowed) => this.startChatHandler(guid, isAllowed)}
+            startChatHandler={guid => this.startChatHandler(guid)}
           />
      
           {this.renderByAcceptState()}

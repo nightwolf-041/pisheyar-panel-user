@@ -163,14 +163,14 @@ class ClientChat extends Component {
     const { cookies } = this.props
     const token = cookies.get('token')
 
-    this.setState({prevClickedOrderGuid: this.state.clickedOrderGuid}, () => {
-      this.setState({
+    console.log(price);
+    this.setState({
         clickedOrderGuid: reqGuid,
+        prevClickedOrderGuid: this.state.clickedOrderGuid,
         clickedOrderMessage: message,
         clickedOrderContractor: contractor,
         clickedOrderPrice: price,
         clickedOrderIsAllowed: isAllowed
-      })
     })
 
     axios.get(`http://185.94.97.164/api/OrderRequest/GetAllowingStatus?orderRequestGuid=${reqGuid}`,
@@ -186,6 +186,8 @@ class ClientChat extends Component {
           AllowingStatusForChatRoom: res.data.allowingStatus
       })
        if(res.data.allowingStatus === true) {
+
+          // this.setState({prevClickedOrderGuid: this.state.clickedOrderGuid})
 
             connection.invoke('LeaveRoomAsync', this.state.prevClickedOrderGuid).catch(err => console.log(err))
 
@@ -299,6 +301,8 @@ class ClientChat extends Component {
     const { cookies } = this.props
     const token = cookies.get('token')
 
+    console.log('object');
+
     axios
       .post(
         'http://185.94.97.164/api/OrderRequest/AllowContractorToChatByClient',
@@ -375,7 +379,7 @@ class ClientChat extends Component {
             messageTextAreaValue: '',
             // orderRequestAcceptState: 1
         })
-      if(this.state.clickedOrderIsAllowed) {
+        if(!this.state.AllowingStatusForChatRoom) {
           this.setState({
             // messageTextAreaValue: '',
             orderRequestAcceptState: 1
