@@ -19,10 +19,7 @@ const ContractorLoginModal = (props) => {
                 : null
             }
             <div className={!props.hidden ? classes.contractorLoginModal : classes.contractorLoginModalHidden}>
-                <FontAwesomeIcon
-                icon={faTimes}
-                onClick={props.hideHandler}
-                className={classes.contractorLoginModalClose} />
+                <FontAwesomeIcon icon={faTimes} className={classes.contractorLoginModalClose} />
                 <h4 className={classes.contractorLoginModalTitle}>
                     ثبت نام متخصص صرفا از طریق اپلیکیشن انجام پذیر می‌باشد، جهت دریافت اپلیکیشن از راه های زیر اقدام کنید.
                 </h4>

@@ -8,8 +8,14 @@ const LoginBixSteps = (props) => {
     let [check, setCheck] = React.useState(true)
 
     const loginCheckboxChange = () => {
-        setCheck(!check)
-        props.loginCheckboxChangeHandler(!check)
+        
+        
+        return new Promise(resolve => {
+            setCheck(!check)
+        }).then(() => {
+            props.loginCheckboxChangeHandler(check)
+            // resolve()
+        })
     }
 
     return (

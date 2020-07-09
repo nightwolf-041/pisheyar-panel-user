@@ -41,7 +41,6 @@ button {
     height: 300px;
     background-color: #0b1033 !important;
     transition: 0.4s all ease;
-    margin-bottom: 1rem;
 }
 
 .registerSideBox {
@@ -305,30 +304,12 @@ button {
     z-index: -1;
 }
 
-
-/* .loginCheckBoxKeeper {
+.loginCheckBoxKeeper {
     position: absolute;
-    bottom: -5rem;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    bottom: -3rem;
 }
 
-.loginCheckBoxSpan {
-    text-align: right;
-    color: #333;
-} */
-
-.loginCcheckKeeper {
-    position: absolute;
-    bottom: -5rem;
-    display: flex;
-    width: 90%;
-    left: 0;
-    justify-content: flex-end;
-}
+.loginCheckBox {}
 
 .loginRegisterRegisterBox {
     transition: 0.5s all ease;
@@ -817,7 +798,7 @@ button {
     width: 27px;
     height: 27px;
     position: absolute;
-    top: 57%;
+    top: 60%;
     right: 10%;
 }
 
@@ -1014,7 +995,7 @@ button {
         width: 100px;
     }
     .registerboxButtonForContractor {
-        left: 57%;
+        left: 60%;
         margin-top: 5rem;
         width: 100px;
     }
@@ -1097,8 +1078,5 @@ button {
     }
     .loginboxDesc {
         font-size: 12px;
-    }
-    .registerboxButton {
-        left: 5%;
     }
 }

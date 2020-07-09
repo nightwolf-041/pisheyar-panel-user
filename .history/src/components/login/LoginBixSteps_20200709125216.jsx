@@ -9,9 +9,8 @@ const LoginBixSteps = (props) => {
 
     const loginCheckboxChange = () => {
         setCheck(!check)
-        props.loginCheckboxChangeHandler(!check)
+        console.log(check);
     }
-
     return (
         <div>
             <h4 className={classes.loginRegisterLoginHead}>
@@ -38,7 +37,7 @@ const LoginBixSteps = (props) => {
                     <input type="checkbox" id="test1"
                     // defaultChecked={true}
                     checked={check}
-                    onChange={() => loginCheckboxChange()} />
+                    onChange={() => props.loginCheckboxChange()} />
                     <label htmlFor="test1">
                         مرا بخاطر بسپار
                     </label>

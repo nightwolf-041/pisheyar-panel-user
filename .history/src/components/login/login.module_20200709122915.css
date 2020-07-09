@@ -817,7 +817,7 @@ button {
     width: 27px;
     height: 27px;
     position: absolute;
-    top: 57%;
+    top: 60%;
     right: 10%;
 }
 
@@ -1014,7 +1014,7 @@ button {
         width: 100px;
     }
     .registerboxButtonForContractor {
-        left: 57%;
+        left: 60%;
         margin-top: 5rem;
         width: 100px;
     }
@@ -1097,8 +1097,5 @@ button {
     }
     .loginboxDesc {
         font-size: 12px;
-    }
-    .registerboxButton {
-        left: 5%;
     }
 }

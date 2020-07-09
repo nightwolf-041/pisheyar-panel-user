@@ -1,6 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faMinus } from '@fortawesome/free-solid-svg-icons'
 // import { faBell } from '@fortawesome/free-regular-svg-icons'
 import classes from './ui.module.css'
 
@@ -19,10 +19,7 @@ const ContractorLoginModal = (props) => {
                 : null
             }
             <div className={!props.hidden ? classes.contractorLoginModal : classes.contractorLoginModalHidden}>
-                <FontAwesomeIcon
-                icon={faTimes}
-                onClick={props.hideHandler}
-                className={classes.contractorLoginModalClose} />
+                <FontAwesomeIcon icon={faMinus} className={classes.contractorLoginModalClose} />
                 <h4 className={classes.contractorLoginModalTitle}>
                     ثبت نام متخصص صرفا از طریق اپلیکیشن انجام پذیر می‌باشد، جهت دریافت اپلیکیشن از راه های زیر اقدام کنید.
                 </h4>

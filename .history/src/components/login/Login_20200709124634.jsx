@@ -44,7 +44,7 @@ class LoginPage extends Component {
             loginStep2CodeValid: true,
             loginStep2CodeValidMsg: '',
 
-            checked: true,
+            checked: false,
 
             registerNameValue: '',
             registerNameValid: true,
@@ -561,13 +561,19 @@ class LoginPage extends Component {
     }
 
     loginCheckboxChangeHandler = (val) => {
-        this.setState({checked: val})
-
+        let {checked} = this.state
+        // this.setState({checked: !this.state.checked}, () => {
+        //     console.log(checked);
+        // })
+        this.setState((prevState, props) => ({
+            checked: !prevState.checked
+        }), () => {
+            console.log(checked);
+        });
+        
     }
 
     loginStep2ClickHandler = () => {
-
-        console.log(this.state.checked)
 
         const registerStep2Status = {...this.state.registerStep2Status}
         registerStep2Status.loading = true
@@ -581,7 +587,7 @@ class LoginPage extends Component {
         axios.post('http://185.94.97.164/api/Account/Authenticate', {
             phoneNumber: this.state.loginPhoneNumberValue,
             smsToken: this.state.loginStep2CodeValue,
-            rememberMe: this.state.checked,
+            rememberMe: true,
             roleGuid: this.state.authenticateRoleGuid
         }).then(res => {
 
@@ -602,41 +608,11 @@ class LoginPage extends Component {
                 toast('ورود موفقیت آمیز بود', {type: toast.TYPE.SUCCESS})
 
                 const { cookies } = this.props;
-
-                let exp = new Date();
-                    exp.setDate(exp.getDate()+30);
-                    console.log(exp);
-                
-                if(this.state.checked){
-                    cookies.set('token', res.data.token, {
-                        path: '/',
-                        expires: exp
-                    });
-                }else{
-                    cookies.set('token', res.data.token, {path: '/'});
-                }
+                cookies.set('token', res.data.token, {path: '/'});
                 if(this.state.authenticateRoleGuid === '959b10a3-b8ed-4a9d-bdf3-17ec9b2ceb15') {
-                    if(this.state.checked){
-                        cookies.set('contractorOrClient', 'contractor', {
-                            path: '/',
-                            expires: exp
-                        });
-                    }else{
-                        cookies.set('contractorOrClient', 'contractor', {
-                            path: '/'
-                        });
-                    }
+                    cookies.set('contractorOrClient', 'contractor', {path: '/'});
                 }else{
-                    if(this.state.checked){
-                        cookies.set('contractorOrClient', 'client', {
-                            path: '/',
-                            expires: exp
-                        });
-                    }else{
-                        cookies.set('contractorOrClient', 'client', {
-                            path: '/'
-                        });
-                    }
+                    cookies.set('contractorOrClient', 'client', {path: '/'});
                 }
 
                 this.props.history.replace('/')
@@ -682,7 +658,7 @@ class LoginPage extends Component {
 
 
     render() {
-        // console.log(this.state.checked)
+        console.log(this.state.checked)
 
         return (
             <>

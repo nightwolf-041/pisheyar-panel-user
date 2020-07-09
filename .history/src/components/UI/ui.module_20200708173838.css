@@ -605,14 +605,7 @@ button:disabled {
     z-index: 0;
 }
 
-.contractorLoginModalClose {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    font-size: 1.4rem;
-    color: rgb(253, 43, 43);
-    cursor: pointer;
-}
+.contractorLoginModalClose {}
 
 .contractorLoginModalTitle {
     direction: rtl;
@@ -620,7 +613,7 @@ button:disabled {
     text-align: center;
     font-size: 1.1rem;
     color: #0b1033;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
     margin-bottom: 2rem;
 }
 

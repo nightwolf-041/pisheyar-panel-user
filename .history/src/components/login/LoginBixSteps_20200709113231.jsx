@@ -1,17 +1,9 @@
 import React from 'react'
 import ReactCodeInput from 'react-code-input'
-import './login.css'
 import classes from './login.module.css'
 
 
 const LoginBixSteps = (props) => {
-    let [check, setCheck] = React.useState(true)
-
-    const loginCheckboxChange = () => {
-        setCheck(!check)
-        props.loginCheckboxChangeHandler(!check)
-    }
-
     return (
         <div>
             <h4 className={classes.loginRegisterLoginHead}>
@@ -34,15 +26,20 @@ const LoginBixSteps = (props) => {
                     </span>
                 </div>
 
-                <p className={classes.loginCcheckKeeper}>
-                    <input type="checkbox" id="test1"
-                    // defaultChecked={true}
-                    checked={check}
-                    onChange={() => loginCheckboxChange()} />
-                    <label htmlFor="test1">
-                        مرا بخاطر بسپار
-                    </label>
-                </p>
+                {/* <div className={[classes.loginCheckBoxKeeper, "form-check"].join(' ')}>
+                    <label className="form-check-label" for="exampleCheck1">مرا به خاطر بسپار</label>
+                    <input type="checkbox"
+                    className={[classes.loginCheckBox, "form-check-input"].join(' ')} id="loginCheckBox"
+                    onChange={props.loginCheckboxChange} />
+                </div> */}
+                <div className={classes.loginCheckBoxKeeper}>
+                    <span className={classes.loginCheckBoxSpan}>
+                        مرا به خاطر بسپار
+                    </span>
+                    <input type="checkbox"
+                    className={[classes.loginCheckBox, "form-check-input"].join(' ')} id="loginCheckBox"
+                    onChange={props.loginCheckboxChange} />
+                </div>
                 
                 <div className={classes.registerStep2Buttonsbox}>
                     <button type="button"

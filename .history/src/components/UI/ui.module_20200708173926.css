@@ -607,11 +607,10 @@ button:disabled {
 
 .contractorLoginModalClose {
     position: absolute;
-    top: 1rem;
-    left: 1rem;
-    font-size: 1.4rem;
-    color: rgb(253, 43, 43);
-    cursor: pointer;
+    top: 0.5rem;
+    left: 0.5rem;
+    font-size: 1rem;
+    color: red;
 }
 
 .contractorLoginModalTitle {

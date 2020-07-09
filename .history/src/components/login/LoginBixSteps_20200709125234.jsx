@@ -9,9 +9,8 @@ const LoginBixSteps = (props) => {
 
     const loginCheckboxChange = () => {
         setCheck(!check)
-        props.loginCheckboxChangeHandler(!check)
+        console.log(check);
     }
-
     return (
         <div>
             <h4 className={classes.loginRegisterLoginHead}>

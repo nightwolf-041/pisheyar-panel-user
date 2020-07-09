@@ -6,12 +6,7 @@ import classes from './login.module.css'
 
 const LoginBixSteps = (props) => {
     let [check, setCheck] = React.useState(true)
-
-    const loginCheckboxChange = () => {
-        setCheck(!check)
-        props.loginCheckboxChangeHandler(!check)
-    }
-
+    console.log(check);
     return (
         <div>
             <h4 className={classes.loginRegisterLoginHead}>
@@ -38,7 +33,7 @@ const LoginBixSteps = (props) => {
                     <input type="checkbox" id="test1"
                     // defaultChecked={true}
                     checked={check}
-                    onChange={() => loginCheckboxChange()} />
+                    onChange={() => setCheck(!check)} />
                     <label htmlFor="test1">
                         مرا بخاطر بسپار
                     </label>

@@ -9,7 +9,7 @@ const LoginBixSteps = (props) => {
 
     const loginCheckboxChange = () => {
         setCheck(!check)
-        props.loginCheckboxChangeHandler(!check)
+        props.loginCheckboxChangeHandler(check)
     }
 
     return (

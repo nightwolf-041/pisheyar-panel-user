@@ -610,7 +610,7 @@ button:disabled {
     top: 1rem;
     left: 1rem;
     font-size: 1.4rem;
-    color: rgb(253, 43, 43);
+    color: red;
     cursor: pointer;
 }
 
