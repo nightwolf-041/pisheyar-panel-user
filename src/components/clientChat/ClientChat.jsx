@@ -18,15 +18,16 @@ import ClientAcceptModal from '../UI/ClientAcceptModal'
 import ContractorResume from '../contractorResume/ContractorResume'
 import 'react-accessible-accordion/dist/fancy-example.css'
 import ClientChatSidebar from './ClientChatSidebar'
+import OrderCreateModal from '../UI/OrderCreateModal'
+import ClientFinishJobModal from '../UI/ClientFinishJobModal'
 import './clientChat.css'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPaperclip, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
-// import amooLogo from '../../assets/images/johnny-sins.jpg'
 import maleAvatar from '../../assets/images/male.png'
 import femaleAvatar from '../../assets/images/female.png'
-import ClientFinishJobModal from '../UI/ClientFinishJobModal'
+
 
 class ClientChat extends Component {
   constructor (props) {
@@ -37,7 +38,7 @@ class ClientChat extends Component {
       token: cookies.get('token'),
 
       connection: new HubConnectionBuilder()
-        .withUrl('http://185.94.97.164/ChatHub', {
+        .withUrl('http://185.211.59.237/ChatHub', {
           accessTokenFactory: () => cookies.get('token')
         })
         .configureLogging(LogLevel.Debug)
@@ -48,6 +49,9 @@ class ClientChat extends Component {
       collapsibleOpen: false,
       collapsibleTriggerOpen: false,
       messageModalHidden: true,
+
+      orderCreateModalHidden: true,
+      resultCategoryGuid: null,
 
       acceptModalHidden: true,
       acceptModalAcceptLoading: false,
@@ -86,9 +90,16 @@ class ClientChat extends Component {
   componentDidMount () {
     const { cookies } = this.props
     const token = cookies.get('token')
+    console.log(token);
     if (token === undefined) {
       this.props.history.replace('/login')
     }
+
+    axios.get(`http://185.211.59.237/Account/GetCurrentClientUser`, {
+        headers: { Authorization: "Bearer " + token }
+    }).then(res => {
+        this.setState({clientInfo: res.data.user})
+    })
 
     const connection = this.state.connection
 
@@ -105,6 +116,7 @@ class ClientChat extends Component {
 
     connection.on('ReceiveMessage', (clientName, text, sentAt, from) => {
       const chatMessages = this.state.chatMessages
+      console.log(text);
 
       if(chatMessages !== null) {
         chatMessages.push({
@@ -129,11 +141,6 @@ class ClientChat extends Component {
   componentDidUpdate = () => {
     const { cookies } = this.props
     const token = cookies.get('token')
-    axios.get(`http://api.pisheplus.com/Account/GetCurrentClientUser`, {
-        headers: { Authorization: "Bearer " + token }
-    }).then(res => {
-        this.setState({clientInfo: res.data.user})
-    })
 
     const connection = this.state.connection
 
@@ -175,6 +182,18 @@ class ClientChat extends Component {
     })
   }
 
+  showOrderCreate = () => {
+    this.setState({
+        orderCreateModalHidden: false,
+    })
+  }
+
+  hideOrderCreateModal = () => {
+    this.setState({
+        orderCreateModalHidden: true,
+    })
+  }
+
   showPesronMessageModal = (reqGuid, message, contractor, price, isAllowed, gender) => {
     const connection = this.state.connection
     const { cookies } = this.props
@@ -191,7 +210,7 @@ class ClientChat extends Component {
       })
     })
 
-    axios.get(`http://api.pisheplus.com/OrderRequest/GetAllowingStatus?orderRequestGuid=${reqGuid}`,
+    axios.get(`http://185.211.59.237/OrderRequest/GetAllowingStatus?orderRequestGuid=${reqGuid}`,
     {
       headers: {
         Authorization: 'Bearer ' + token
@@ -205,12 +224,13 @@ class ClientChat extends Component {
       })
        if(res.data.allowingStatus === true) {
 
+        console.log(reqGuid);
             this.setState({
               clickedOrderContractorForHeader: contractor,
               // clickedOrderGuid: reqGuid
             })
 
-            axios.get('http://api.pisheplus.com/OrderRequest/GetFinishingStatus',
+            axios.get('http://185.211.59.237/OrderRequest/GetFinishingStatus',
             {
               orderRequestGuid: reqGuid
             },
@@ -226,7 +246,7 @@ class ClientChat extends Component {
 
             connection.invoke('JoinRoomAsync', reqGuid).catch(err => console.log(err))
 
-            axios.get(`http://api.pisheplus.com/OrderRequest/GetAcceptanceStatus?orderRequestGuid=${reqGuid}`, {
+            axios.get(`http://185.211.59.237/OrderRequest/GetAcceptanceStatus?orderRequestGuid=${reqGuid}`, {
               headers: { Authorization: 'Bearer ' + token }
             }).then(res => {
               console.log(res.data);
@@ -234,7 +254,7 @@ class ClientChat extends Component {
             })
 
             axios.get(
-            `http://api.pisheplus.com/OrderRequest/GetChatMessages?orderRequestGuid=${reqGuid}`,
+            `http://185.211.59.237/OrderRequest/GetChatMessages?orderRequestGuid=${reqGuid}`,
             {
                 headers: {
                 Authorization: 'Bearer ' + token
@@ -315,7 +335,7 @@ class ClientChat extends Component {
     this.setState({acceptModalAcceptLoading: true})
     console.log(this.state.clickedOrderGuid);
 
-    axios.post('http://api.pisheplus.com/OrderRequest/Accept', {
+    axios.post('http://185.211.59.237/OrderRequest/Accept', {
       orderRequestGuid: this.state.clickedOrderGuid
     }, {
       headers: { Authorization: "Bearer " + token }
@@ -351,7 +371,7 @@ class ClientChat extends Component {
 
     axios
       .post(
-        'http://api.pisheplus.com/OrderRequest/AllowContractorToChatByClient',
+        'http://185.211.59.237/OrderRequest/AllowContractorToChatByClient',
         {
           orderRequestGuid: guid
         },
@@ -362,13 +382,17 @@ class ClientChat extends Component {
         }
       )
       .then(res => {
+        // const { cookies } = this.props
+        // const token = cookies.get('token')
+        console.log(token, guid);
+
         this.setState({
           orderRequestAcceptState: res.data.state,
           messageModalHidden: true,
           clickedOrderContractorForHeader: contractor
         })
 
-        axios.get('http://api.pisheplus.com/OrderRequest/GetFinishingStatus',
+        axios.get('http://185.211.59.237/OrderRequest/GetFinishingStatus',
         {
           orderRequestGuid: guid
         },
@@ -385,7 +409,7 @@ class ClientChat extends Component {
 
         connection.invoke('JoinRoomAsync', guid).catch(err => console.log(err))
 
-        axios.get(`http://api.pisheplus.com/OrderRequest/GetAcceptanceStatus?orderRequestGuid=${guid}`, {
+        axios.get(`http://185.211.59.237/OrderRequest/GetAcceptanceStatus?orderRequestGuid=${guid}`, {
           headers: { Authorization: 'Bearer ' + token }
         }).then(res => {
           this.setState({acceptModalAccepted: res.data.acceptanceStatus})
@@ -393,7 +417,7 @@ class ClientChat extends Component {
         
         axios
           .get(
-            `http://api.pisheplus.com/OrderRequest/GetChatMessages?orderRequestGuid=${guid}`,
+            `http://185.211.59.237/OrderRequest/GetChatMessages?orderRequestGuid=${guid}`,
             {
               headers: {
                 Authorization: 'Bearer ' + token
@@ -653,7 +677,16 @@ class ClientChat extends Component {
   render () {
     return (
       <>
-        <Header showHamburgerMenu={this.showHamburgerMenu} />
+        <Header showHamburgerMenu={this.showHamburgerMenu}
+        client={true}
+        showOrderCreate={this.showOrderCreate}
+        />
+        
+        <OrderCreateModal
+          hidden={this.state.orderCreateModalHidden}
+          orderGuid={this.state.resultCategoryGuid}
+          hideOrderCreateModal={this.hideOrderCreateModal}
+        />
 
         <ClientChatMessageModal
           hidden={this.state.messageModalHidden}
@@ -694,6 +727,7 @@ class ClientChat extends Component {
 
           {this.renderByAcceptState()}
         </div>
+
       </>
     )
   }

@@ -44,7 +44,7 @@ class ClientChat extends Component {
       token: cookies.get('token'),
 
       connection: new HubConnectionBuilder()
-        .withUrl('http://185.94.97.164/ChatHub', {
+        .withUrl('http://185.211.59.237/ChatHub', {
           accessTokenFactory: () => cookies.get('token')
         })
         .configureLogging(LogLevel.Debug)
@@ -58,6 +58,7 @@ class ClientChat extends Component {
       acceptModalHidden: true,
       contractAcceptModalHidden: true,
       contractAcceptModalOrderGuid: null,
+      contractAcceptModalOrderTitle: null,
       showOrdersPage: false,
       orderRequestAcceptState: 0,
       orderRequestAcceptMsg: '',
@@ -83,11 +84,12 @@ class ClientChat extends Component {
   componentDidMount () {
     const { cookies } = this.props
     const token = cookies.get('token')
+    
     if (token === undefined) {
       this.props.history.replace('/login')
     }
 
-    axios.get(`http://api.pisheplus.com/Account/GetCurrentContractorUser`, {
+    axios.get(`http://185.211.59.237/Account/GetCurrentContractorUser`, {
       headers: { Authorization: "Bearer " + token }
     }).then(res => {
         let infoGender = {...res.data.user.gender}
@@ -111,7 +113,7 @@ class ClientChat extends Component {
     })
 
     connection.on('ReceiveMessage', (clientName, text, sentAt, from) => {
-      console.log('received message: ' + text)
+      console.log(text)
       const chatMessages = this.state.chatMessages
       console.log(sentAt, from)
 
@@ -201,9 +203,10 @@ class ClientChat extends Component {
 
     const { cookies } = this.props
 
-    axios.get(`http://api.pisheplus.com/Order/GetOrdersForContractor?categoryGuid=${guid}`, {
+    axios.get(`http://185.211.59.237/Order/GetOrdersForContractor?categoryGuid=${guid}`, {
         headers: { Authorization: "Bearer " + cookies.get('token') }
     }).then(res => {
+      console.log(res.data.orders);
         this.setState({
             showOrdersPage: true,
             orderCategoryGuid: guid,
@@ -221,10 +224,12 @@ class ClientChat extends Component {
     })
   }
 
-  showContractAcceptModal = (orderGuid) => {
+  showContractAcceptModal = (orderGuid, title) => {
     console.log(orderGuid);
+    console.log(title);
     this.setState({
       contractAcceptModalOrderGuid: orderGuid,
+      contractAcceptModalOrderTitle: title,
       contractAcceptModalHidden: false
     })
   }
@@ -265,7 +270,7 @@ class ClientChat extends Component {
 
       axios
         .get(
-          `http://api.pisheplus.com/OrderRequest/GetChatMessages?orderRequestGuid=${guid}`,
+          `http://185.211.59.237/OrderRequest/GetChatMessages?orderRequestGuid=${guid}`,
           {
             headers: {
               Authorization: 'Bearer ' + cookies.get('token')
@@ -369,7 +374,7 @@ class ClientChat extends Component {
                 data={this.state.orderPageData}
                 dataState={this.state.orderPageDataState}
                 hideOrdersPage={this.hideOrdersPage}
-                showContractAcceptModal={orderGuid => this.showContractAcceptModal(orderGuid)}
+                showContractAcceptModal={(orderGuid, title) => this.showContractAcceptModal(orderGuid, title)}
               />
             ) : (
               <>
@@ -501,6 +506,7 @@ class ClientChat extends Component {
         <ContractAcceptModal
           hidden={this.state.contractAcceptModalHidden}
           orderGuid={this.state.contractAcceptModalOrderGuid}
+          title={this.state.contractAcceptModalOrderTitle}
           hideContractAcceptModal={this.hideContractAcceptModal}
           removeOrdeerPageData={guid => this.removeOrdeerPageData(guid)}
         />

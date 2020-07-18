@@ -20,7 +20,7 @@ function ContractorChatSidebar(props) {
 
     const [cookies, setCookie, removeCookie] = useCookies();
 
-    const [userInfo, setUserInfo] = React.useState()
+    const [userInfo, setUserInfo] = React.useState(null)
     const [contractorGender, setContractorGender] = React.useState()
     const [contractorChats, setContractorChats] = React.useState([])
     const [contractorCategories, setContractorCategories] = React.useState([])
@@ -28,26 +28,40 @@ function ContractorChatSidebar(props) {
 
     React.useEffect(() => {
         
-        axios.get(`http://api.pisheplus.com/Account/GetCurrentContractorUser`, {
+        axios.get(`http://185.211.59.237/Account/GetCurrentContractorUser`, {
             headers: { Authorization: "Bearer " + cookies.token }
         }).then(res => {
-            setUserInfo(res.data.user)
-            let infoGender = {...res.data.user.gender}
-            setContractorGender(infoGender.name)
+            if(res.data.state === 1) {
+                console.log(res.data.user)
+                setUserInfo(res.data.user)
+                let infoGender = {...res.data.user.gender}
+                console.log(infoGender);
+                setContractorGender(infoGender.name)
+            }
+        }).catch(err => {
+
         })
 
-        axios.get('http://api.pisheplus.com/OrderRequest/GetChatRooms', {
+        axios.get('http://185.211.59.237/OrderRequest/GetChatRooms', {
             headers: { Authorization: "Bearer " + cookies.token }
         }).then(res => {
-            console.log(res.data.chatRooms);
-            setContractorChats(res.data.chatRooms)
+            if(res.data.state === 1) {
+                console.log(res.data.chatRooms);
+                setContractorChats(res.data.chatRooms)
+            }
+        }).catch(err => {
+    
         })
 
-        axios.get('http://api.pisheplus.com/Contractor/GetCategories', {
+        axios.get('http://185.211.59.237/Contractor/GetCategories', {
             headers: { Authorization: "Bearer " + cookies.token }
         }).then(res => {
-            console.log(res.data.contractorCategories)
-            setContractorCategories(res.data.contractorCategories)
+            if(res.data.state === 1) {
+                console.log(res.data.contractorCategories)
+                setContractorCategories(res.data.contractorCategories)
+            }
+        }).catch(err => {
+            
         })
 
     }, [])
@@ -78,7 +92,7 @@ function ContractorChatSidebar(props) {
                             </div>
                             <div className="chatbox-sidebar-header-person-desc">
                                 <p className="chatbox-sidebar-header-person-desc-top">
-                                    {userInfo ?
+                                    {userInfo !== null ?
                                         `${userInfo.firstName} ${userInfo.lastName}`
                                         :null
                                     }
@@ -128,7 +142,7 @@ function ContractorChatSidebar(props) {
                 <PerfectScrollbar>
                     {props.currentTab ?
                     <>
-                    {contractorChats !== null ? 
+                    {contractorChats !== null && contractorChats.length > 0 ? 
                     contractorChats.map((chat, index) => (
                         <div className="chatbox-sidebar-content-message-person-contract"
                         key={index}
@@ -136,7 +150,13 @@ function ContractorChatSidebar(props) {
                             <div className="chatbox-sidebar-content-message-person-line bg-success"></div>
                             <div className="chatbox-sidebar-content-message-person-main">
                                 <div className="chatbox-sidebar-content-message-person-profile">
-                                    <img src={props.maleAvatar}
+                                    <img
+                                    // src={props.maleAvatar}
+                                    src={
+                                        chat.gender === "مرد" ?
+                                        props.maleAvatar : 
+                                        props.femailAvatar
+                                    }
                                     alt="" className="chatbox-sidebar-content-message-person-profile-img" />
                                 </div>
                                 <div className="chatbox-sidebar-content-message-person-desc">
@@ -153,9 +173,14 @@ function ContractorChatSidebar(props) {
                                     </p>
                                 </div>
                             </div>
-                            <span className="chatbox-sidebar-content-message-person-badge">0</span>
+                            {/* <span className="chatbox-sidebar-content-message-person-badge">
+                                0
+                            </span> */}
+                            <span className="">
+                            </span>
                         </div>
-                    )):
+                    ))
+                    :
                     <div className="chatbox-sidebar-no-option">
                         پیامی یافت نشد
                     </div>
@@ -163,7 +188,7 @@ function ContractorChatSidebar(props) {
                     </>
                     :
                     <>
-                    {contractorCategories !== null ?
+                    {contractorCategories !== null && contractorCategories.length > 0 ?
                         contractorCategories.map((ctg, index) => (
                            <div className="chatbox-sidebar-content-order-person"
                            key={index}
@@ -175,7 +200,9 @@ function ContractorChatSidebar(props) {
                                    </div>
                                    <h4>{ctg.name}</h4>
                                </div>
-                               <span className="chatbox-sidebar-content-message-person-badge">0</span>
+                               <span className="chatbox-sidebar-content-message-person-badge">
+                                   0
+                                </span>
                            </div>
                            ))
                        :

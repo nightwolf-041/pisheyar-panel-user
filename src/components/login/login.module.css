@@ -6,6 +6,26 @@ button {
     cursor: pointer;
 }
 
+::-webkit-input-placeholder {
+    color: rgba(11, 16, 51, 0.5);
+}
+
+:-moz-placeholder {
+    color: rgba(11, 16, 51, 0.5);
+}
+
+::-moz-placeholder {
+    color: rgba(11, 16, 51, 0.5);
+}
+
+:-ms-input-placeholder {
+    color: rgba(11, 16, 51, 0.5);
+}
+
+::-ms-input-placeholder {
+    color: rgba(11, 16, 51, 0.5);
+}
+
 ::placeholder {
     color: rgba(11, 16, 51, 0.5);
 }
@@ -17,10 +37,24 @@ button {
     background-color: #1730491f;
     background-image: url('../../assets/images/WideBackgroundMenupage.svg');
     background-position: center;
-    background-size: cover;
+    -webkit-background-size: cover;
+       -moz-background-size: cover;
+            background-size: cover;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+       -moz-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     overflow: hidden;
 }
 
@@ -40,6 +74,9 @@ button {
     margin-left: auto;
     height: 300px;
     background-color: #0b1033 !important;
+    -webkit-transition: 0.4s all ease;
+    -o-transition: 0.4s all ease;
+    -moz-transition: 0.4s all ease;
     transition: 0.4s all ease;
     margin-bottom: 1rem;
 }
@@ -50,6 +87,9 @@ button {
     left: 0;
     width: 360px;
     opacity: 1;
+    -webkit-transition: 1s opacity ease;
+    -o-transition: 1s opacity ease;
+    -moz-transition: 1s opacity ease;
     transition: 1s opacity ease;
 }
 
@@ -59,6 +99,9 @@ button {
     left: 0;
     width: 360px;
     opacity: 0;
+    -webkit-transition: 0.6s opacity ease;
+    -o-transition: 0.6s opacity ease;
+    -moz-transition: 0.6s opacity ease;
     transition: 0.6s opacity ease;
 }
 
@@ -83,6 +126,9 @@ button {
     background: none;
     outline: none;
     border: 1px solid #ffd617;
+    -webkit-transition: 0.3s all ease;
+    -o-transition: 0.3s all ease;
+    -moz-transition: 0.3s all ease;
     transition: 0.3s all ease;
 }
 
@@ -96,6 +142,9 @@ button {
     background: none;
     outline: none;
     border: 1px solid #ffd617;
+    -webkit-transition: 0.3s all ease;
+    -o-transition: 0.3s all ease;
+    -moz-transition: 0.3s all ease;
     transition: 0.3s all ease;
 }
 
@@ -108,6 +157,9 @@ button {
     height: 100%;
     background-color: #ffd617;
     content: '';
+    -webkit-transition: 0.3s all ease;
+    -o-transition: 0.3s all ease;
+    -moz-transition: 0.3s all ease;
     transition: 0.3s all ease;
 }
 
@@ -129,6 +181,9 @@ button {
     right: 10%;
     width: 360px;
     opacity: 1;
+    -webkit-transition: 0.6s opacity ease;
+    -o-transition: 0.6s opacity ease;
+    -moz-transition: 0.6s opacity ease;
     transition: 0.6s opacity ease;
 }
 
@@ -138,6 +193,9 @@ button {
     right: 10%;
     width: 360px;
     opacity: 0;
+    -webkit-transition: 0.6s opacity ease;
+    -o-transition: 0.6s opacity ease;
+    -moz-transition: 0.6s opacity ease;
     transition: 0.6s opacity ease;
 }
 
@@ -162,6 +220,9 @@ button {
     background: none;
     outline: none;
     border: 1px solid #ffd617;
+    -webkit-transition: 0.3s all ease;
+    -o-transition: 0.3s all ease;
+    -moz-transition: 0.3s all ease;
     transition: 0.3s all ease;
 }
 
@@ -173,6 +234,9 @@ button {
     height: 100%;
     background-color: #ffd617;
     content: '';
+    -webkit-transition: 0.3s all ease;
+    -o-transition: 0.3s all ease;
+    -moz-transition: 0.3s all ease;
     transition: 0.3s all ease;
 }
 
@@ -187,6 +251,9 @@ button {
 }
 
 .loginRegisterLoginBox {
+    -webkit-transition: 0.5s all ease;
+    -o-transition: 0.5s all ease;
+    -moz-transition: 0.5s all ease;
     transition: 0.5s all ease;
     position: absolute;
     top: -15%;
@@ -194,8 +261,12 @@ button {
     width: 350px;
     height: 420px;
     background-color: #fff;
-    border-radius: 30px;
-    box-shadow: 1px 6px 12px #0b103357;
+    -webkit-border-radius: 30px;
+       -moz-border-radius: 30px;
+            border-radius: 30px;
+    -webkit-box-shadow: 1px 6px 12px #0b103357;
+       -moz-box-shadow: 1px 6px 12px #0b103357;
+            box-shadow: 1px 6px 12px #0b103357;
 }
 
 .loginRegisterLoginHead {
@@ -204,11 +275,25 @@ button {
     width: 100%;
     height: 5rem;
     padding-top: 1.5rem;
-    box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.2);
+    -webkit-box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.2);
+       -moz-box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.2);
+            box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.2);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    border-top-left-radius: 2rem;
-    border-top-right-radius: 2rem;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+       -moz-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-border-top-left-radius: 2rem;
+       -moz-border-radius-topleft: 2rem;
+            border-top-left-radius: 2rem;
+    -webkit-border-top-right-radius: 2rem;
+       -moz-border-radius-topright: 2rem;
+            border-top-right-radius: 2rem;
     color: #34bf49;
 }
 
@@ -217,11 +302,31 @@ button {
     top: 30%;
     width: 100%;
     height: 115px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+       -moz-box-orient: vertical;
+       -moz-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+       -moz-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-align-content: center;
+        -ms-flex-line-pack: center;
+            align-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .loginRegisterLoginPhoneNumber,
@@ -242,6 +347,26 @@ button {
     border-bottom: 1px solid #e57373;
 }
 
+.loginRegisterLoginPhoneNumber:focus::-webkit-input-placeholder, .loginRegisterLoginPhoneNumberInvalid:focus::-webkit-input-placeholder {
+    visibility: hidden;
+}
+
+.loginRegisterLoginPhoneNumber:focus:-moz-placeholder, .loginRegisterLoginPhoneNumberInvalid:focus:-moz-placeholder {
+    visibility: hidden;
+}
+
+.loginRegisterLoginPhoneNumber:focus::-moz-placeholder, .loginRegisterLoginPhoneNumberInvalid:focus::-moz-placeholder {
+    visibility: hidden;
+}
+
+.loginRegisterLoginPhoneNumber:focus:-ms-input-placeholder, .loginRegisterLoginPhoneNumberInvalid:focus:-ms-input-placeholder {
+    visibility: hidden;
+}
+
+.loginRegisterLoginPhoneNumber:focus::-ms-input-placeholder, .loginRegisterLoginPhoneNumberInvalid:focus::-ms-input-placeholder {
+    visibility: hidden;
+}
+
 .loginRegisterLoginPhoneNumber:focus::placeholder,
 .loginRegisterLoginPhoneNumberInvalid:focus::placeholder {
     visibility: hidden;
@@ -253,13 +378,23 @@ button {
     font-size: 13px;
     color: #f44336;
     width: 94%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: flex-end;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+       -moz-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
 }
 
 .loginRegisterLoginButton {
     position: absolute;
     top: 185%;
+    right: -webkit-calc(50% - 100px);
+    right: -moz-calc(50% - 100px);
     right: calc(50% - 100px);
     padding: 7px 15px;
     width: 200px;
@@ -272,6 +407,8 @@ button {
 .loginRegisterLoginButtonByer {
     position: absolute;
     top: 145%;
+    left: -webkit-calc(50% - 100px);
+    left: -moz-calc(50% - 100px);
     left: calc(50% - 100px);
     padding: 7px 15px;
     width: 200px;
@@ -290,6 +427,9 @@ button {
     height: 0;
     background-color: #34bf49;
     content: '';
+    -webkit-transition: 0.3s all ease;
+    -o-transition: 0.3s all ease;
+    -moz-transition: 0.3s all ease;
     transition: 0.3s all ease;
 }
 
@@ -324,36 +464,62 @@ button {
 .loginCcheckKeeper {
     position: absolute;
     bottom: -5rem;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
     display: flex;
     width: 90%;
     left: 0;
-    justify-content: flex-end;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+       -moz-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
 }
 
 .loginRegisterRegisterBox {
+    -webkit-transition: 0.5s all ease;
+    -o-transition: 0.5s all ease;
+    -moz-transition: 0.5s all ease;
     transition: 0.5s all ease;
     position: absolute;
     top: -30%;
+    right: -webkit-calc(100% - 400px);
+    right: -moz-calc(100% - 400px);
     right: calc(100% - 400px);
     width: 350px;
     height: 530px;
     background-color: #fff;
-    border-radius: 30px;
-    box-shadow: 1px 6px 12px #0b103357;
+    -webkit-border-radius: 30px;
+       -moz-border-radius: 30px;
+            border-radius: 30px;
+    -webkit-box-shadow: 1px 6px 12px #0b103357;
+       -moz-box-shadow: 1px 6px 12px #0b103357;
+            box-shadow: 1px 6px 12px #0b103357;
     margin-bottom: 1rem;
     margin-top: 1rem;
 }
 
 .loginRegisterRegisterBoxMinHeight {
+    -webkit-transition: 0.5s all ease;
+    -o-transition: 0.5s all ease;
+    -moz-transition: 0.5s all ease;
     transition: 0.5s all ease;
     position: absolute;
     top: -15%;
+    right: -webkit-calc(100% - 400px);
+    right: -moz-calc(100% - 400px);
     right: calc(100% - 400px);
     width: 350px;
     height: 420px;
     background-color: #fff;
-    border-radius: 30px;
-    box-shadow: 1px 6px 12px #0b103357;
+    -webkit-border-radius: 30px;
+       -moz-border-radius: 30px;
+            border-radius: 30px;
+    -webkit-box-shadow: 1px 6px 12px #0b103357;
+       -moz-box-shadow: 1px 6px 12px #0b103357;
+            box-shadow: 1px 6px 12px #0b103357;
     margin-bottom: 1rem;
     margin-top: 1rem;
 }
@@ -364,11 +530,25 @@ button {
     width: 100%;
     height: 5rem;
     padding-top: 2rem;
-    box-shadow: 0 1px 12px 6px rgba(3, 3, 5, 0.2);
+    -webkit-box-shadow: 0 1px 12px 6px rgba(3, 3, 5, 0.2);
+       -moz-box-shadow: 0 1px 12px 6px rgba(3, 3, 5, 0.2);
+            box-shadow: 0 1px 12px 6px rgba(3, 3, 5, 0.2);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    border-top-left-radius: 2rem;
-    border-top-right-radius: 2rem;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+       -moz-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-border-top-left-radius: 2rem;
+       -moz-border-radius-topleft: 2rem;
+            border-top-left-radius: 2rem;
+    -webkit-border-top-right-radius: 2rem;
+       -moz-border-radius-topright: 2rem;
+            border-top-right-radius: 2rem;
     color: #34bf49;
 }
 
@@ -377,11 +557,31 @@ button {
     top: 25%;
     width: 100%;
     height: 280px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+       -moz-box-orient: vertical;
+       -moz-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+       -moz-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-align-content: center;
+        -ms-flex-line-pack: center;
+            align-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .loginRegisterRegisterName,
@@ -403,6 +603,26 @@ button {
     border-bottom: 1px solid #e57373;
 }
 
+.loginRegisterRegisterName:focus::-webkit-input-placeholder, .loginRegisterRegisterNameInvalid:focus::-webkit-input-placeholder {
+    visibility: hidden;
+}
+
+.loginRegisterRegisterName:focus:-moz-placeholder, .loginRegisterRegisterNameInvalid:focus:-moz-placeholder {
+    visibility: hidden;
+}
+
+.loginRegisterRegisterName:focus::-moz-placeholder, .loginRegisterRegisterNameInvalid:focus::-moz-placeholder {
+    visibility: hidden;
+}
+
+.loginRegisterRegisterName:focus:-ms-input-placeholder, .loginRegisterRegisterNameInvalid:focus:-ms-input-placeholder {
+    visibility: hidden;
+}
+
+.loginRegisterRegisterName:focus::-ms-input-placeholder, .loginRegisterRegisterNameInvalid:focus::-ms-input-placeholder {
+    visibility: hidden;
+}
+
 .loginRegisterRegisterName:focus::placeholder,
 .loginRegisterRegisterNameInvalid:focus::placeholder {
     visibility: hidden;
@@ -414,8 +634,16 @@ button {
     font-size: 12px;
     color: #f44336;
     width: 94%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: flex-end;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+       -moz-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
 }
 
 .loginRegisterRegisterFamily,
@@ -437,6 +665,26 @@ button {
     border-bottom: 1px solid #e57373;
 }
 
+.loginRegisterRegisterFamily:focus::-webkit-input-placeholder, .loginRegisterRegisterFamilyInvalid:focus::-webkit-input-placeholder {
+    visibility: hidden;
+}
+
+.loginRegisterRegisterFamily:focus:-moz-placeholder, .loginRegisterRegisterFamilyInvalid:focus:-moz-placeholder {
+    visibility: hidden;
+}
+
+.loginRegisterRegisterFamily:focus::-moz-placeholder, .loginRegisterRegisterFamilyInvalid:focus::-moz-placeholder {
+    visibility: hidden;
+}
+
+.loginRegisterRegisterFamily:focus:-ms-input-placeholder, .loginRegisterRegisterFamilyInvalid:focus:-ms-input-placeholder {
+    visibility: hidden;
+}
+
+.loginRegisterRegisterFamily:focus::-ms-input-placeholder, .loginRegisterRegisterFamilyInvalid:focus::-ms-input-placeholder {
+    visibility: hidden;
+}
+
 .loginRegisterRegisterFamily:focus::placeholder,
 .loginRegisterRegisterFamilyInvalid:focus::placeholder {
     visibility: hidden;
@@ -448,8 +696,16 @@ button {
     font-size: 12px;
     color: #f44336;
     width: 94%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: flex-end;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+       -moz-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
 }
 
 .registerCityErrorSpan {
@@ -458,25 +714,63 @@ button {
     font-size: 12px;
     color: #f44336;
     width: 94%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: flex-end;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+       -moz-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
 }
 
 .loginRegisterRegisterSelectsbox {
     width: 85%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: row-reverse;
+       -moz-box-orient: horizontal;
+       -moz-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+       -moz-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     margin-bottom: 10px;
 }
 
 .loginRegisterRegisterSelectContry,
 .loginRegisterRegisterSelectCity {
     height: 2.1rem;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+       -moz-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     direction: rtl;
     width: 45%;
     background: none;
@@ -491,9 +785,21 @@ button {
 .loginRegisterRegisterSelectContryInvalid,
 .loginRegisterRegisterSelectCityInvalid {
     height: 2.1rem;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+       -moz-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     direction: rtl;
     width: 45%;
     background: none;
@@ -507,9 +813,21 @@ button {
 
 .loginRegisterRegisterSelectGender {
     height: 2.1rem;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+       -moz-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     direction: rtl;
     width: 85%;
     background: none;
@@ -541,6 +859,26 @@ button {
     border-bottom: 1px solid #e57373;
 }
 
+.loginRegisterRegisterPhoneNumber:focus::-webkit-input-placeholder, .loginRegisterRegisterPhoneNumberInvalid:focus::-webkit-input-placeholder {
+    visibility: hidden;
+}
+
+.loginRegisterRegisterPhoneNumber:focus:-moz-placeholder, .loginRegisterRegisterPhoneNumberInvalid:focus:-moz-placeholder {
+    visibility: hidden;
+}
+
+.loginRegisterRegisterPhoneNumber:focus::-moz-placeholder, .loginRegisterRegisterPhoneNumberInvalid:focus::-moz-placeholder {
+    visibility: hidden;
+}
+
+.loginRegisterRegisterPhoneNumber:focus:-ms-input-placeholder, .loginRegisterRegisterPhoneNumberInvalid:focus:-ms-input-placeholder {
+    visibility: hidden;
+}
+
+.loginRegisterRegisterPhoneNumber:focus::-ms-input-placeholder, .loginRegisterRegisterPhoneNumberInvalid:focus::-ms-input-placeholder {
+    visibility: hidden;
+}
+
 .loginRegisterRegisterPhoneNumber:focus::placeholder,
 .loginRegisterRegisterPhoneNumberInvalid:focus::placeholder {
     visibility: hidden;
@@ -552,8 +890,16 @@ button {
     font-size: 12px;
     color: #f44336;
     width: 94%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: flex-end;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+       -moz-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
 }
 
 .registerStep2CodeInput,
@@ -574,6 +920,26 @@ button {
     border-bottom: 1px solid #e57373;
 }
 
+.registerStep2CodeInput:focus::-webkit-input-placeholder, .registerStep2CodeInputInvalid:focus::-webkit-input-placeholder {
+    visibility: hidden;
+}
+
+.registerStep2CodeInput:focus:-moz-placeholder, .registerStep2CodeInputInvalid:focus:-moz-placeholder {
+    visibility: hidden;
+}
+
+.registerStep2CodeInput:focus::-moz-placeholder, .registerStep2CodeInputInvalid:focus::-moz-placeholder {
+    visibility: hidden;
+}
+
+.registerStep2CodeInput:focus:-ms-input-placeholder, .registerStep2CodeInputInvalid:focus:-ms-input-placeholder {
+    visibility: hidden;
+}
+
+.registerStep2CodeInput:focus::-ms-input-placeholder, .registerStep2CodeInputInvalid:focus::-ms-input-placeholder {
+    visibility: hidden;
+}
+
 .registerStep2CodeInput:focus::placeholder,
 .registerStep2CodeInputInvalid:focus::placeholder {
     visibility: hidden;
@@ -585,13 +951,23 @@ button {
     font-size: 14px;
     color: #f44336;
     width: 94%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: flex-end;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+       -moz-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
 }
 
 .loginRegisterRegisterButton {
     position: absolute;
     top: 115%;
+    right: -webkit-calc(50% - 100px);
+    right: -moz-calc(50% - 100px);
     right: calc(50% - 100px);
     padding: 7px 15px;
     width: 200px;
@@ -609,6 +985,9 @@ button {
     height: 0;
     background-color: #34bf49;
     content: '';
+    -webkit-transition: 0.3s all ease;
+    -o-transition: 0.3s all ease;
+    -moz-transition: 0.3s all ease;
     transition: 0.3s all ease;
 }
 
@@ -630,10 +1009,26 @@ button {
     top: 170%;
     right: 0;
     width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-around;
-    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: row-reverse;
+       -moz-box-orient: horizontal;
+       -moz-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .registerStep2Button {
@@ -654,6 +1049,9 @@ button {
     height: 0;
     background-color: #34bf49;
     content: '';
+    -webkit-transition: 0.3s all ease;
+    -o-transition: 0.3s all ease;
+    -moz-transition: 0.3s all ease;
     transition: 0.3s all ease;
 }
 
@@ -685,6 +1083,9 @@ button {
     height: 0;
     background-color: #f44336;
     content: '';
+    -webkit-transition: 0.3s all ease;
+    -o-transition: 0.3s all ease;
+    -moz-transition: 0.3s all ease;
     transition: 0.3s all ease;
 }
 
@@ -719,6 +1120,9 @@ button {
     height: 0;
     background-color: #34bf49;
     content: '';
+    -webkit-transition: 0.3s all ease;
+    -o-transition: 0.3s all ease;
+    -moz-transition: 0.3s all ease;
     transition: 0.3s all ease;
 }
 
@@ -750,6 +1154,9 @@ button {
     height: 0;
     background-color: #f44336;
     content: '';
+    -webkit-transition: 0.3s all ease;
+    -o-transition: 0.3s all ease;
+    -moz-transition: 0.3s all ease;
     transition: 0.3s all ease;
 }
 
@@ -920,11 +1327,15 @@ button {
 
 @media screen and (max-width: 780px) {
     .loginRegisterRegisterBox {
+        right: -webkit-calc(100% - 350px);
+        right: -moz-calc(100% - 350px);
         right: calc(100% - 350px);
         width: 300px;
         height: 530px;
     }
     .loginRegisterRegisterBoxMinHeight {
+        right: -webkit-calc(100% - 350px);
+        right: -moz-calc(100% - 350px);
         right: calc(100% - 350px);
         width: 300px;
         height: 420px;
@@ -971,21 +1382,51 @@ button {
         width: 100%;
         top: 10%;
         left: 0;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
-        align-items: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+           -moz-box-orient: vertical;
+           -moz-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+           -moz-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
         right: 0;
     }
     .loginSideBoxHidden {
         width: 100%;
         top: 10%;
         left: 0;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
-        align-items: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+           -moz-box-orient: vertical;
+           -moz-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+           -moz-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
         right: 0;
     }
     .loginboxButton {
+        left: -webkit-calc(50% - 50px);
+        left: -moz-calc(50% - 50px);
         left: calc(50% - 50px);
         width: 100px;
         margin-top: 5rem;
@@ -994,18 +1435,46 @@ button {
         width: 100%;
         top: 67%;
         left: 0;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
-        align-items: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+           -moz-box-orient: vertical;
+           -moz-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+           -moz-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
         right: 0;
     }
     .registerSideBoxHidden {
         width: 100%;
         top: 67%;
         left: 0;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
-        align-items: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+           -moz-box-orient: vertical;
+           -moz-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+           -moz-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
         right: 0;
     }
     .registerboxButton {

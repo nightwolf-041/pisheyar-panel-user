@@ -20,6 +20,10 @@ const OrdersPage = (props) => {
                             <div className={classes.orderPageItemRight}>
                                 <h4 className={classes.orderPageItemTitle}>{data.category}</h4>
                                 <div className={classes.orderPageItemDescBox}>
+                                    <h4>عنوان: </h4>
+                                    <p>{data.title}</p>
+                                </div>
+                                <div className={classes.orderPageItemDescBox}>
                                     <h4>توضیح: </h4>
                                     <p>{data.description}</p>
                                 </div>
@@ -34,7 +38,7 @@ const OrdersPage = (props) => {
                                     className={classes.orderPageItemLeftIgnoreIcon} />
                                 </button> */}
                                 <button className={classes.orderPageItemLeftAcceptButton}
-                                    onClick={() => props.showContractAcceptModal(data.orderGuid)}>
+                                    onClick={() => props.showContractAcceptModal(data.orderGuid, data.title)}>
                                     <FontAwesomeIcon icon={faCheck}
                                     className={classes.orderPageItemLeftAcceptIcon} />
                                 </button>

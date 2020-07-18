@@ -50,7 +50,7 @@ function ClientFinishJobModal(props) {
             setFinishPriceValid(true)
             setLoading(true)
 
-            axios.post('http://api.pisheplus.com/Order/Finish', {
+            axios.post('http://185.211.59.237/Order/Finish', {
                 orderRequestGuid: props.orderReqGuid,
                 comment: finishMessage,
                 rate: rating,
@@ -79,6 +79,9 @@ function ClientFinishJobModal(props) {
                 if(res.data.state === 6) {
                     toast(res.data.message, {type: toast.TYPE.ERROR})
                 }
+              }).catch(err => {
+                setLoading(false)
+                toast('خطای شبکه', {type: toast.TYPE.ERROR})
               })
         }
     }

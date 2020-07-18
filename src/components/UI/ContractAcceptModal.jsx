@@ -46,7 +46,7 @@ const ContractAcceptModal = (props) => {
             setContractorOfferedPriceValid(true)
             setLoading(true)
 
-            axios.post('http://api.pisheplus.com/OrderRequest/Create', {
+            axios.post('http://185.211.59.237/OrderRequest/Create', {
                 orderGuid: props.orderGuid,
                 message: contractorMessage,
                 offeredPrice: contractorOfferedPrice
@@ -58,15 +58,12 @@ const ContractAcceptModal = (props) => {
                     props.removeOrdeerPageData(props.orderGuid)
                     toast('عملیات موفقیت آمیز بود', {type: toast.TYPE.SUCCESS})
                 }
-                if(res.data.state === 2) {
-                    toast('کاربر مورد نظر یافت نشد', {type: toast.TYPE.ERROR})
+                if(res.data.state === 2 || res.data.state === 3 || res.data.state === 4) {
+                    toast(res.data.message, {type: toast.TYPE.ERROR})
                 }
-                if(res.data.state === 3) {
-                    toast('سرویس دهنده مورد نظر یافت نشد', {type: toast.TYPE.ERROR})
-                }
-                if(res.data.state === 4) {
-                    toast('سفارش مورد نظر یافت نشد', {type: toast.TYPE.ERROR})
-                }
+            }).catch(err => {
+                setLoading(false)
+                toast('خطای شبکه', {type: toast.TYPE.ERROR})
             })
         }
     }
@@ -79,16 +76,15 @@ const ContractAcceptModal = (props) => {
         setContractorOfferedPrice(e.target.value)
     }
 
-    
-
-
     return (
         <>
             <div className={!props.hidden ? classes.contractAcceptModal : classes.contractAcceptModalHidden}>
                 <FontAwesomeIcon icon={faTimes}
                 onClick={props.hideContractAcceptModal}
                 className={classes.contractAcceptModalCloseIcon} />
-                <h4 className={classes.contractAcceptModalTitle}>جوشکاری صنعتی</h4>
+                <h4 className={classes.contractAcceptModalTitle}>
+                    {props.title}
+                </h4>
                 <textarea onChange={e => contractorMsgChangeHandler(e)}
                 value={contractorMessage}
                 placeholder="گفتگوی متخصص"

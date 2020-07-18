@@ -1,0 +1,57 @@
+.userSettingDropdown {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    width: 8rem;
+    height: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+}
+
+.userSettingDropdownToggle {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    width: 8rem;
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem 0;
+}
+
+.userSettingSettingBtn {
+    font-family: Yekan;
+    width: 100%;
+    height: 3rem;
+    padding: 1rem 0;
+    outline: none;
+    border: none;
+    background-color: none;
+    color: #0b1033;
+    font-size: 0.9rem;
+}
+
+.userSettingSettingBtn:hover {
+    background-color: #0b1033;
+    color: #ffd617;
+}
+
+.userSettingLogoutBtn {
+    font-family: Yekan;
+    width: 100%;
+    height: 3rem;
+    padding: 1rem 0;
+    outline: none;
+    border: none;
+    background-color: none;
+    color: #0b1033;
+    font-size: 0.9rem;
+}
+
+.userSettingLogoutBtn:hover {
+    background-color: #0b1033;
+    color: #ffd617;
+}

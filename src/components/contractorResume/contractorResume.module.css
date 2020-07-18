@@ -3,21 +3,40 @@
     top: 5rem;
     left: 0;
     width: 100%;
+    height: -webkit-calc(100vh - 10rem);
+    height: -moz-calc(100vh - 10rem);
     height: calc(100vh - 10rem);
     background-color: #F2F2F2;
 }
 
 .resumeBackButtonBox {
+    position: -webkit-sticky;
     position: sticky;
     top: 1rem;
+    left: -webkit-calc(100% - 3rem);
+    left: -moz-calc(100% - 3rem);
     left: calc(100% - 3rem);
     width: 2rem;
     height: 2rem;
     background-color: #0b1033;
-    border-radius: 100%;
+    -webkit-border-radius: 100%;
+       -moz-border-radius: 100%;
+            border-radius: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+       -moz-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     z-index: 2;
     cursor: pointer;
 }
@@ -30,19 +49,45 @@
 .resumeContent {
     width: 100%;
     height: auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+       -moz-box-orient: vertical;
+       -moz-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     padding: 2rem 0;
 }
 
 .resumeContentImageBox {
     width: 14rem;
     height: 14rem;
-    border-radius: 100%;
+    -webkit-border-radius: 100%;
+       -moz-border-radius: 100%;
+            border-radius: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-content: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+       -moz-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-align-content: center;
+        -ms-flex-line-pack: center;
+            align-content: center;
     margin-bottom: 1.5rem;
     overflow: hidden;
 }
@@ -66,9 +111,21 @@
 }
 
 .resumeContentRateBox {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+       -moz-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     align-items: center;
     margin-bottom: 1.5rem;
 }
@@ -95,7 +152,9 @@
     width: 90%;
     height: auto;
     border: 2px solid #0b1033;
-    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+       -moz-border-radius: 0.5rem;
+            border-radius: 0.5rem;
     margin: 0 auto;
     padding: 1.5rem 1rem 1rem 1rem;
 }
@@ -106,9 +165,21 @@
     right: 2rem;
     width: 6rem;
     height: 3rem;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+       -moz-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     font-size: 1.2rem;
     background-color: #f2f2f2;
     border: none;
