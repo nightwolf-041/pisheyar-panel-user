@@ -1,0 +1,38 @@
+.sidebarControlers {
+    width: 100%;
+    height: 2.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5rem;
+}
+
+.sidebarControlersCloseIconBox {
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffd617;
+    border-radius: 50%;
+    transition: all 0.2s ease-in;
+    cursor: pointer;
+}
+
+.sidebarControlersCloseIconBox:hover {
+    transform: scale(1.1);
+    transition: all 0.2s ease-in;
+}
+
+.sidebarControlersCloseIcon {
+    font-size: 0.95rem;
+    color: #0b1033;
+}
+
+.sidebarControlersRight {
+    width: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}

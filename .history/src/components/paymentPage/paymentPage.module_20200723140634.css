@@ -1,0 +1,16 @@
+.paymentPageMain {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.paymentPageResultSuccess {
+    width: 100%;
+    text-align: center;
+    font-size: 2.5rem;
+    color: rgb(31, 189, 65);
+}
+
+.paymentPageResultFail {}

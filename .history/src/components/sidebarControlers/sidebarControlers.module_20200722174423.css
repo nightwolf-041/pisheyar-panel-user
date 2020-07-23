@@ -1,0 +1,72 @@
+.sidebarControlers {
+    width: 100%;
+    height: 2.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    /* background-color: #f2f2f2; */
+    margin-top: 0.2rem;
+}
+
+.sidebarControlersCloseIconBox {
+    width: auto;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0b1033;
+    border-radius: 1rem;
+    transition: all 0.2s ease-in;
+    cursor: pointer;
+    padding: 0 0.8rem;
+}
+
+.sidebarControlersCloseIconBox:hover {
+    transform: scale(1.1);
+    transition: all 0.2s ease-in;
+}
+
+.sidebarControlersCloseIconBox p {
+    font-size: 0.8rem;
+    color: #ffd617;
+    margin: 0;
+    margin-right: 0.3rem;
+}
+
+.sidebarControlersCloseIcon {
+    font-size: 1.1rem;
+    color: #ffd617;
+}
+
+.sidebarControlersRight {
+    width: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.sidebarControlersRightIconBox {
+    width: auto;
+    height: 1.7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0b1033;
+    border-radius: 50%;
+    transition: all 0.2s ease-in;
+    cursor: pointer;
+    margin-left: 0.3rem;
+}
+
+.sidebarControlersRightIconBox:hover {
+    transform: scale(1.1);
+    transition: all 0.2s ease-in;
+}
+
+.sidebarControlersRightIconBox p {
+    font-size: 0.8rem;
+    color: #0b1033;
+    margin-left: 0.2rem;
+}
