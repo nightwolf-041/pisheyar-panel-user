@@ -26,12 +26,9 @@ function App() {
     return error;
   });
 
-  // const routes = [
-  //   {name: Route, path: '/', exact: true, component: PaymentPage},
-  //   {name: PrivateRoute, path: '/', exact: true, component: PaymentPage},
-  //   {name: PrivateRouteLogin, path: '/', exact: true, component: PaymentPage},
-  //   {name: Route, exact: true, component: PaymentPage}
-  // ]
+  const routes = [
+    {path: '/', exact, component: PaymentPage}
+  ]
 
   return (
     <BrowserRouter>

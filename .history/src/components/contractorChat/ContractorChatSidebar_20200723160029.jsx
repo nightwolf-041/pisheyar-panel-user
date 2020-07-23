@@ -250,8 +250,8 @@ function ContractorChatSidebar(props) {
                             خدمتی یافت نشد
                        </div>
                        : 
-                       <div className="contractorSidebar-loader-keeper-order">
-                           <div className="contractorChat-loader-order"></div>
+                       <div className="contractorSidebar-loader-keeper">
+                           <div className="contractorChat-loader"></div>
                        </div>
                     }
                        </>

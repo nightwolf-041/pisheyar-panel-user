@@ -26,24 +26,22 @@ function App() {
     return error;
   });
 
-  // const routes = [
-  //   {name: Route, path: '/', exact: true, component: PaymentPage},
-  //   {name: PrivateRoute, path: '/', exact: true, component: PaymentPage},
-  //   {name: PrivateRouteLogin, path: '/', exact: true, component: PaymentPage},
-  //   {name: Route, exact: true, component: PaymentPage}
-  // ]
 
   return (
     <BrowserRouter>
-      <Suspense fallback={<div className="lds-dual-ring"></div>}>
-          <Switch>
-              <Route path="/payment" exact component={PaymentPage} />
-              <PrivateRoute path="/" exact
-              component={ClientChat} component2={ContractorChat} />
-              <PrivateRouteLogin path="/login" exact component={LoginPage} />
-              <Route component={NotFound} />
-          </Switch>
-      </Suspense>
+    <Suspense fallback={<div className="lds-dual-ring"></div>}>
+        <Switch>
+            <Route path="/payment" exact render={() => (
+              
+                <PaymentPage />
+              </Suspense>
+            )} />
+            <PrivateRoute path="/" exact
+            component={ClientChat} component2={ContractorChat} />
+            <PrivateRouteLogin path="/login" exact component={LoginPage} />
+            <Route component={NotFound} />
+        </Switch>
+        </Suspense>
     </BrowserRouter>
   );
 }

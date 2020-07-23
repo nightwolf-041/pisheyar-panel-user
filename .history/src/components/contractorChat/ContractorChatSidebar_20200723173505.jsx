@@ -228,6 +228,10 @@ function ContractorChatSidebar(props) {
                     :
                     <>
                     {!ontractorCategoriesLoading ?
+                    <>
+                    <div className="contractorSidebar-loader-keeper-order">
+                    <div className="contractorChat-loader-order"></div>
+                </div>
                     contractorCategories !== null && contractorCategories.length > 0 ?
                         contractorCategories.map((ctg, index) => (
                            <div className="chatbox-sidebar-content-order-person"
@@ -249,6 +253,7 @@ function ContractorChatSidebar(props) {
                        <div className="chatbox-sidebar-no-option">
                             خدمتی یافت نشد
                        </div>
+                       </>
                        : 
                        <div className="contractorSidebar-loader-keeper-order">
                            <div className="contractorChat-loader-order"></div>

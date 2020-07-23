@@ -1780,8 +1780,8 @@ textarea {
 /* loader */
 
 .contractorSidebar-loader-keeper-order {
-    width: 100%;
-    height: 100%;
+    /* width: 100%;
+    height: 10rem;
     display: -webkit-box !important;
     display: -webkit-flex !important;
     display: -moz-box !important;
@@ -1791,7 +1791,7 @@ textarea {
     -webkit-align-items: center !important;
     -moz-box-align: center !important;
     -ms-flex-align: center !important;
-    align-items: center !important;
+    align-items: center !important; */
 }
 
 .contractorChat-loader-order {

@@ -7,12 +7,9 @@ function PaymentPage(props) {
     let [paymentState, setPaymentState] = useState()
 
     useEffect(() => {
-        console.log(props.location.search);
-        if(props.location.search !== undefined && props.location.search !== null) {
-            console.log(paymentState)
-            console.log(props.location.query)
-            console.log(props.match.params)
-            setPaymentState(props.location.search)
+        console.log(props.location);
+        if(props.location.query !== undefined && props.location.query !== null) {
+            setPaymentState(props.location.query.result)
         }else{
             // props.history.replace('/')
         }
@@ -29,10 +26,12 @@ function PaymentPage(props) {
         props.history.replace('/')
     }
 
+    console.log(paymentState);
+
     return (
         <div className={classes.paymentPageMain}>
             {
-                paymentState === "?result=successful" ?
+                paymentState === 'successful' ?
                 <h2 className={classes.paymentPageResultSuccess}>
                     پرداخت موفق بود
                 </h2>

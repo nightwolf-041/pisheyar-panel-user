@@ -1794,6 +1794,21 @@ textarea {
     align-items: center !important;
 }
 
+
+/* .contractorSubOrders-loader-keeper {
+    width: 100%;
+    display: -webkit-box !important;
+    display: -webkit-flex !important;
+    display: -moz-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-align: center !important;
+    -webkit-align-items: center !important;
+    -moz-box-align: center !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+} */
+
 .contractorChat-loader-order {
     position: relative;
     display: -webkit-box;

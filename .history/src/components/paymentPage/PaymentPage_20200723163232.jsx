@@ -32,7 +32,7 @@ function PaymentPage(props) {
     return (
         <div className={classes.paymentPageMain}>
             {
-                paymentState === "?result=successful" ?
+                paymentState === 'successful' ?
                 <h2 className={classes.paymentPageResultSuccess}>
                     پرداخت موفق بود
                 </h2>

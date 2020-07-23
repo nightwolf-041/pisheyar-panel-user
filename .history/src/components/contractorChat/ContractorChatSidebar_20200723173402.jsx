@@ -228,27 +228,30 @@ function ContractorChatSidebar(props) {
                     :
                     <>
                     {!ontractorCategoriesLoading ?
-                    contractorCategories !== null && contractorCategories.length > 0 ?
-                        contractorCategories.map((ctg, index) => (
-                           <div className="chatbox-sidebar-content-order-person"
-                           key={index}
-                           onClick={() => props.showOrdersPage(ctg.categoryGuid)}>
-                               <div className="chatbox-sidebar-content-message-person-line bg-success"></div>
-                               <div className="chatbox-sidebar-content-order-person-main">
-                                   <div className="chatbox-sidebar-content-order-person-profile">
-                                       <img src={props.ctgAvatar} alt="" className="chatbox-sidebar-content-order-person-profile-img" />
-                                   </div>
-                                   <h4>{ctg.name}</h4>
-                               </div>
-                               <span className="chatbox-sidebar-content-message-person-badge">
-                                   0
-                                </span>
-                           </div>
-                           ))
-                       :
-                       <div className="chatbox-sidebar-no-option">
-                            خدمتی یافت نشد
-                       </div>
+                    <div className="contractorSidebar-loader-keeper-order">
+                    <div className="contractorChat-loader-order"></div>
+                </div>
+                    // contractorCategories !== null && contractorCategories.length > 0 ?
+                    //     contractorCategories.map((ctg, index) => (
+                    //        <div className="chatbox-sidebar-content-order-person"
+                    //        key={index}
+                    //        onClick={() => props.showOrdersPage(ctg.categoryGuid)}>
+                    //            <div className="chatbox-sidebar-content-message-person-line bg-success"></div>
+                    //            <div className="chatbox-sidebar-content-order-person-main">
+                    //                <div className="chatbox-sidebar-content-order-person-profile">
+                    //                    <img src={props.ctgAvatar} alt="" className="chatbox-sidebar-content-order-person-profile-img" />
+                    //                </div>
+                    //                <h4>{ctg.name}</h4>
+                    //            </div>
+                    //            <span className="chatbox-sidebar-content-message-person-badge">
+                    //                0
+                    //             </span>
+                    //        </div>
+                    //        ))
+                    //    :
+                    //    <div className="chatbox-sidebar-no-option">
+                    //         خدمتی یافت نشد
+                    //    </div>
                        : 
                        <div className="contractorSidebar-loader-keeper-order">
                            <div className="contractorChat-loader-order"></div>
