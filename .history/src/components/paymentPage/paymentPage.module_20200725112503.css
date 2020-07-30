@@ -1,0 +1,71 @@
+.paymentPageMain {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../../assets/images/WideBackgroundMenupage.svg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.paymentSuccessBox {
+    width: 17rem;
+    height: 22rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 1rem 0.5rem #0b10333b;
+    padding: 1rem;
+}
+
+.paymentSuccessImage {
+    width: 70%;
+}
+
+.paymentPageResultSuccess {
+    width: 100%;
+    text-align: center;
+    font-size: 2.5rem;
+    color: rgb(31, 189, 65);
+    /* padding: 0 0.5rem; */
+}
+
+.paymentPageResultTokenLabel {}
+
+.paymentPageResultToken {
+    width: 100%;
+    text-align: center;
+    font-size: 1.8rem;
+    color: rgb(31, 189, 65);
+    /* padding: 0 0.5rem; */
+}
+
+.paymentPageResultFail {
+    width: 100%;
+    text-align: center;
+    font-size: 2.5rem;
+    color: rgb(189, 36, 31);
+    padding: 0 0.5rem;
+}
+
+.paymentPageButton {
+    font-family: Yekan;
+    width: 15rem;
+    padding: 1rem 1rem;
+    background-color: #0b1033;
+    border: none;
+    border-radius: 0.2rem;
+    outline: none;
+    color: #ffd617;
+    font-size: 1rem;
+    transition: all 0.2s ease-in;
+    margin-top: 2rem;
+}
+
+.paymentPageButton:hover {
+    background-color: #0b1033d5;
+    transition: all 0.2s ease-in;
+}

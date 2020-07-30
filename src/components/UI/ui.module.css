@@ -84,17 +84,62 @@ button:disabled {
 .paymentModalModal {
     position: fixed;
     top: 7rem;
+    left: -webkit-calc(50% - 17rem);
+    left: -moz-calc(50% - 17rem);
     left: calc(50% - 17rem);
     display: block;
     width: 34rem;
     height: auto;
     background-color: #0b1033;
+    -webkit-box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    -moz-box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
     box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    -webkit-border-radius: 1.5rem;
+    -moz-border-radius: 1.5rem;
     border-radius: 1.5rem;
     padding: 2rem 3rem;
-    z-index: 60;
+    z-index: 80;
+    -webkit-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
     transition: all 0.3s ease-in;
+    -webkit-animation: showorderCreateModal 0.2s ease-in;
+    -moz-animation: showorderCreateModal 0.2s ease-in;
+    -o-animation: showorderCreateModal 0.2s ease-in;
     animation: showorderCreateModal 0.2s ease-in;
+}
+
+@-webkit-keyframes showorderCreateModal {
+    0% {
+        opacity: 0;
+        top: 2rem;
+    }
+    100% {
+        opacity: 1;
+        top: 7rem;
+    }
+}
+
+@-moz-keyframes showorderCreateModal {
+    0% {
+        opacity: 0;
+        top: 2rem;
+    }
+    100% {
+        opacity: 1;
+        top: 7rem;
+    }
+}
+
+@-o-keyframes showorderCreateModal {
+    0% {
+        opacity: 0;
+        top: 2rem;
+    }
+    100% {
+        opacity: 1;
+        top: 7rem;
+    }
 }
 
 @keyframes showorderCreateModal {
@@ -111,16 +156,22 @@ button:disabled {
 .paymentModalModalHidden {
     position: fixed;
     top: 7rem;
+    left: -webkit-calc(50% - 17rem);
+    left: -moz-calc(50% - 17rem);
     left: calc(50% - 17rem);
     display: none;
     opacity: 0;
     width: 34rem;
     height: auto;
     background-color: #0b1033;
+    -webkit-box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    -moz-box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
     box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    -webkit-border-radius: 1.5rem;
+    -moz-border-radius: 1.5rem;
     border-radius: 1.5rem;
     padding: 2rem 3rem;
-    z-index: 0;
+    z-index: 80;
 }
 
 .paymentModalModalCloseIcon {
@@ -128,6 +179,9 @@ button:disabled {
     top: 1.5rem;
     left: 1.5rem;
     color: #ffd617;
+    -webkit-transform: scale(1.3);
+    -moz-transform: scale(1.3);
+    -o-transform: scale(1.3);
     transform: scale(1.3);
     z-index: 2;
     cursor: pointer;
@@ -149,12 +203,15 @@ button:disabled {
     height: 2.5rem;
     background-color: #ffffff;
     color: #0b1033;
+    text-align: center;
     font-size: 0.9rem;
     border: none !important;
     outline: none !important;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
     border-radius: 1rem;
     padding: 0.6rem 1rem;
-    margin-bottom: 0.6rem
+    margin-bottom: 1rem
 }
 
 .paymentModalInputInvalid {
@@ -164,12 +221,48 @@ button:disabled {
     height: 2.5rem;
     background-color: #ffffff;
     color: #0b1033;
+    text-align: center;
     font-size: 0.9rem;
     outline: none !important;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
     border-radius: 1rem;
     padding: 0.6rem 1rem;
-    margin-bottom: 0.6rem;
+    margin-bottom: 1rem;
+    -webkit-animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    -moz-animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    -o-animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
     animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+}
+
+.paymentModalInputInvalid::-webkit-input-placeholder {
+    font-family: Yekan !important;
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.paymentModalInputInvalid:-moz-placeholder {
+    font-family: Yekan !important;
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.paymentModalInputInvalid::-moz-placeholder {
+    font-family: Yekan !important;
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.paymentModalInputInvalid:-ms-input-placeholder {
+    font-family: Yekan !important;
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.paymentModalInputInvalid::-ms-input-placeholder {
+    font-family: Yekan !important;
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
 }
 
 .paymentModalInputInvalid::placeholder {
@@ -178,11 +271,128 @@ button:disabled {
     color: rgba(11, 16, 51, 0.5);
 }
 
-.paymentModalButtonsBox {
+.paymentDiscoun {}
+
+.paymentDiscountValueBox {
     width: 100%;
     display: flex;
     flex-direction: row-reverse;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 0.6rem
+}
+
+.paymentDiscountInput {
+    direction: rtl;
+    font-family: Yekan !important;
+    width: 80%;
+    height: 2.5rem;
+    background-color: #ffffff;
+    color: #0b1033;
+    font-size: 0.9rem;
+    border: none !important;
+    outline: none !important;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    padding: 0.6rem 1rem;
+}
+
+.paymentDiscountInput::-webkit-input-placeholder {
+    font-family: Yekan !important;
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 1);
+}
+
+.paymentDiscountInput:-moz-placeholder {
+    font-family: Yekan !important;
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 1);
+}
+
+.paymentDiscountInput::-moz-placeholder {
+    font-family: Yekan !important;
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 1);
+}
+
+.paymentDiscountInput:-ms-input-placeholder {
+    font-family: Yekan !important;
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 1);
+}
+
+.paymentDiscountInput::-ms-input-placeholder {
+    font-family: Yekan !important;
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 1);
+}
+
+.paymentDiscountInput::placeholder {
+    font-family: Yekan !important;
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 1);
+}
+
+.paymentDiscountButton {
+    font-family: Yekan !important;
+    width: 20%;
+    padding: 0.5rem 0.8rem;
+    background-color: #ffd617;
+    border: 1px solid #ffd617;
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    outline: none !important;
+    color: #0b1033;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.paymentDiscountButton:hover {
+    background-color: rgba(255, 212, 23, 0.87);
+    -webkit-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+}
+
+.paymentFinalValueTitle {
+    color: #ffd617;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.paymentFinalValue {
+    color: #ffd617;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.paymentModalButtonsBox {
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: row-reverse;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     margin-top: 2rem;
 }
@@ -193,6 +403,8 @@ button:disabled {
     padding: 0.3rem 0.8rem;
     background-color: transparent;
     border: 1px solid #ffd617;
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
     border-radius: 2rem;
     outline: none !important;
     color: #ffd617;
@@ -205,6 +417,9 @@ button:disabled {
     background-color: #ffd617;
     border: 1px solid #ffd617;
     color: #0b1033;
+    -webkit-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
     transition: all 0.2s ease-in;
 }
 
@@ -227,7 +442,7 @@ button:disabled {
     -moz-border-radius: 1.5rem;
     border-radius: 1.5rem;
     padding: 2rem 3rem;
-    z-index: 60;
+    z-index: 80;
     -webkit-transition: all 0.3s ease-in;
     -o-transition: all 0.3s ease-in;
     -moz-transition: all 0.3s ease-in;
@@ -672,7 +887,7 @@ button:disabled {
     -moz-border-radius: 2rem;
     border-radius: 2rem;
     padding: 2rem 3rem;
-    z-index: 60;
+    z-index: 80;
     -webkit-transition: all 0.3s ease-in;
     -o-transition: all 0.3s ease-in;
     -moz-transition: all 0.3s ease-in;
@@ -879,7 +1094,7 @@ button:disabled {
     -moz-border-radius: 3rem;
     border-radius: 3rem;
     padding: 2rem 3rem;
-    z-index: 60;
+    z-index: 80;
     -webkit-transition: all 0.3s ease-in;
     -o-transition: all 0.3s ease-in;
     -moz-transition: all 0.3s ease-in;
@@ -1053,7 +1268,7 @@ button:disabled {
     -moz-border-radius: 2rem;
     border-radius: 2rem;
     padding: 2rem 3rem;
-    z-index: 60;
+    z-index: 80;
     -webkit-transition: all 0.3s ease-in;
     -o-transition: all 0.3s ease-in;
     -moz-transition: all 0.3s ease-in;
@@ -1355,7 +1570,7 @@ button:disabled {
     -moz-border-radius: 2rem;
     border-radius: 2rem;
     padding: 2rem 3rem;
-    z-index: 60;
+    z-index: 80;
     -webkit-transition: all 0.3s ease-in;
     -o-transition: all 0.3s ease-in;
     -moz-transition: all 0.3s ease-in;
@@ -1724,7 +1939,7 @@ button:disabled {
     -moz-border-radius: 1rem;
     border-radius: 1rem;
     padding: 2rem 3rem;
-    z-index: 60;
+    z-index: 80;
     -webkit-transition: all 0.3s ease-in;
     -o-transition: all 0.3s ease-in;
     -moz-transition: all 0.3s ease-in;

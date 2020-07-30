@@ -17,7 +17,8 @@ const PaymentModal = (props) => {
     const [paymentValue, setPaymentValue] = React.useState('')
     const [paymentValueValid, setPaymentValueValid] = React.useState(true)
     const [paymentDiscountValue, setPaymentDiscountValue] = React.useState('')
-    // const [paymentDiscountValueValid, setPaymentDiscountValueValid] = React.useState(true)
+    
+    const [payAmountValue, setPayAmountValue] = React.useState('')
 
     React.useEffect(() => {
         if(props.hidden === true) {
@@ -26,6 +27,35 @@ const PaymentModal = (props) => {
             setPaymentDiscountValue('')
         }
     }, [])
+
+    const paymentValueChangeHandler = e => {
+        setPaymentValue(e.target.value)
+        setPayAmountValue(e.target.value)
+    }
+
+    const paymentDiscountValueChangeHandler = e => {
+        setPaymentDiscountValue(e.target.value)
+    }
+
+    const getPaidAmount = () => {
+        axios.get(`http://185.211.59.237/Payment/GetPayAmount?realAmount=${paymentValue}&discountValue=${paymentDiscountValue}`, {
+            headers: { Authorization: "Bearer " + cookies.token }
+        }).then(res => {
+            if(res.data.state === 1) {
+                setPayAmountValue(res.data.payAmount)
+                toast(res.data.message, {type: toast.TYPE.SUCCESS})
+            }else{
+                toast(res.data.message, {type: toast.TYPE.ERROR})
+            }
+        })
+    }
+
+    let dissabler
+    if(paymentDiscountValue === '' || paymentDiscountValue === null) {
+        dissabler = true
+    }else{
+        dissabler = false
+    }
 
     const paymentSend = () => {
         let reg = /^\d+$/;
@@ -38,8 +68,8 @@ const PaymentModal = (props) => {
             setLoading(true)
 
             axios.post('http://185.211.59.237/Payment/Create', {
-                cost: paymentValue,
-                discountCode: paymentDiscountValue
+                realAmount: paymentValue,
+                payAmount: payAmountValue
             }, {
                 headers: { Authorization: "Bearer " + cookies.token }
             }).then(res => {
@@ -73,14 +103,6 @@ const PaymentModal = (props) => {
         }
     }
 
-    const paymentValueChangeHandler = e => {
-        setPaymentValue(e.target.value)
-    }
-
-    const paymentDiscountValueChangeHandler = e => {
-        setPaymentDiscountValue(e.target.value)
-    }
-
     return (
         <>
             <div className={!props.hidden ?
@@ -106,11 +128,23 @@ const PaymentModal = (props) => {
                     classes.paymentModalInputInvalid}
                 />
 
-                <input onChange={e => paymentDiscountValueChangeHandler(e)}
-                value={paymentDiscountValue}
-                placeholder="کد تخفیف"
-                className={classes.paymentModalInput}
-                />
+                <div className={classes.paymentDiscountValueBox}>
+                    <input onChange={e => paymentDiscountValueChangeHandler(e)}
+                    value={paymentDiscountValue}
+                    placeholder="کد تخفیف"
+                    className={classes.paymentDiscountInput}
+                    />
+                    <button disabled={dissabler}
+                    className={classes.paymentDiscountButton}
+                    onClick={getPaidAmount}>
+                        اعمال
+                    </button>
+                </div>
+
+                <p className={classes.paymentFinalValueTitle}>قیمت نهایی</p>
+                <p className={classes.paymentFinalValue}>
+                    {payAmountValue.replace(/(.)(?=(.{3})+$)/g,"$1,")}
+                </p>
                 
                 <div className={classes.paymentModalButtonsBox}>
                     <button className={classes.paymentModalButton}

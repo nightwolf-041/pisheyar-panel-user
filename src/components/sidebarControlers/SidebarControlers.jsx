@@ -11,20 +11,24 @@ function SidebarControlers(props) {
                 <FontAwesomeIcon icon={faTimes} className={classes.sidebarControlersCloseIcon} />
             </div>
             <div className={classes.sidebarControlersRight}>
-                <div className={classes.sidebarControlersRightIconBox}>
-                    <p>ویرایش</p>
-                    <FontAwesomeIcon icon={faEdit}
-                    className={classes.sidebarControlersCloseIcon} />
-                </div>
-                {
-                    props.charge ?
-                    <div className={classes.sidebarControlersRightIconBox}
-                    onClick={props.showPaymentModalModal}>
-                        <p>شارژ</p>
-                        <FontAwesomeIcon icon={faCashRegister}
+                {!props.loadData &&
+                <>
+                    <div className={classes.sidebarControlersRightIconBox}>
+                        <p>ویرایش</p>
+                        <FontAwesomeIcon icon={faEdit}
                         className={classes.sidebarControlersCloseIcon} />
-                    </div> 
-                    : null
+                    </div>
+                    {
+                        props.charge ?
+                        <div className={classes.sidebarControlersRightIconBox}
+                        onClick={props.showPaymentModalModal}>
+                            <p>شارژ</p>
+                            <FontAwesomeIcon icon={faCashRegister}
+                            className={classes.sidebarControlersCloseIcon} />
+                        </div> 
+                        : null
+                    }
+                </>
                 }
             </div>
         </div>

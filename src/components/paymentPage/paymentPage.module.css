@@ -1,47 +1,220 @@
 .paymentPageMain {
     width: 100%;
     height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-image: url('../../assets/images/WideBackgroundMenupage.svg');
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+       -moz-box-orient: vertical;
+       -moz-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+       -moz-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    background-color: #ffffff;
+    /* background-image: url('../../assets/images/WideBackgroundMenupage.svg');
     background-position: center;
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
 }
 
-.paymentPageResultSuccess {
+.paymentMessageBox {
+    width: 22rem;
+    height: auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+       -moz-box-orient: vertical;
+       -moz-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-shadow: 0 0 0.7rem 0.5rem #0b103321;
+       -moz-box-shadow: 0 0 0.7rem 0.5rem #0b103321;
+            box-shadow: 0 0 0.7rem 0.5rem #0b103321;
+}
+
+.paymentMessageBoxTop {
+    width: 100%;
+    height: auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+       -moz-box-orient: vertical;
+       -moz-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 1rem;
+}
+
+.paymentMessageBoxImage {
+    width: 8rem;
+    margin-bottom: 1rem;
+}
+
+.paymentPageResultSuccessTitle {
     width: 100%;
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 1.6rem;
+    font-weight: bold;
     color: rgb(31, 189, 65);
-    padding: 0 0.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
 }
 
-.paymentPageResultFail {
+.paymentPageResultSuccessSubtitle {
     width: 100%;
     text-align: center;
-    font-size: 2.5rem;
-    color: rgb(189, 36, 31);
-    padding: 0 0.5rem;
+    font-size: 1.2rem;
+    color: #6e6e6e;
+    margin-bottom: 1.5rem;
 }
 
-.paymentPageButton {
-    font-family: Yekan;
-    width: 15rem;
-    padding: 1rem 1rem;
-    background-color: #0b1033;
-    border: none;
-    border-radius: 0.2rem;
-    outline: none;
-    color: #ffd617;
+.paymentPageResultTokenLabelBox {
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+       -moz-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.paymentPageResultTokenLabel {
+    direction: rtl;
+    width: 100%;
+    text-align: right;
     font-size: 1rem;
+    color: rgb(31, 189, 65);
+}
+
+.paymentPageResultToken {
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    color: #6e6e6e;
+}
+
+.paymentSuccessButton {
+    font-family: Yekan;
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background-color: rgb(31, 189, 65);
+    border: none;
+    -webkit-border-radius: 0.2rem;
+       -moz-border-radius: 0.2rem;
+            border-radius: 0.2rem;
+    outline: none;
+    color: #ffffff;
+    font-size: 1.2rem;
+    -webkit-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
     transition: all 0.2s ease-in;
     margin-top: 2rem;
 }
 
-.paymentPageButton:hover {
-    background-color: #0b1033d5;
+.paymentSuccessButton:hover {
+    background-color: rgb(50, 201, 83);
+    -webkit-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
     transition: all 0.2s ease-in;
+}
+
+
+/* fail  */
+
+.paymentPageResultFailTitle {
+    direction: rtl;
+    width: 100%;
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: rgb(189, 31, 31);
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.paymentPageResultFailSubtitle {
+    direction: rtl;
+    width: 100%;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #6e6e6e;
+    margin-bottom: 1.5rem;
+}
+
+.paymentFailButton {
+    font-family: Yekan;
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background-color: rgb(189, 31, 31);
+    border: none;
+    -webkit-border-radius: 0.2rem;
+       -moz-border-radius: 0.2rem;
+            border-radius: 0.2rem;
+    outline: none;
+    color: #ffffff;
+    font-size: 1.2rem;
+    -webkit-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+    margin-top: 2rem;
+}
+
+.paymentFailButton:hover {
+    background-color: rgb(224, 44, 44);
+    -webkit-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+}
+
+@media screen and (max-width: 420px) {
+    .paymentMessageBox {
+        width: 90%;
+    }
 }

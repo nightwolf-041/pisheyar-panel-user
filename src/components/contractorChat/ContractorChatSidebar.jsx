@@ -4,14 +4,6 @@ import { useCookies } from 'react-cookie';
 import PerfectScrollbar from 'react-perfect-scrollbar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes, faSearch } from '@fortawesome/free-solid-svg-icons'
-import {
-    Accordion,
-    AccordionItem,
-    AccordionItemHeading,
-    AccordionItemButton,
-    AccordionItemPanel,
-} from 'react-accessible-accordion';
-// import 'react-accessible-accordion/dist/fancy-example.css';
 import './contractorChat.css'
 import ContractorSubCategories from './ContractorSubCategories'
 import SidebarControlers from '../sidebarControlers/SidebarControlers';
@@ -51,6 +43,7 @@ function ContractorChatSidebar(props) {
         }).then(res => {
             setContractorCategoriesLoading(false)
             if(res.data.state === 1) {
+                console.log(res.data.contractorCategories);
                 setContractorCategories(res.data.contractorCategories)
             }
         }).catch(err => {
@@ -66,6 +59,7 @@ function ContractorChatSidebar(props) {
             setContractorChatsLoading(false)
             if(res.data.state === 1) {
                 setContractorChats(res.data.chatRooms)
+                console.log(res.data.chatRooms)
             }
         }).catch(err => {
 
@@ -81,6 +75,17 @@ function ContractorChatSidebar(props) {
         setSerachValue(e.target.value)
     }
 
+    const renderLineByState = state => {
+        if(state === "لغو شده") {
+            return(<div className="chatbox-sidebar-content-message-person-line bg-danger"></div>)
+        }else if(state === "در انتظار تایید"){
+            return(<div className="chatbox-sidebar-content-message-person-line bg-warning"></div>)
+        }else if(state === "تایید شده"){
+            return(<div className="chatbox-sidebar-content-message-person-line bg-info"></div>)
+        }else {
+            return(<div className="chatbox-sidebar-content-message-person-line bg-success"></div>)
+        }
+    }
 
     return (
         <div className="chatbox-sidebar"
@@ -128,6 +133,7 @@ function ContractorChatSidebar(props) {
                     </div>
 
                     <SidebarControlers 
+                    loadData={userInfoLoading}
                     charge={true}
                     logout={props.removeCookie}
                     showPaymentModalModal={props.showPaymentModalModal}
@@ -170,10 +176,13 @@ function ContractorChatSidebar(props) {
                     {!contractorChatsLoading ?
                     contractorChats !== null && contractorChats.length > 0 ? 
                     contractorChats.map((chat, index) => (
-                        <div className="chatbox-sidebar-content-message-person-contract"
+                        <div className={chat.orderRequestGuid !== props.clickedOrderGuid ?
+                        "chatbox-sidebar-content-message-person-contract" :
+                        "chatbox-sidebar-content-message-person-contract-active"
+                        }
                         key={index}
-                        onClick={() => props.startChatHandler(chat.orderRequestGuid, chat.isAllow)}>
-                            <div className="chatbox-sidebar-content-message-person-line bg-success"></div>
+                        onClick={() => props.startChatHandler(chat.orderRequestGuid, chat.isAccessible)}>
+                            {renderLineByState(chat.acceptanceStatus)}
                             <div className="chatbox-sidebar-content-message-person-main">
                                 <div className="chatbox-sidebar-content-message-person-profile">
                                     <img
@@ -189,21 +198,33 @@ function ContractorChatSidebar(props) {
                                 </div>
                                 <div className="chatbox-sidebar-content-message-person-desc">
                                     <div className="chatbox-sidebar-content-message-person-desc-titlebox">
-                                        <p className="chatbox-sidebar-content-message-person-desc-title">
+                                        <p className={chat.orderRequestGuid !== props.clickedOrderGuid ?
+                                        "chatbox-sidebar-content-message-person-desc-title" :
+                                        "chatbox-sidebar-content-message-person-desc-title-active"
+                                        }>
                                             {chat.title}
                                         </p>
                                     </div>
                                     <div className="chatbox-sidebar-content-message-person-desc-topbox">
-                                        <p className="chatbox-sidebar-content-message-person-desc-top">
+                                        <p className={chat.orderRequestGuid !== props.clickedOrderGuid ?
+                                        "chatbox-sidebar-content-message-person-desc-top" :
+                                        "chatbox-sidebar-content-message-person-desc-top-active"
+                                        }>
                                             {chat.client}
                                         </p>
                                     </div>
                                     <div className="chatbox-sidebar-content-message-person-desc-middbox">
-                                        <p className="chatbox-sidebar-content-message-person-desc-midd">
+                                        <p className={chat.orderRequestGuid !== props.clickedOrderGuid ?
+                                        "chatbox-sidebar-content-message-person-desc-midd" :
+                                        "chatbox-sidebar-content-message-person-desc-midd-active"
+                                        }>
                                             {chat.recentMessage}
                                         </p>
                                     </div>
-                                    <p className="chatbox-sidebar-content-message-person-desc-bottom">
+                                    <p className={chat.orderRequestGuid !== props.clickedOrderGuid ?
+                                    "chatbox-sidebar-content-message-person-desc-bottom" :
+                                    "chatbox-sidebar-content-message-person-desc-bottom-active"
+                                    }>
                                         {chat.modifiedDate}
                                     </p>
                                 </div>
@@ -230,18 +251,27 @@ function ContractorChatSidebar(props) {
                     {!ontractorCategoriesLoading ?
                     contractorCategories !== null && contractorCategories.length > 0 ?
                         contractorCategories.map((ctg, index) => (
-                           <div className="chatbox-sidebar-content-order-person"
+                           <div className={ctg.categoryGuid !== props.orderCategoryGuid ?
+                            "chatbox-sidebar-content-order-person" :
+                            "chatbox-sidebar-content-order-person-active"
+                           }
                            key={index}
                            onClick={() => props.showOrdersPage(ctg.categoryGuid)}>
-                               <div className="chatbox-sidebar-content-message-person-line bg-success"></div>
-                               <div className="chatbox-sidebar-content-order-person-main">
+                               {/* <div className="chatbox-sidebar-content-message-person-line bg-success"></div> */}
+                               <div className={ctg.categoryGuid !== props.orderCategoryGuid ?
+                                   "chatbox-sidebar-content-order-person-main" :
+                                   "chatbox-sidebar-content-order-person-main-active"
+                               }>
                                    <div className="chatbox-sidebar-content-order-person-profile">
                                        <img src={props.ctgAvatar} alt="" className="chatbox-sidebar-content-order-person-profile-img" />
                                    </div>
                                    <h4>{ctg.name}</h4>
                                </div>
-                               <span className="chatbox-sidebar-content-message-person-badge">
-                                   0
+                               <span className={ctg.categoryGuid !== props.orderCategoryGuid ?
+                                "chatbox-sidebar-content-message-person-badge" :
+                                "chatbox-sidebar-content-message-person-badge-active"
+                               }>
+                                   {ctg.ordersCount}
                                 </span>
                            </div>
                            ))
@@ -250,8 +280,8 @@ function ContractorChatSidebar(props) {
                             خدمتی یافت نشد
                        </div>
                        : 
-                       <div className="contractorSidebar-loader-keeper-order">
-                           <div className="contractorChat-loader-order"></div>
+                       <div className="contractorSidebar-loader-keeper">
+                           <div className="contractorChat-loader"></div>
                        </div>
                     }
                        </>

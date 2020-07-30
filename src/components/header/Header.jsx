@@ -14,6 +14,9 @@ const Header = (props) => {
             <div className={classes.headerNotificationsBox}>
                     {props.client ?
                         <div className={classes.headerNotificationKeeper}>
+                            <span className={classes.headerNotificationKeeperTooltip}>
+                                افزودن سفارش
+                            </span>
                             <div className={classes.headerNotification}
                             onClick={props.showOrderCreate}>
                                 <FontAwesomeIcon icon={faPlus}

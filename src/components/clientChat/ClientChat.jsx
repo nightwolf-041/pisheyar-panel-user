@@ -9,7 +9,6 @@ import {
 } from '@aspnet/signalr'
 import { withCookies } from 'react-cookie'
 import PerfectScrollbar from 'react-perfect-scrollbar'
-// import Collapsible from 'react-collapsible';
 import ChatLeftMessage from '../chatMessages/ChatLeftMessage'
 import ChatRightMessage from '../chatMessages/ChatRightMessage'
 import Header from '../header/Header'
@@ -17,7 +16,6 @@ import ClientChatMessageModal from '../UI/ClientChatMessageModal'
 import ClientAcceptModal from '../UI/ClientAcceptModal'
 import ClientDeclineModal from '../UI/ClientDeclineModal'
 import ContractorResume from '../contractorResume/ContractorResume'
-import 'react-accessible-accordion/dist/fancy-example.css'
 import ClientChatSidebar from './ClientChatSidebar'
 import OrderCreateModal from '../UI/OrderCreateModal'
 import ClientFinishJobModal from '../UI/ClientFinishJobModal'
@@ -28,6 +26,7 @@ import { faPaperclip, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 import maleAvatar from '../../assets/images/male.png'
 import femaleAvatar from '../../assets/images/female.png'
+import { toast } from 'react-toastify'
 
 
 class ClientChat extends Component {
@@ -53,6 +52,7 @@ class ClientChat extends Component {
 
       orderCreateModalHidden: true,
       resultCategoryGuid: null,
+      sidebarForceRefreshState: 1,
 
       acceptModalHidden: true,
       acceptModalAcceptLoading: false,
@@ -199,10 +199,19 @@ class ClientChat extends Component {
     })
   }
 
+  sidebarForceRefresh = () => {
+    this.setState(prevState => {
+      return {
+        sidebarForceRefreshState: prevState.sidebarForceRefreshState + 1,
+      }
+    })
+  }
+
   showPesronMessageModal = (reqGuid, message, contractor, price, isAllowed, gender) => {
     const connection = this.state.connection
     const { cookies } = this.props
     const token = cookies.get('token')
+    console.log(reqGuid);
 
     console.log(isAllowed);
 
@@ -298,9 +307,7 @@ class ClientChat extends Component {
             // clickedOrderGuid: reqGuid,
           })
        }
-       
     })
-
   }
 
   hidePersonMessageModal = () => {
@@ -317,7 +324,9 @@ class ClientChat extends Component {
 
   hideClientFinishModal = () => {
     this.setState({
-      ClientFinishJobModalHidden: true
+      ClientFinishJobModalHidden: true,
+      acceptModalAccepted: undefined,
+      sidebarForceRefreshState: Math.random()
     })
   }
 
@@ -349,7 +358,8 @@ class ClientChat extends Component {
         this.setState({
           acceptModalHidden: true,
           acceptModalAcceptLoading: false,
-          acceptModalAccepted: res.data.acceptanceStatus
+          acceptModalAccepted: "لغو شده",
+          sidebarForceRefreshState: Math.random()
         })
       }
     })
@@ -371,8 +381,11 @@ class ClientChat extends Component {
         this.setState({
           clientDeclineModalHidden: true,
           declineModalLoading: false,
-          acceptModalAccepted: res.data.acceptanceStatus
+          acceptModalAccepted: "لغو شده",
+          sidebarForceRefreshState: Math.random()
         })
+      }else{
+        toast(res.data.message, {type: toast.TYPE.ERROR})
       }
     })
   }
@@ -395,7 +408,8 @@ class ClientChat extends Component {
         this.setState({
           acceptModalHidden: true,
           acceptModalAcceptLoading: false,
-          acceptModalAccepted: res.data.acceptanceStatus
+          acceptModalAccepted: "تایید شده",
+          sidebarForceRefreshState: Math.random()
         })
       }
     })
@@ -486,13 +500,14 @@ class ClientChat extends Component {
             }
           )
           .then(res => {
+            console.log(guid);
+            console.log(res.data);
             this.setState({clientChatMainLoader: false})
             if(res.data.state === 1 ){
                 this.setState({
                     orderRequestAcceptState: res.data.state,
                     orderRequestAcceptMsg: res.data.message,
                     chatMessages: res.data.chatMessages,
-                    acceptModalAccepted: res.data.acceptanceStatus
                 })
                 if(this.state.chatMessages !== null && this.state.chatMessages !== [] && this.state.chatMessages.length > 0 && this.state.showResumePage === false) {
                     this._scrollRef.scrollTo(0, this._scrollRef.scrollHeight)
@@ -767,6 +782,7 @@ class ClientChat extends Component {
           hidden={this.state.orderCreateModalHidden}
           orderGuid={this.state.resultCategoryGuid}
           hideOrderCreateModal={this.hideOrderCreateModal}
+          sidebarForceRefresh={this.sidebarForceRefresh}
         />
 
         <ClientChatMessageModal
@@ -797,7 +813,8 @@ class ClientChat extends Component {
         <ClientFinishJobModal
         hideClientFinishModal={this.hideClientFinishModal}
         orderReqGuid={this.state.clickedOrderGuid}
-        hidden={this.state.ClientFinishJobModalHidden} />
+        hidden={this.state.ClientFinishJobModalHidden}
+        />
 
         <div className='chatboxkeeper'>
           <ClientChatSidebar
@@ -809,9 +826,11 @@ class ClientChat extends Component {
             currentTab={this.state.currentTab}
             toggleCurrentTicket={this.toggleCurrentTicket}
             toggleCurrentMessage={this.toggleCurrentMessage}
+            sidebarForceRefreshState={this.state.sidebarForceRefreshState}
             showPesronMessageModal={(reqGuid, message, contractor, price, isAllowed, gender) =>
               this.showPesronMessageModal(reqGuid, message, contractor, price, isAllowed, gender)
             }
+            clickedOrderGuid={this.state.clickedOrderGuid}
           />
 
           {this.renderByAcceptState()}

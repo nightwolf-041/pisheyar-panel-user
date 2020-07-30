@@ -5,20 +5,16 @@ import PerfectScrollbar from 'react-perfect-scrollbar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes, faSearch } from '@fortawesome/free-solid-svg-icons'
 import ClientSubOrders from './ClientSubOrders';
-import {
-    Accordion,
-    AccordionItem,
-    AccordionItemHeading,
-    AccordionItemButton,
-    AccordionItemPanel,
-} from 'react-accessible-accordion';
+import {Collapse} from 'react-collapse';
 import './clientChat.css'
-import UserSettingDropdown from '../userSettingDropdown/UserSettingDropdown';
 import SidebarControlers from '../sidebarControlers/SidebarControlers';
+import ClientChatSudebarAccordion from '../clientChatSidebarAccordion/ClientChatSudebarAccordion'
 
 function ClientChatSidebar(props) {
 
     const [cookies, setCookie, removeCookie] = useCookies();
+
+    const [toggler, setToggler] = React.useState(false)
 
     const [sidebarLoading, setSidebarLoading] = React.useState(true)
     const [userInfo, setUserInfo] = React.useState(null)
@@ -73,9 +69,10 @@ function ClientChatSidebar(props) {
 
         })
 
-    }, [searchValue])
+    }, [searchValue, props.sidebarForceRefreshState])
 
     const setGuid = (guid) => {
+        console.log(guid);
         setClickedOrderGuid(guid)
     }
 
@@ -93,6 +90,10 @@ function ClientChatSidebar(props) {
 
     const searchChangeHandler = e => {
         setSearchValue(e.target.value)
+    }
+
+    const clientOrderBoxToggler = () => {
+        setToggler(!toggler)
     }
 
     return (
@@ -142,7 +143,11 @@ function ClientChatSidebar(props) {
                     </div>
                     }
                 </div>
-                <SidebarControlers logout={props.removeCookie} />
+                <SidebarControlers
+                loadData={userInfoLoading}
+                logout={props.removeCookie}
+
+                />
                 <div className="chatbox-sidebar-header-search-box">
                     <div className="chatbox-sidebar-header-search">
                     <FontAwesomeIcon icon={faSearch}  className="chatbox-sidebar-header-search-icon"/>
@@ -166,58 +171,30 @@ function ClientChatSidebar(props) {
             <PerfectScrollbar>
                 {props.currentTab ?
             <>
-            {
+                {
                 sidebarLoading ?
                 <div className="clientSidebar-loader-keeper">
                     <div className="clientChat-loader"></div>
                 </div>
                 :
                 clientOrders !== null && clientOrders.length > 0 ?
-                    <Accordion allowMultipleExpanded={false}>
-                        
-                        {clientOrders.map((orderReq, index) => (
-                            <AccordionItem key={index}>
-                            <AccordionItemHeading >
-                                <AccordionItemButton>
-                                    <div className="collapsible-trigger-division"
-                                    onClick={() => setGuid(orderReq.orderGuid)}>
-                                        <div className="collapsible-trigger-division-rightbox">
-                                            {renderLineWithState(orderReq.state)}
-                                            <div className="collapsible-trigger-division-rightbox-titlebox">
-                                                <h4>
-                                                    {orderReq.title}
-                                                </h4>
-                                            </div>
-                                        </div>
-
-                                        <div className="collapsible-trigger-division-badge">
-                                            {orderReq.requestsCount}
-                                        </div>
-                                    </div>
-                                </AccordionItemButton>
-                            </AccordionItemHeading>
-                            <AccordionItemPanel>
-                                
-                                <ClientSubOrders
-                                guid={clickedOrderGuid}
-                                // miaLogo={props.miaLogo}
-                                maleAvatar={props.maleAvatar}
-                                femaleAvatar={props.femaleAvatar}
-                                showPesronMessageModal={(reqGuid, message, contractor, price, isAllowed, gender) => props.showPesronMessageModal(reqGuid, message, contractor, price, isAllowed, gender)} />
-                        
-                            </AccordionItemPanel>
-                        </AccordionItem>
-                        ))}
-                        
-                    </Accordion>
+                <ClientChatSudebarAccordion 
+                    refreshSubNenuItems={props.sidebarForceRefreshState}
+                    clientOrders={clientOrders}
+                    maleAvatar={props.maleAvatar}
+                    femaleAvatar={props.femaleAvatar}
+                    showPesronMessageModal={(reqGuid, message, contractor, price, isAllowed, gender) => props.showPesronMessageModal(reqGuid, message, contractor, price, isAllowed, gender)}
+                    clickedOrderGuid={props.clickedOrderGuid}
+                    />
                     :
-                    <div className="chatbox-sidebar-no-option">
-                        پیامی یافت نشد
-                    </div> 
-                    }
-                    </>
-                    : null
-                    }
+                <div className="chatbox-sidebar-no-option">
+                    پیامی یافت نشد
+                </div> 
+                }
+                    
+                </>
+                : null
+                }
                 </PerfectScrollbar>
             </div>
 

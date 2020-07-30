@@ -9,7 +9,6 @@ import {
 } from '@aspnet/signalr'
 import { withCookies } from 'react-cookie'
 import PerfectScrollbar from 'react-perfect-scrollbar'
-// import Collapsible from 'react-collapsible';
 import ChatLeftMessage from '../chatMessages/ChatLeftMessage'
 import ChatRightMessage from '../chatMessages/ChatRightMessage'
 import Header from '../header/Header'
@@ -18,7 +17,6 @@ import ClientAcceptModal from '../UI/ClientAcceptModal'
 import ContractAcceptModal from '../UI/ContractAcceptModal'
 import PaymentModal from '../UI/PaymentModal'
 import OrdersPage from '../ordersPage/OrdersPage'
-import 'react-accessible-accordion/dist/fancy-example.css'
 import ContractorChatSidebar from './ContractorChatSidebar'
 import './contractorChat.css'
 
@@ -72,7 +70,7 @@ class ClientChat extends Component {
 
       clickedOrderGuid: null,
       prevClickedOrderGuid: null,
-      clickedOrderIsAllowed: null,
+      clickedOrderIsAccessible: null,
 
       messageTextAreaValue: '',
       contractorChatMainLoading: false,
@@ -281,10 +279,10 @@ class ClientChat extends Component {
 
   }
 
-  startChatHandler = (guid, isAllowed) => {
+  startChatHandler = (guid, isAccessible) => {
 
     this.setState({contractorChatMainLoading: true})
-    console.log(isAllowed);
+    console.log(isAccessible);
 
     const { cookies } = this.props
     const connection = this.state.connection
@@ -292,7 +290,7 @@ class ClientChat extends Component {
     this.setState({prevClickedOrderGuid: this.state.clickedOrderGuid}, () => {
       this.setState({
         clickedOrderGuid: guid,
-        clickedOrderIsAllowed: isAllowed,
+        clickedOrderIsAccessible: isAccessible,
         showOrdersPage: false
       })
     })
@@ -314,6 +312,7 @@ class ClientChat extends Component {
           connection.invoke('JoinRoomAsync', guid).catch(err => console.log(err))
 
           if(res.data.state === 1){
+            console.log(res.data.chatMessages);
               this.setState({
                   orderRequestAcceptState: res.data.state,
                   orderRequestAcceptMsg: res.data.message,
@@ -349,7 +348,7 @@ class ClientChat extends Component {
             messageTextAreaValue: '',
             // orderRequestAcceptState: 1
         })
-        if(this.state.clickedOrderIsAllowed) {
+        if(this.state.clickedOrderIsAccessible) {
           this.setState({
             // messageTextAreaValue: '',
             orderRequestAcceptState: 1
@@ -397,7 +396,7 @@ class ClientChat extends Component {
                 </div>
               </div>
             </div>
-            :null
+            : null
             }
 
             {this.state.showOrdersPage ?
@@ -409,8 +408,8 @@ class ClientChat extends Component {
                 showContractAcceptModal={(orderGuid, title) => this.showContractAcceptModal(orderGuid, title)}
               />
               :
-              <div className="contractorSidebar-loader-keeper">
-                <div className="contractorChat-loader"></div>
+              <div className="contractorSidebar-loader-keeper-order">
+                <div className="contractorChat-loader-order"></div>
               </div>
               : (
               <>
@@ -419,7 +418,7 @@ class ClientChat extends Component {
                   ref={ref => (this.chatBoxMainRef = ref)}
                 >
 
-                  {!this.state.clickedOrderIsAllowed ?
+                  {!this.state.clickedOrderIsAccessible ?
                       <div className="client-chat-allowed-message">
                         <p>
                           چت بسته شده است
@@ -443,8 +442,8 @@ class ClientChat extends Component {
                         :null
                     }
                     {!this.state.contractorChatMainLoading ?
-                    this.state.chatMessages !== null && this.state.chatMessages !== [] && this.state.orderRequestAcceptState === 1
-                        ? this.state.chatMessages.map((msg, index) => {
+                    this.state.chatMessages !== null && this.state.chatMessages !== [] && this.state.orderRequestAcceptState === 1 ?
+                    this.state.chatMessages.map((msg, index) => {
                             if (msg.from === 'سرویس دهنده') {
                               return (
                                 <ChatRightMessage
@@ -565,7 +564,9 @@ class ClientChat extends Component {
             toggleCurrentMessage={this.toggleCurrentMessage}
             hideOrdersPage={this.hideOrdersPage}
             showOrdersPage={orderGuid => this.showOrdersPage(orderGuid)}
-            startChatHandler={(guid, isAllowed) => this.startChatHandler(guid, isAllowed)}
+            orderCategoryGuid={this.state.orderCategoryGuid}
+            startChatHandler={(guid, isAccessible) => this.startChatHandler(guid, isAccessible)}
+            clickedOrderGuid={this.state.clickedOrderGuid}
             showPaymentModalModal={this.showPaymentModalModal}
           />
      

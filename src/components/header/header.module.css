@@ -92,6 +92,36 @@
     cursor: pointer;
 }
 
+.headerNotificationKeeperTooltip {
+  position: absolute;
+  left: 105%;
+  visibility: hidden;
+  width: 8rem;
+  background-color: #ffd617;
+  color: #0b1033;
+  text-align: center;
+  -webkit-border-radius: 0.4rem;
+     -moz-border-radius: 0.4rem;
+          border-radius: 0.4rem;
+  padding: 0.3rem 0;
+  z-index: 1;
+}
+
+.headerNotificationKeeperTooltip::after {
+ content: " ";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-top: -0.3rem;
+  border-width: 0.3rem;
+  border-style: solid;
+  border-color: transparent black transparent transparent;
+}
+
+.headerNotificationKeeper:hover .headerNotificationKeeperTooltip {
+  visibility: visible;
+}
+
 .headerNotificationBadge {
     position: absolute;
     top: -5px;

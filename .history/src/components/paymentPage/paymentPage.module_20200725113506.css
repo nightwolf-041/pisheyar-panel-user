@@ -1,0 +1,125 @@
+.paymentPageMain {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    /* background-image: url('../../assets/images/WideBackgroundMenupage.svg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat; */
+}
+
+.paymentSuccessBox {
+    width: 20rem;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 1rem 0.5rem #0b10333b;
+}
+
+.paymentSuccessBoxTop {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+
+.paymentSuccessImage {
+    width: 8rem;
+    margin-bottom: 1rem;
+}
+
+.paymentPageResultSuccessTitle {
+    width: 100%;
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: rgb(31, 189, 65);
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.paymentPageResultSuccessSubtitle {
+    width: 100%;
+    text-align: center;
+    font-size: 1.2rem;
+    color: rgb(31, 189, 65);
+    margin-bottom: 1rem;
+}
+
+.paymentPageResultTokenLabelBox {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.paymentPageResultTokenLabel {
+    direction: rtl;
+    width: 100%;
+    text-align: right;
+    font-size: 1rem;
+    color: rgb(31, 189, 65);
+}
+
+.paymentPageResultToken {
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    color: rgb(31, 189, 65);
+    /* padding: 0 0.5rem; */
+}
+
+.paymentSucccessButton {
+    font-family: Yekan;
+    width: 100%;
+    padding: 1rem 1rem;
+    background-color: rgb(31, 189, 65);
+    border: none;
+    border-radius: 0.2rem;
+    outline: none;
+    color: #ffffff;
+    font-size: 1rem;
+    transition: all 0.2s ease-in;
+    margin-top: 2rem;
+}
+
+.paymentPageResultFail {
+    width: 100%;
+    text-align: center;
+    font-size: 2.5rem;
+    color: rgb(189, 36, 31);
+    padding: 0 0.5rem;
+}
+
+.paymentPageButton {
+    font-family: Yekan;
+    width: 15rem;
+    padding: 1rem 1rem;
+    background-color: #0b1033;
+    border: none;
+    border-radius: 0.2rem;
+    outline: none;
+    color: #ffd617;
+    font-size: 1rem;
+    transition: all 0.2s ease-in;
+    margin-top: 2rem;
+}
+
+.paymentPageButton:hover {
+    background-color: #0b1033d5;
+    transition: all 0.2s ease-in;
+}
+
+@media screen and (max-width: 420px) {
+    .paymentSuccessBox {
+        width: 90%;
+    }
+}
