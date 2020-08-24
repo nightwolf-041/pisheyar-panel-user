@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactCodeInput from 'react-code-input'
-import './login.css'
+import './checkbox.css'
 import classes from './login.module.css'
 
 
@@ -35,11 +35,11 @@ const LoginBixSteps = (props) => {
                 </div>
 
                 <p className={classes.loginCcheckKeeper}>
-                    <input type="checkbox" id="test1"
+                    <input type="checkbox" id="loginCheckbox11"
                     // defaultChecked={true}
                     checked={check}
                     onChange={() => loginCheckboxChange()} />
-                    <label htmlFor="test1">
+                    <label htmlFor="loginCheckbox11">
                         مرا بخاطر بسپار
                     </label>
                 </p>
@@ -84,7 +84,7 @@ const LoginBixSteps = (props) => {
                 className={classes.loginRegisterLoginButton}>
                 {props.loginStatus.loading ?
                 'صبور باشید' :
-                'ورود سرویس دهنده'}
+                'ورود متخصص'}
             </button>
             <button type="button"
                 onClick={() => props.handleSellerByerSubmit('91b3cdab-39c1-40fb-b077-a2d6e611f50a')}
@@ -92,7 +92,7 @@ const LoginBixSteps = (props) => {
                 className={classes.loginRegisterLoginButtonByer}>
                 {props.loginStatus.loading ?
                 'صبور باشید' :
-                'ورود سرویس گیرنده'}
+                'ورود مشتری'}
             </button>
             </div>
             }

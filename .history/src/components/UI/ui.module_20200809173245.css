@@ -1,0 +1,2244 @@
+button:disabled {
+    cursor: no-drop !important;
+}
+
+.rulesCheckModalToggler {
+    margin-left: 5px;
+    color: #3347e4;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 0.2rem;
+}
+
+.rulesCheckModalToggler:hover {
+    margin-left: 5px;
+    color: #0b1033;
+    font-size: 1rem;
+}
+
+.loginCcheckKeeper {
+    position: absolute;
+    bottom: -5rem;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 90%;
+    left: 0;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -moz-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+
+.orderCreateModalBackdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(11, 16, 51, 0.3);
+    opacity: 1;
+    -webkit-animation: showorderCreateModalBackdrop 0.2s ease-in;
+    -moz-animation: showorderCreateModalBackdrop 0.2s ease-in;
+    -o-animation: showorderCreateModalBackdrop 0.2s ease-in;
+    animation: showorderCreateModalBackdrop 0.2s ease-in;
+}
+
+@-webkit-keyframes showorderCreateModalBackdrop {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes showorderCreateModalBackdrop {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes showorderCreateModalBackdrop {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes showorderCreateModalBackdrop {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.uiModalsBackdrop {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0b10331a;
+    z-index: 55;
+}
+
+.uiModalsBackdropHidden {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+}
+
+.orderCreateModalBackdropHide {
+    position: none;
+    display: none;
+}
+
+.paymenttttt {}
+
+.paymentModalModal {
+    position: fixed;
+    top: 7rem;
+    left: -webkit-calc(50% - 17rem);
+    left: -moz-calc(50% - 17rem);
+    left: calc(50% - 17rem);
+    display: block;
+    width: 34rem;
+    height: auto;
+    background-color: #0b1033;
+    -webkit-box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    -moz-box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    -webkit-border-radius: 1.5rem;
+    -moz-border-radius: 1.5rem;
+    border-radius: 1.5rem;
+    padding: 2rem 3rem;
+    z-index: 80;
+    -webkit-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+    -webkit-animation: showorderCreateModal 0.2s ease-in;
+    -moz-animation: showorderCreateModal 0.2s ease-in;
+    -o-animation: showorderCreateModal 0.2s ease-in;
+    animation: showorderCreateModal 0.2s ease-in;
+}
+
+@-webkit-keyframes showorderCreateModal {
+    0% {
+        opacity: 0;
+        top: 2rem;
+    }
+    100% {
+        opacity: 1;
+        top: 7rem;
+    }
+}
+
+@-moz-keyframes showorderCreateModal {
+    0% {
+        opacity: 0;
+        top: 2rem;
+    }
+    100% {
+        opacity: 1;
+        top: 7rem;
+    }
+}
+
+@-o-keyframes showorderCreateModal {
+    0% {
+        opacity: 0;
+        top: 2rem;
+    }
+    100% {
+        opacity: 1;
+        top: 7rem;
+    }
+}
+
+@keyframes showorderCreateModal {
+    0% {
+        opacity: 0;
+        top: 2rem;
+    }
+    100% {
+        opacity: 1;
+        top: 7rem;
+    }
+}
+
+.paymentModalModalHidden {
+    position: fixed;
+    top: 7rem;
+    left: -webkit-calc(50% - 17rem);
+    left: -moz-calc(50% - 17rem);
+    left: calc(50% - 17rem);
+    display: none;
+    opacity: 0;
+    width: 34rem;
+    height: auto;
+    background-color: #0b1033;
+    -webkit-box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    -moz-box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    -webkit-border-radius: 1.5rem;
+    -moz-border-radius: 1.5rem;
+    border-radius: 1.5rem;
+    padding: 2rem 3rem;
+    z-index: 80;
+}
+
+.paymentModalModalCloseIcon {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    color: #ffd617;
+    -webkit-transform: scale(1.3);
+    -moz-transform: scale(1.3);
+    -o-transform: scale(1.3);
+    transform: scale(1.3);
+    z-index: 2;
+    cursor: pointer;
+}
+
+.paymentModalModalLabel {
+    direction: rtl;
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    color: #ffffff;
+    margin-bottom: 2rem
+}
+
+.paymentModalInput {
+    direction: rtl;
+    font-family: Yekan !important;
+    width: 100%;
+    height: 2.5rem;
+    background-color: #ffffff;
+    color: #0b1033;
+    text-align: center;
+    font-size: 0.9rem;
+    border: none !important;
+    outline: none !important;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    border-radius: 1rem;
+    padding: 0.6rem 1rem;
+    margin-bottom: 1rem
+}
+
+.paymentModalInputInvalid {
+    direction: rtl;
+    font-family: Yekan !important;
+    width: 100%;
+    height: 2.5rem;
+    background-color: #ffffff;
+    color: #0b1033;
+    text-align: center;
+    font-size: 0.9rem;
+    outline: none !important;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    border-radius: 1rem;
+    padding: 0.6rem 1rem;
+    margin-bottom: 1rem;
+    -webkit-animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    -moz-animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    -o-animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+}
+
+.paymentModalInputInvalid::-webkit-input-placeholder {
+    font-family: Yekan !important;
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.paymentModalInputInvalid:-moz-placeholder {
+    font-family: Yekan !important;
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.paymentModalInputInvalid::-moz-placeholder {
+    font-family: Yekan !important;
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.paymentModalInputInvalid:-ms-input-placeholder {
+    font-family: Yekan !important;
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.paymentModalInputInvalid::-ms-input-placeholder {
+    font-family: Yekan !important;
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.paymentModalInputInvalid::placeholder {
+    font-family: Yekan !important;
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.paymentDiscoun {}
+
+.paymentDiscountValueBox {
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 0.6rem
+}
+
+.paymentDiscountInput {
+    direction: rtl;
+    font-family: Yekan !important;
+    width: 80%;
+    height: 2.5rem;
+    background-color: #ffffff;
+    color: #0b1033;
+    font-size: 0.9rem;
+    border: none !important;
+    outline: none !important;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    padding: 0.6rem 1rem;
+}
+
+.paymentDiscountInput::-webkit-input-placeholder {
+    font-family: Yekan !important;
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 1);
+}
+
+.paymentDiscountInput:-moz-placeholder {
+    font-family: Yekan !important;
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 1);
+}
+
+.paymentDiscountInput::-moz-placeholder {
+    font-family: Yekan !important;
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 1);
+}
+
+.paymentDiscountInput:-ms-input-placeholder {
+    font-family: Yekan !important;
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 1);
+}
+
+.paymentDiscountInput::-ms-input-placeholder {
+    font-family: Yekan !important;
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 1);
+}
+
+.paymentDiscountInput::placeholder {
+    font-family: Yekan !important;
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 1);
+}
+
+.paymentDiscountButton {
+    font-family: Yekan !important;
+    width: 20%;
+    padding: 0.5rem 0.8rem;
+    background-color: #ffd617;
+    border: 1px solid #ffd617;
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    outline: none !important;
+    color: #0b1033;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.paymentDiscountButton:hover {
+    background-color: rgba(255, 212, 23, 0.87);
+    -webkit-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+}
+
+.paymentFinalValueTitle {
+    color: #ffd617;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.paymentFinalValue {
+    color: #ffd617;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.paymentModalButtonsBox {
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: row-reverse;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.paymentModalButton {
+    font-family: Yekan !important;
+    width: 9rem;
+    padding: 0.3rem 0.8rem;
+    background-color: transparent;
+    border: 1px solid #ffd617;
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    border-radius: 2rem;
+    outline: none !important;
+    color: #ffd617;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.paymentModalButton:hover {
+    padding: 0.3rem 0.8rem;
+    background-color: #ffd617;
+    border: 1px solid #ffd617;
+    color: #0b1033;
+    -webkit-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+}
+
+.paymentModalButton {}
+
+.orderCreateModal {
+    position: fixed;
+    top: 7rem;
+    left: -webkit-calc(50% - 17rem);
+    left: -moz-calc(50% - 17rem);
+    left: calc(50% - 17rem);
+    display: block;
+    width: 34rem;
+    height: auto;
+    background-color: #0b1033;
+    -webkit-box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    -moz-box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    -webkit-border-radius: 1.5rem;
+    -moz-border-radius: 1.5rem;
+    border-radius: 1.5rem;
+    padding: 2rem 3rem;
+    z-index: 80;
+    -webkit-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+    -webkit-animation: showorderCreateModal 0.2s ease-in;
+    -moz-animation: showorderCreateModal 0.2s ease-in;
+    -o-animation: showorderCreateModal 0.2s ease-in;
+    animation: showorderCreateModal 0.2s ease-in;
+}
+
+@-webkit-keyframes showorderCreateModal {
+    0% {
+        opacity: 0;
+        top: 2rem;
+    }
+    100% {
+        opacity: 1;
+        top: 7rem;
+    }
+}
+
+@-moz-keyframes showorderCreateModal {
+    0% {
+        opacity: 0;
+        top: 2rem;
+    }
+    100% {
+        opacity: 1;
+        top: 7rem;
+    }
+}
+
+@-o-keyframes showorderCreateModal {
+    0% {
+        opacity: 0;
+        top: 2rem;
+    }
+    100% {
+        opacity: 1;
+        top: 7rem;
+    }
+}
+
+@keyframes showorderCreateModal {
+    0% {
+        opacity: 0;
+        top: 2rem;
+    }
+    100% {
+        opacity: 1;
+        top: 7rem;
+    }
+}
+
+.orderCreateModalHidden {
+    position: fixed;
+    top: 7rem;
+    left: -webkit-calc(50% - 17rem);
+    left: -moz-calc(50% - 17rem);
+    left: calc(50% - 17rem);
+    display: none;
+    opacity: 0;
+    width: 34rem;
+    height: auto;
+    background-color: #0b1033;
+    -webkit-box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    -moz-box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    -webkit-border-radius: 1.5rem;
+    -moz-border-radius: 1.5rem;
+    border-radius: 1.5rem;
+    padding: 2rem 3rem;
+    z-index: 0;
+}
+
+.orderCreateModalLabel {
+    direction: rtl;
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    color: #ffffff;
+    margin-bottom: 2rem
+}
+
+.orderCreateModalCloseIcon {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    color: #ffd617;
+    -webkit-transform: scale(1.3);
+    -moz-transform: scale(1.3);
+    -o-transform: scale(1.3);
+    transform: scale(1.3);
+    z-index: 2;
+    cursor: pointer;
+}
+
+.orderCreateModalCategories {
+    height: 2.5rem;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    /* direction: rtl; */
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #0b1033;
+    outline: none;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    border-radius: 1rem;
+    padding: 0.4rem 0.7rem;
+    color: #ffffff;
+    z-index: 50;
+    margin-bottom: 0.5rem;
+}
+
+.orderCreateModalTitle {
+    direction: rtl;
+    font-family: Yekan !important;
+    width: 100%;
+    height: 2.5rem;
+    background-color: #ffffff;
+    color: #0b1033;
+    font-size: 0.9rem;
+    border: none !important;
+    outline: none !important;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    border-radius: 1rem;
+    padding: 0.6rem 1rem;
+    margin-bottom: 0.6rem
+}
+
+.orderCreateModalTitleInvalid {
+    direction: rtl;
+    font-family: Yekan !important;
+    width: 100%;
+    height: 2.5rem;
+    background-color: #ffffff;
+    color: #0b1033;
+    font-size: 0.9rem;
+    /* border: 2px solid rgb(247, 25, 25); */
+    outline: none !important;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    border-radius: 1rem;
+    padding: 0.6rem 1rem;
+    margin-bottom: 0.6rem;
+    -webkit-animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    -moz-animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    -o-animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+}
+
+.orderCreateModalTitle::-webkit-input-placeholder {
+    font-family: Yekan !important;
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.orderCreateModalTitle:-moz-placeholder {
+    font-family: Yekan !important;
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.orderCreateModalTitle::-moz-placeholder {
+    font-family: Yekan !important;
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.orderCreateModalTitle:-ms-input-placeholder {
+    font-family: Yekan !important;
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.orderCreateModalTitle::-ms-input-placeholder {
+    font-family: Yekan !important;
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.orderCreateModalTitle::placeholder {
+    font-family: Yekan !important;
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.orderCreateModalTextarea {
+    direction: rtl;
+    font-family: Yekan !important;
+    width: 100%;
+    height: 9rem;
+    background-color: #ffffff;
+    color: #0b1033;
+    font-size: 0.9rem;
+    border: none !important;
+    outline: none !important;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    resize: none;
+}
+
+.orderCreateModalTextareaInvalid {
+    direction: rtl;
+    font-family: Yekan !important;
+    width: 100%;
+    height: 9rem;
+    background-color: #ffffff;
+    color: #0b1033;
+    font-size: 0.9rem;
+    /* border: 2px solid rgb(247, 25, 25) !important; */
+    outline: none !important;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    resize: none;
+    -webkit-animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    -moz-animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    -o-animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+}
+
+.orderCreateModalTextarea::-webkit-input-placeholder {
+    font-family: Yekan !important;
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.orderCreateModalTextarea:-moz-placeholder {
+    font-family: Yekan !important;
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.orderCreateModalTextarea::-moz-placeholder {
+    font-family: Yekan !important;
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.orderCreateModalTextarea:-ms-input-placeholder {
+    font-family: Yekan !important;
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.orderCreateModalTextarea::-ms-input-placeholder {
+    font-family: Yekan !important;
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.orderCreateModalTextarea::placeholder {
+    font-family: Yekan !important;
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.orderCreateModalButtonsBox {
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: row-reverse;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.orderCreateModalButton {
+    font-family: Yekan !important;
+    width: 9rem;
+    padding: 0.3rem 0.8rem;
+    background-color: transparent;
+    border: 1px solid #ffd617;
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    border-radius: 2rem;
+    outline: none !important;
+    color: #ffd617;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.orderCreateModalButton:hover {
+    padding: 0.3rem 0.8rem;
+    background-color: #ffd617;
+    border: 1px solid #ffd617;
+    color: #0b1033;
+    -webkit-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+}
+
+@-webkit-keyframes shake {
+    10%,
+    90% {
+        -webkit-transform: translate3d(-1px, 0, 0);
+        transform: translate3d(-1px, 0, 0);
+    }
+    20%,
+    80% {
+        -webkit-transform: translate3d(2px, 0, 0);
+        transform: translate3d(2px, 0, 0);
+    }
+    30%,
+    50%,
+    70% {
+        -webkit-transform: translate3d(-4px, 0, 0);
+        transform: translate3d(-4px, 0, 0);
+    }
+    40%,
+    60% {
+        -webkit-transform: translate3d(4px, 0, 0);
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+@-moz-keyframes shake {
+    10%,
+    90% {
+        -moz-transform: translate3d(-1px, 0, 0);
+        transform: translate3d(-1px, 0, 0);
+    }
+    20%,
+    80% {
+        -moz-transform: translate3d(2px, 0, 0);
+        transform: translate3d(2px, 0, 0);
+    }
+    30%,
+    50%,
+    70% {
+        -moz-transform: translate3d(-4px, 0, 0);
+        transform: translate3d(-4px, 0, 0);
+    }
+    40%,
+    60% {
+        -moz-transform: translate3d(4px, 0, 0);
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+@-o-keyframes shake {
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
+    }
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+    40%,
+    60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+@keyframes shake {
+    10%,
+    90% {
+        -webkit-transform: translate3d(-1px, 0, 0);
+        -moz-transform: translate3d(-1px, 0, 0);
+        transform: translate3d(-1px, 0, 0);
+    }
+    20%,
+    80% {
+        -webkit-transform: translate3d(2px, 0, 0);
+        -moz-transform: translate3d(2px, 0, 0);
+        transform: translate3d(2px, 0, 0);
+    }
+    30%,
+    50%,
+    70% {
+        -webkit-transform: translate3d(-4px, 0, 0);
+        -moz-transform: translate3d(-4px, 0, 0);
+        transform: translate3d(-4px, 0, 0);
+    }
+    40%,
+    60% {
+        -webkit-transform: translate3d(4px, 0, 0);
+        -moz-transform: translate3d(4px, 0, 0);
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+.messageModal {
+    position: fixed;
+    top: 37%;
+    left: -webkit-calc(50% - 23rem);
+    left: -moz-calc(50% - 23rem);
+    left: calc(50% - 23rem);
+    display: block;
+    width: 24rem;
+    height: auto;
+    background-color: #ffffff;
+    -webkit-box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    -moz-box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    border-radius: 2rem;
+    padding: 2rem 3rem;
+    z-index: 80;
+    -webkit-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+    -webkit-animation: showMessageModal 0.2s ease-in;
+    -moz-animation: showMessageModal 0.2s ease-in;
+    -o-animation: showMessageModal 0.2s ease-in;
+    animation: showMessageModal 0.2s ease-in;
+}
+
+@-webkit-keyframes showMessageModal {
+    0% {
+        opacity: 0;
+        top: 31%;
+    }
+    100% {
+        opacity: 1;
+        top: 37%;
+    }
+}
+
+@-moz-keyframes showMessageModal {
+    0% {
+        opacity: 0;
+        top: 31%;
+    }
+    100% {
+        opacity: 1;
+        top: 37%;
+    }
+}
+
+@-o-keyframes showMessageModal {
+    0% {
+        opacity: 0;
+        top: 31%;
+    }
+    100% {
+        opacity: 1;
+        top: 37%;
+    }
+}
+
+@keyframes showMessageModal {
+    0% {
+        opacity: 0;
+        top: 31%;
+    }
+    100% {
+        opacity: 1;
+        top: 37%;
+    }
+}
+
+.messageModalHidden {
+    position: fixed;
+    top: 37%;
+    left: -webkit-calc(50% - 23rem);
+    left: -moz-calc(50% - 23rem);
+    left: calc(50% - 23rem);
+    display: none;
+    opacity: 0;
+    width: 24rem;
+    height: auto;
+    background-color: #ffffff;
+    -webkit-box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    -moz-box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    border-radius: 2rem;
+    padding: 2rem 3rem;
+    z-index: 0;
+}
+
+.messageModalTitle {
+    width: 100%;
+    text-align: right;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #0b1033;
+}
+
+.messageModalDesc {
+    width: 100%;
+    text-align: right;
+    font-size: 0.9rem;
+    color: rgba(11, 16, 51, 0.75);
+}
+
+.messageModalPriceBox {
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: row-reverse;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -moz-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.messageModalPriceBox h4 {
+    color: #0b1033;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.messageModalPriceBox p {
+    text-align: right;
+    color: #0b1033;
+    font-size: 0.9rem;
+}
+
+.messageModalButtonsBox {
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: row-reverse;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.messageModalButton {
+    width: 7rem;
+    padding: 0.3rem 0.8rem;
+    background-color: transparent;
+    border: 1px solid #0b1033;
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    border-radius: 2rem;
+    outline: none !important;
+    color: #0b1033;
+    font-size: 0.9rem;
+}
+
+.messageModalButton:nth-child(2) {
+    margin-right: 1rem;
+}
+
+.messageModalButton:hover {
+    padding: 0.3rem 0.8rem;
+    background-color: #0b1033;
+    border: 1px solid #0b1033;
+    color: #ffd617;
+    -webkit-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+}
+
+
+/* client accept  */
+
+.acceptModal {
+    position: fixed;
+    top: 37%;
+    left: -webkit-calc(50% - 21rem);
+    left: -moz-calc(50% - 21rem);
+    left: calc(50% - 21rem);
+    display: block;
+    width: 20rem;
+    height: auto;
+    background-color: #ffffff;
+    -webkit-box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    -moz-box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    -webkit-border-radius: 3rem;
+    -moz-border-radius: 3rem;
+    border-radius: 3rem;
+    padding: 2rem 3rem;
+    z-index: 80;
+    -webkit-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+    -webkit-animation: showacceptModal 0.2s ease-in;
+    -moz-animation: showacceptModal 0.2s ease-in;
+    -o-animation: showacceptModal 0.2s ease-in;
+    animation: showacceptModal 0.2s ease-in;
+}
+
+@-webkit-keyframes showacceptModal {
+    0% {
+        opacity: 0;
+        top: 31%;
+    }
+    100% {
+        opacity: 1;
+        top: 37%;
+    }
+}
+
+@-moz-keyframes showacceptModal {
+    0% {
+        opacity: 0;
+        top: 31%;
+    }
+    100% {
+        opacity: 1;
+        top: 37%;
+    }
+}
+
+@-o-keyframes showacceptModal {
+    0% {
+        opacity: 0;
+        top: 31%;
+    }
+    100% {
+        opacity: 1;
+        top: 37%;
+    }
+}
+
+@keyframes showacceptModal {
+    0% {
+        opacity: 0;
+        top: 31%;
+    }
+    100% {
+        opacity: 1;
+        top: 37%;
+    }
+}
+
+.acceptModalHidden {
+    position: fixed;
+    top: 37%;
+    left: -webkit-calc(50% - 21rem);
+    left: -moz-calc(50% - 21rem);
+    left: calc(50% - 21rem);
+    display: none;
+    opacity: 0;
+    width: 20rem;
+    height: auto;
+    background-color: #ffffff;
+    -webkit-box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    -moz-box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    -webkit-border-radius: 3rem;
+    -moz-border-radius: 3rem;
+    border-radius: 3rem;
+    padding: 2rem 3rem;
+    z-index: 0;
+}
+
+.acceptModalTitle {
+    width: 100%;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #0b1033;
+}
+
+.acceptModalButtonsBox {
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: row-reverse;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.acceptModalButton {
+    width: 7rem;
+    padding: 0.3rem 0.8rem;
+    background-color: transparent;
+    border: 1px solid #0b1033;
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    border-radius: 2rem;
+    outline: none !important;
+    color: #0b1033;
+    font-size: 0.9rem;
+}
+
+.acceptModalButton:nth-child(2) {
+    margin-right: 1rem;
+}
+
+.acceptModalButton:hover {
+    padding: 0.3rem 0.8rem;
+    background-color: #0b1033;
+    border: 1px solid #0b1033;
+    color: #ffd617;
+    -webkit-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+}
+
+
+/* contract accept  */
+
+.contractAcceptModal {
+    position: fixed;
+    top: 8rem;
+    left: -webkit-calc(50% - 25rem);
+    left: -moz-calc(50% - 25rem);
+    left: calc(50% - 25rem);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -moz-box-orient: vertical;
+    -moz-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 28rem;
+    height: auto;
+    background-color: #0b1033;
+    -webkit-box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    -moz-box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    border-radius: 2rem;
+    padding: 2rem 3rem;
+    z-index: 80;
+    -webkit-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+    -webkit-animation: showacceptModal 0.2s ease-in;
+    -moz-animation: showacceptModal 0.2s ease-in;
+    -o-animation: showacceptModal 0.2s ease-in;
+    animation: showacceptModal 0.2s ease-in;
+}
+
+@keyframes showacceptModal {
+    0% {
+        opacity: 0;
+        top: 5rem;
+    }
+    100% {
+        opacity: 1;
+        top: 8rem;
+    }
+}
+
+.contractAcceptModalHidden {
+    position: fixed;
+    top: 8rem;
+    left: -webkit-calc(50% - 25rem);
+    left: -moz-calc(50% - 25rem);
+    left: calc(50% - 25rem);
+    display: none;
+    opacity: 0;
+    width: 28rem;
+    height: auto;
+    background-color: #ffffff;
+    -webkit-box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    -moz-box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    border-radius: 2rem;
+    padding: 2rem 3rem;
+    z-index: 0;
+}
+
+.contractAcceptModalCloseIcon {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    color: #ffd617;
+    -webkit-transform: scale(1.3);
+    -moz-transform: scale(1.3);
+    -o-transform: scale(1.3);
+    transform: scale(1.3);
+    z-index: 2;
+    cursor: pointer;
+}
+
+.contractAcceptModalTitle {
+    width: 100%;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin-top: 0.6rem;
+    margin-bottom: 1.5rem;
+}
+
+
+/* .contractAcceptModalTitleInvalid {
+    width: 100%;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin-top: 0.6rem;
+    margin-bottom: 1.5rem;
+} */
+
+.contractAcceptModalTextarea {
+    direction: rtl;
+    width: 100%;
+    height: 9rem;
+    background-color: #ffffff;
+    color: #0b1033;
+    font-size: 0.9rem;
+    border: none !important;
+    outline: none !important;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    resize: none;
+}
+
+.contractAcceptModalTextareaInvalid {
+    direction: rtl;
+    width: 100%;
+    height: 9rem;
+    background-color: #ffffff;
+    color: #0b1033;
+    font-size: 0.9rem;
+    /* border: 2px solid rgb(247, 25, 25) !important; */
+    outline: none !important;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    resize: none;
+    -webkit-animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    -moz-animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    -o-animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+}
+
+.contractAcceptModalTextarea::-webkit-input-placeholder {
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.contractAcceptModalTextarea:-moz-placeholder {
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.contractAcceptModalTextarea::-moz-placeholder {
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.contractAcceptModalTextarea:-ms-input-placeholder {
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.contractAcceptModalTextarea::-ms-input-placeholder {
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.contractAcceptModalTextarea::placeholder {
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.contractAcceptModalInput {
+    direction: rtl;
+    width: 100%;
+    height: 2.5rem;
+    background-color: #ffffff;
+    color: #0b1033;
+    font-size: 0.9rem;
+    border: none !important;
+    outline: none !important;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    border-radius: 1rem;
+    padding: 0.6rem 1rem;
+}
+
+.contractAcceptModalInputInvalid {
+    direction: rtl;
+    width: 100%;
+    height: 2.5rem;
+    background-color: #ffffff;
+    color: #0b1033;
+    font-size: 0.9rem;
+    /* border: 2px solid rgb(247, 25, 25); */
+    outline: none !important;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    border-radius: 1rem;
+    padding: 0.6rem 1rem;
+    -webkit-animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    -moz-animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    -o-animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+}
+
+.contractAcceptModalInput::-webkit-input-placeholder {
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.contractAcceptModalInput:-moz-placeholder {
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.contractAcceptModalInput::-moz-placeholder {
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.contractAcceptModalInput:-ms-input-placeholder {
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.contractAcceptModalInput::-ms-input-placeholder {
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.contractAcceptModalInput::placeholder {
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.contractAcceptModalButtonsBox {
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: row-reverse;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.contractAcceptModalButton {
+    width: 50%;
+    padding: 0.4rem 0.8rem;
+    background-color: transparent;
+    border: 1px solid #0b1033;
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    border-radius: 2rem;
+    outline: none !important;
+    color: #ffd617;
+    font-size: 0.9rem;
+    border: 1px solid #ffd617;
+}
+
+.contractAcceptModalButton:nth-child(2) {
+    margin-right: 1rem;
+}
+
+.contractAcceptModalButton:hover {
+    padding: 0.3rem 0.8rem;
+    background-color: #ffd617;
+    border: 1px solid #ffd617;
+    color: #0b1033;
+    -webkit-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+}
+
+
+/* client finish  */
+
+.clientFinishModal {
+    position: fixed;
+    top: 8rem;
+    left: -webkit-calc(50% - 25rem);
+    left: -moz-calc(50% - 25rem);
+    left: calc(50% - 25rem);
+    /* left: 5rem; */
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -moz-box-orient: vertical;
+    -moz-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 28rem;
+    height: auto;
+    background-color: #0b1033;
+    -webkit-box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    -moz-box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    border-radius: 2rem;
+    padding: 2rem 3rem;
+    z-index: 80;
+    -webkit-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+    -webkit-animation: showFinishModal 0.2s ease-in;
+    -moz-animation: showFinishModal 0.2s ease-in;
+    -o-animation: showFinishModal 0.2s ease-in;
+    animation: showFinishModal 0.2s ease-in;
+}
+
+@-webkit-keyframes showFinishModal {
+    0% {
+        opacity: 0;
+        top: 5rem;
+    }
+    100% {
+        opacity: 1;
+        top: 8rem;
+    }
+}
+
+@-moz-keyframes showFinishModal {
+    0% {
+        opacity: 0;
+        top: 5rem;
+    }
+    100% {
+        opacity: 1;
+        top: 8rem;
+    }
+}
+
+@-o-keyframes showFinishModal {
+    0% {
+        opacity: 0;
+        top: 5rem;
+    }
+    100% {
+        opacity: 1;
+        top: 8rem;
+    }
+}
+
+@keyframes showFinishModal {
+    0% {
+        opacity: 0;
+        top: 5rem;
+    }
+    100% {
+        opacity: 1;
+        top: 8rem;
+    }
+}
+
+.clientFinishModalHidden {
+    position: fixed;
+    top: 8rem;
+    left: -webkit-calc(50% - 25rem);
+    left: -moz-calc(50% - 25rem);
+    left: calc(50% - 25rem);
+    display: none;
+    opacity: 0;
+    width: 28rem;
+    height: auto;
+    background-color: #ffffff;
+    -webkit-box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    -moz-box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    border-radius: 2rem;
+    padding: 2rem 3rem;
+    z-index: 0;
+}
+
+.clientFinishModalCloseIcon {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    color: #ffd617;
+    -webkit-transform: scale(1.3);
+    -moz-transform: scale(1.3);
+    -o-transform: scale(1.3);
+    transform: scale(1.3);
+    z-index: 2;
+    cursor: pointer;
+}
+
+.clientFinishModalTitle {
+    width: 100%;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.clientFinishModalTextarea {
+    direction: rtl;
+    width: 100%;
+    height: 7rem;
+    background-color: #ffffff;
+    color: #0b1033;
+    font-size: 0.9rem;
+    border: none !important;
+    outline: none !important;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    resize: none;
+}
+
+.clientFinishModalTextareaInvalid {
+    direction: rtl;
+    width: 100%;
+    height: 9rem;
+    background-color: #ffffff;
+    color: #0b1033;
+    font-size: 0.9rem;
+    /* border: 2px solid rgb(247, 25, 25) !important; */
+    outline: none !important;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    resize: none;
+    -webkit-animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    -moz-animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    -o-animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+}
+
+.clientFinishModalTextarea::-webkit-input-placeholder {
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.clientFinishModalTextarea:-moz-placeholder {
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.clientFinishModalTextarea::-moz-placeholder {
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.clientFinishModalTextarea:-ms-input-placeholder {
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.clientFinishModalTextarea::-ms-input-placeholder {
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.clientFinishModalTextarea::placeholder {
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.clientFinishModalInput {
+    direction: rtl;
+    width: 100%;
+    height: 2.5rem;
+    background-color: #ffffff;
+    color: #0b1033;
+    font-size: 0.9rem;
+    border: none !important;
+    outline: none !important;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    border-radius: 1rem;
+    padding: 0.6rem 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.clientFinishModalInputInvalid {
+    direction: rtl;
+    width: 100%;
+    height: 2.5rem;
+    background-color: #ffffff;
+    color: #0b1033;
+    font-size: 0.9rem;
+    /* border: 2px solid rgb(247, 25, 25); */
+    outline: none !important;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    border-radius: 1rem;
+    padding: 0.6rem 1rem;
+    margin-bottom: 0.5rem;
+    -webkit-animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    -moz-animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    -o-animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+}
+
+.clientFinishModalInput::-webkit-input-placeholder {
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+    /* color: #ffd41746; */
+}
+
+.clientFinishModalInput:-moz-placeholder {
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+    /* color: #ffd41746; */
+}
+
+.clientFinishModalInput::-moz-placeholder {
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+    /* color: #ffd41746; */
+}
+
+.clientFinishModalInput:-ms-input-placeholder {
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+    /* color: #ffd41746; */
+}
+
+.clientFinishModalInput::-ms-input-placeholder {
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+    /* color: #ffd41746; */
+}
+
+.clientFinishModalInput::placeholder {
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+    /* color: #ffd41746; */
+}
+
+.clientFinishModalRatingTitle {
+    width: 100%;
+    text-align: right;
+    color: #ffffff;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+}
+
+.clientFinishModalRatingBox {
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.clientFinishModalButtonsBox {
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: row-reverse;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.clientFinishModalButton {
+    width: 50%;
+    padding: 0.4rem 0.8rem;
+    background-color: transparent;
+    border: 1px solid #0b1033;
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    border-radius: 2rem;
+    outline: none !important;
+    color: #ffd617;
+    font-size: 0.9rem;
+    border: 1px solid #ffd617;
+}
+
+.clientFinishModalButton:nth-child(2) {
+    margin-right: 1rem;
+}
+
+.clientFinishModalButton:hover {
+    padding: 0.3rem 0.8rem;
+    background-color: #ffd617;
+    border: 1px solid #ffd617;
+    color: #0b1033;
+    -webkit-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+}
+
+
+/* contractor login  */
+
+.contractorLoginModalBackdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(11, 16, 51, 0.45);
+    z-index: 100;
+}
+
+.contractorLoginModalTitle {}
+
+.contractorLoginModal {
+    position: fixed;
+    top: 5rem;
+    left: -webkit-calc(50% - 16rem);
+    left: -moz-calc(50% - 16rem);
+    left: calc(50% - 16rem);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -moz-box-orient: vertical;
+    -moz-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 32rem;
+    height: auto;
+    background-color: #ffffff;
+    -webkit-box-shadow: 0 0 1.2rem 1rem rgba(11, 16, 51, 0.2);
+    -moz-box-shadow: 0 0 1.2rem 1rem rgba(11, 16, 51, 0.2);
+    box-shadow: 0 0 1.2rem 1rem rgba(11, 16, 51, 0.2);
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    border-radius: 1rem;
+    padding: 2rem 3rem;
+    z-index: 80;
+    -webkit-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+    -webkit-animation: showFinishModal 0.2s ease-in;
+    -moz-animation: showFinishModal 0.2s ease-in;
+    -o-animation: showFinishModal 0.2s ease-in;
+    animation: showFinishModal 0.2s ease-in;
+    z-index: 150;
+}
+
+@keyframes showFinishModal {
+    0% {
+        opacity: 0;
+        top: 0;
+    }
+    100% {
+        opacity: 1;
+        top: 5rem;
+    }
+}
+
+.contractorLoginModalHidden {
+    position: fixed;
+    top: 5rem;
+    left: -webkit-calc(50% - 25rem);
+    left: -moz-calc(50% - 25rem);
+    left: calc(50% - 25rem);
+    display: none;
+    opacity: 0;
+    width: 32rem;
+    height: auto;
+    background-color: #ffffff;
+    -webkit-box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    -moz-box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    border-radius: 1rem;
+    padding: 2rem 3rem;
+    z-index: 0;
+}
+
+.contractorLoginModalClose {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-size: 1.4rem;
+    color: rgb(253, 43, 43);
+    cursor: pointer;
+}
+
+.contractorLoginModalTitle {
+    direction: rtl;
+    width: 100%;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #0b1033;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.contractorLoginModalLinksBox {
+    width: 100%;
+    height: auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -moz-box-orient: vertical;
+    -moz-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.contractorLoginModalLinksBoxImageLink {
+    text-decoration: none;
+    width: 11rem;
+    height: auto;
+    margin-bottom: 0.5rem;
+}
+
+.contractorLoginModalLinksBoxImage {
+    width: 100%;
+    height: 3rem;
+}
+
+@media screen and (max-width: 992px) {
+    .paymentModalModal {
+        left: -webkit-calc(50% - 14rem);
+        left: -moz-calc(50% - 14rem);
+        left: calc(50% - 14rem);
+        width: 28rem;
+    }
+    .paymentModalModalHidden {
+        left: -webkit-calc(50% - 14rem);
+        left: -moz-calc(50% - 14rem);
+        left: calc(50% - 14rem);
+        width: 28rem;
+    }
+    .orderCreateModal {
+        left: -webkit-calc(50% - 14rem);
+        left: -moz-calc(50% - 14rem);
+        left: calc(50% - 14rem);
+        width: 28rem;
+    }
+    .orderCreateModalHidden {
+        left: -webkit-calc(50% - 14rem);
+        left: -moz-calc(50% - 14rem);
+        left: calc(50% - 14rem);
+        width: 28rem;
+    }
+    .messageModal {
+        left: -webkit-calc(50% - 12rem);
+        left: -moz-calc(50% - 12rem);
+        left: calc(50% - 12rem);
+        width: 24rem;
+    }
+    .messageModalHidden {
+        left: -webkit-calc(50% - 12rem);
+        left: -moz-calc(50% - 12rem);
+        left: calc(50% - 12rem);
+        width: 24rem;
+    }
+    .acceptModal {
+        left: -webkit-calc(50% - 10rem);
+        left: -moz-calc(50% - 10rem);
+        left: calc(50% - 10rem);
+        width: 20rem;
+    }
+    .acceptModalHidden {
+        left: -webkit-calc(50% - 10rem);
+        left: -moz-calc(50% - 10rem);
+        left: calc(50% - 10rem);
+        width: 20rem;
+    }
+    .contractAcceptModal {
+        left: -webkit-calc(50% - 12rem);
+        left: -moz-calc(50% - 12rem);
+        left: calc(50% - 12rem);
+        width: 24rem;
+    }
+    .contractAcceptModalHidden {
+        left: -webkit-calc(50% - 12rem);
+        left: -moz-calc(50% - 12rem);
+        left: calc(50% - 12rem);
+        width: 24rem;
+    }
+    .clientFinishModal {
+        left: -webkit-calc(50% - 12rem);
+        left: -moz-calc(50% - 12rem);
+        left: calc(50% - 12rem);
+        width: 24rem;
+    }
+    .clientFinishModalHidden {
+        left: -webkit-calc(50% - 12rem);
+        left: -moz-calc(50% - 12rem);
+        left: calc(50% - 12rem);
+        width: 24rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .paymentModalModal {
+        left: 5%;
+        width: 90% !important;
+        padding: 2rem;
+    }
+    .paymentModalModalHidden {
+        left: 5%;
+        width: 90% !important;
+    }
+    .paymentModalModalLabel {
+        font-size: 0.9rem;
+    }
+    .orderCreateModal {
+        left: 5%;
+        width: 90% !important;
+        padding: 2rem;
+    }
+    .orderCreateModalHidden {
+        left: 5%;
+        width: 90% !important;
+    }
+    .orderCreateModalLabel {
+        font-size: 0.9rem;
+    }
+    .messageModal {
+        left: 10%;
+        width: 80%;
+    }
+    .messageModalHidden {
+        left: 10%;
+        width: 80%;
+    }
+    .acceptModal {
+        left: 10%;
+        width: 80%;
+    }
+    .acceptModalHidden {
+        left: 10%;
+        width: 80%;
+    }
+    .contractAcceptModal {
+        left: 5%;
+        width: 90% !important;
+        padding: 2rem;
+    }
+    .contractAcceptModalHidden {
+        left: 5%;
+        width: 90% !important;
+    }
+    .clientFinishModal {
+        left: 5%;
+        width: 90% !important;
+        padding: 2rem;
+    }
+    .clientFinishModalHidden {
+        left: 5%;
+        width: 90% !important;
+    }
+    .contractorLoginModal {
+        left: 5%;
+        width: 90% !important;
+        padding: 2rem;
+    }
+    .contractorLoginModalHidden {
+        left: 5%;
+        width: 90% !important;
+        padding: 2rem;
+    }
+    .acceptModalButtonsBox,
+    .messageModalButtonsBox,
+    .contractAcceptModalButtonsBox,
+    .clientFinishModalButtonsBox {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -moz-box-orient: vertical;
+        -moz-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -moz-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        /* margin-top: 3rem; */
+    }
+    .contractAcceptModalButton {
+        width: 70%;
+    }
+    .clientFinishModalButton {
+        width: 70%;
+    }
+    .messageModalButton:nth-child(2),
+    .acceptModalButton:nth-child(2),
+    .contractAcceptModalButton:nth-child(2),
+    .clientFinishModalButton:nth-child(2) {
+        margin: 0.6rem 0 0 0;
+    }
+}

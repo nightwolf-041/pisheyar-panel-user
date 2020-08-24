@@ -7,10 +7,10 @@ import { ToastContainer, toast } from 'react-toastify';
 import LoginBixSteps from './LoginBixSteps';
 import RegisterBoxSteps from './RegisterBoxSteps';
 import ContractorLoginModal from '../UI/ContractorLoginModal';
+import RulesModal from '../UI/RulesModal';
 import 'react-toastify/dist/ReactToastify.css';
 import classes from './login.module.css'
 import { faBoxTissue } from '@fortawesome/free-solid-svg-icons';
-
 
 
 class LoginPage extends Component {
@@ -45,6 +45,8 @@ class LoginPage extends Component {
             loginStep2CodeValidMsg: '',
 
             checked: true,
+            registerChecked: true,
+            registerRuleChecked: false,
 
             registerNameValue: '',
             registerNameValid: true,
@@ -101,7 +103,9 @@ class LoginPage extends Component {
             genderValue: {value: '6e48b657-2c83-4481-a9c5-009ffe10158b', label: 'مرد'},
 
             toggleSubmitByer: false,
-            authenticateRoleGuid: ''
+            authenticateRoleGuid: '',
+
+            rulesModalShow: false
 
         }
     }
@@ -120,22 +124,6 @@ class LoginPage extends Component {
                 countriesLoading: true
             })
         })
-
-        // cities 
-        // this.setState({citiesLoading: true})
-        // let guid = "4060c766-3795-4b08-8f25-e99261d2cb73"
-        // axios.get(`http://185.211.59.237/Account/Provinces/${guid}/Cities`).then(res => {
-        //     console.log(res.data)
-        //     this.setState({
-        //         cities: res.data.cities,
-        //         citiesLoading: false
-        //     })
-        // }).catch(err => {
-        //     this.setState({
-        //         cities: [],
-        //         citiesLoading: true
-        //     })
-        // })
     }
 
 
@@ -167,6 +155,9 @@ class LoginPage extends Component {
         this.setState({ registerPhoneNumberValue: registerPhoneNumberValue })
     }
 
+    registerRulesCheckboxChangeHandler = val => {
+        this.setState({registerRuleChecked: val})
+    }
 
     registerStep1ClickHandler = () => {
 
@@ -203,7 +194,11 @@ class LoginPage extends Component {
             this.setState({cityValidMsg: ''})
         }
 
-        if(this.state.registerNameValue.length > 3 && this.state.registerFamlyValue.length > 3 && this.state.cityValue !== null && this.state.registerPhoneNumberValue.length === 11 &&  /^\d+$/.test(this.state.registerPhoneNumberValue) ) {
+        if(this.state.registerRuleChecked === false) {
+            toast('تایید قوانین الزامیست', {type: toast.TYPE.ERROR})
+        }
+
+        if(this.state.registerNameValue.length >= 3 && this.state.registerFamlyValue.length >= 3 && this.state.cityValue !== null && this.state.registerPhoneNumberValue.length === 11 &&  /^\d+$/.test(this.state.registerPhoneNumberValue) && this.state.registerRuleChecked === true ) {
             let regName = this.state.registerNameValue
             let regFamily = this.state.registerFamlyValue
             let regPhonenumber = this.state.registerPhoneNumberValue
@@ -304,6 +299,10 @@ class LoginPage extends Component {
         })
     }
 
+    registerCheckboxChangeHandler = (val) => {
+        this.setState({registerChecked: val})
+    }
+
     registerStep2ClickHandler = () => {
         const registerStep2Status = {...this.state.registerStep2Status}
         registerStep2Status.loading = true
@@ -316,7 +315,7 @@ class LoginPage extends Component {
         axios.post('http://185.211.59.237/Account/Authenticate', {
             phoneNumber: this.state.registerPhoneNumberValue,
             smsToken: this.state.registerStep2CodeValue,
-            rememberMe: true,
+            rememberMe: this.state.registerChecked,
             roleGuid: '91b3cdab-39c1-40fb-b077-a2d6e611f50a'
         }).then(res => {
 
@@ -336,8 +335,32 @@ class LoginPage extends Component {
                 toast('ثبت نام موفقیت آمیز بود', {type: toast.TYPE.SUCCESS})
 
                 const { cookies } = this.props;
-                cookies.set('token', res.data.token, {path: '/'});
-                cookies.set('contractorOrClient', 'client', {path: '/'});
+
+                let exp = new Date();
+                    exp.setDate(exp.getDate()+30);
+                    console.log(exp);
+
+                if(this.state.registerChecked){
+                    cookies.set('token', res.data.token, {
+                        path: '/',
+                        expires: exp,
+                        domain: '.pisheplus.com'
+                    });
+                    cookies.set('contractorOrClient', 'client', {
+                        path: '/',
+                        expires: exp,
+                        domain: '.pisheplus.com'
+                    });
+                }else{
+                    cookies.set('token', res.data.token, {
+                        path: '/',
+                        domain: '.pisheplus.com'
+                    });
+                    cookies.set('contractorOrClient', 'client', {
+                        path: '/', 
+                        domain: '.pisheplus.com'
+                    });
+                }
 
                 this.props.history.replace('/')
 
@@ -479,39 +502,20 @@ class LoginPage extends Component {
                             }))
                         }
                     } 
-        
                 }, 1000)
-            }
 
-            if(res.data.state === 2) {
+            }else{
                 const loginStatus = {...this.state.loginStatus}
                 loginStatus.loading = false
                 loginStatus.success = false
                 loginStatus.error = true
                 loginStatus.errorMsg = res.data.message
-
                 this.setState({
-                    loginStatus: loginStatus,
-                    // registerStepTwoSwitch: true
+                    loginStatus: loginStatus
                 })
-
-                toast('کاربر مورد نظر یافت نشد', {type: toast.TYPE.ERROR});
+                toast(res.data.message, {type: toast.TYPE.ERROR});
             }
 
-            if(res.data.state === 3) {
-                const loginStatus = {...this.state.loginStatus}
-                loginStatus.loading = false
-                loginStatus.success = false
-                loginStatus.error = true
-                loginStatus.errorMsg = res.data.message
-
-                this.setState({
-                    loginStatus: loginStatus,
-                    // registerStepTwoSwitch: true
-                })
-
-                toast('حساب کاربر مورد نظر غیر فعال می باشد', {type: toast.TYPE.ERROR});
-            }
         }).catch(err => {
             const loginStatus = {...this.state.loginStatus}
             loginStatus.loading = false
@@ -531,7 +535,6 @@ class LoginPage extends Component {
 
     loginCheckboxChangeHandler = (val) => {
         this.setState({checked: val})
-
     }
 
     loginStep2ClickHandler = () => {
@@ -616,11 +619,8 @@ class LoginPage extends Component {
                 registerStep2Status.success = false
                 registerStep2Status.error = true
                 registerStep2Status.errorMsg = res.data.message
-
                 this.setState({
-                    registerStep2Status: registerStep2Status,
-                    // registerStepTwoSwitch: false,
-                    // loginRegisterSwitch: false
+                    registerStep2Status: registerStep2Status
                 })
                 toast('کد وارد شده صحیح نمی باشد', {type: toast.TYPE.ERROR})
             }
@@ -649,13 +649,17 @@ class LoginPage extends Component {
         })
     }
 
+    rulesModalShowHandler = () => {
+        this.setState({rulesModalShow: true})
+    }
+    hideRulesModal = () => {
+        this.setState({rulesModalShow: false})
+    }
 
     render() {
-        // console.log(this.state.checked)
 
         return (
             <>
-
             <div className={classes.loginKeeper}>
                 <PerfectScrollbar >
                     <div className={classes.loginPageMain}>
@@ -757,6 +761,9 @@ class LoginPage extends Component {
                                     registerPhoneNumberValue={this.state.registerPhoneNumberValue}
                                     registerStep1ClickHandler={this.registerStep1ClickHandler}
                                     registerStatus={this.state.registerStatus}
+                                    registerRulesCheckboxChangeHandler={val => this.registerRulesCheckboxChangeHandler(val)}
+                                    registerCheckboxChangeHandler={val => this.registerCheckboxChangeHandler(val)}
+                                    rulesModalShowHandler={this.rulesModalShowHandler}
                                     /> 
                                 }
                             </div>
@@ -770,6 +777,10 @@ class LoginPage extends Component {
             hidden={this.state.contractorLoginModalHidden}
             hideHandler={this.contractorLoginModalHideHandler}
             />
+
+            <RulesModal
+            show={this.state.rulesModalShow}
+            hideRulesModal={this.hideRulesModal} />
 
             <ToastContainer
                 autoClose={4000}

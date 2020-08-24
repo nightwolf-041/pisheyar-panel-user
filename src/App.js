@@ -21,7 +21,7 @@ function App() {
     return response;
   }, error => {
     if (error.response.status === 401) {
-      removeCookie('token', {path: '/'})
+      removeCookie('token', {path: '/', domain: '.pisheplus.com'})
     }
     return error;
   });

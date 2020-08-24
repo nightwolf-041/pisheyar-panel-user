@@ -1,0 +1,257 @@
+.uiModalsBackdrop {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0b10331a;
+    z-index: 55;
+}
+
+.uiModalsBackdropHidden {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+}
+
+.profileSettingModal {
+    position: fixed;
+    top: 7rem;
+    left: calc(50% - 17rem);
+    display: block;
+    width: 34rem;
+    height: auto;
+    background-color: #0b1033;
+    box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    border-radius: 1.5rem;
+    z-index: 80;
+    transition: all 0.3s ease-in;
+    animation: showorderCreateModal 0.2s ease-in;
+    overflow: hidden;
+}
+
+.profileSettingModalInside {
+    width: 100%;
+    height: 30rem;
+    overflow: hidden;
+}
+
+.profileSettingModalInsidePaddingPaper {
+    width: 100%;
+    height: 100%;
+    padding: 2rem 2rem;
+}
+
+@keyframes showorderCreateModal {
+    0% {
+        opacity: 0;
+        top: 2rem;
+    }
+    100% {
+        opacity: 1;
+        top: 7rem;
+    }
+}
+
+.profileSettingModalHidden {
+    position: fixed;
+    top: 7rem;
+    left: calc(50% - 17rem);
+    display: none;
+    opacity: 0;
+    width: 34rem;
+    height: auto;
+    background-color: #0b1033;
+    box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    border-radius: 1.5rem;
+    z-index: 80;
+    overflow: hidden;
+}
+
+.profileSettingModalCloseIcon {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    color: #ffd617;
+    transform: scale(1.3);
+    z-index: 2;
+    cursor: pointer;
+}
+
+.profileSettingModalLabel {
+    direction: rtl;
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    color: #ffffff;
+    margin-bottom: 2rem
+}
+
+.filepondKeeper {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profileSettingModalInput {
+    direction: rtl;
+    text-align: right;
+    font-family: Yekan !important;
+    width: 100%;
+    height: 2.5rem;
+    background-color: #ffffff;
+    color: #0b1033;
+    font-size: 0.9rem;
+    border: none !important;
+    outline: none !important;
+    border-radius: 1rem;
+    padding: 0.6rem 1rem;
+    margin-bottom: 1rem
+}
+
+.profileSettingModalInputInvalid {
+    direction: rtl;
+    text-align: right;
+    font-family: Yekan !important;
+    width: 100%;
+    height: 2.5rem;
+    background-color: #ffffff;
+    color: #0b1033;
+    font-size: 0.9rem;
+    outline: none !important;
+    border-radius: 1rem;
+    padding: 0.6rem 1rem;
+    margin-bottom: 1rem;
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+}
+
+.profileSettingModalInput::placeholder {
+    font-family: Yekan !important;
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.profileSettingModalInputEmail {
+    direction: rtl;
+    text-align: center;
+    font-family: Yekan !important;
+    width: 100%;
+    height: 2.5rem;
+    background-color: #ffffff;
+    color: #0b1033;
+    text-align: center;
+    font-size: 0.9rem;
+    border: none !important;
+    outline: none !important;
+    border-radius: 1rem;
+    padding: 0.6rem 1rem;
+    margin-bottom: 1rem
+}
+
+.profileSettingModalInputEmailInvalid {
+    direction: rtl;
+    text-align: center;
+    font-family: Yekan !important;
+    width: 100%;
+    height: 2.5rem;
+    background-color: #ffffff;
+    color: #0b1033;
+    text-align: center;
+    font-size: 0.9rem;
+    outline: none !important;
+    border-radius: 1rem;
+    padding: 0.6rem 1rem;
+    margin-bottom: 1rem;
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+}
+
+.profileSettingModalInputEmail::placeholder {
+    font-family: Yekan !important;
+    font-size: 0.85rem;
+    color: rgba(11, 16, 51, 0.5);
+}
+
+.profileSettingSelect {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2.5rem;
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #0b1033;
+    outline: none;
+    border-radius: 1rem;
+    padding: 0.4rem 0.7rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.profileSettingModalButtonsBox {
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.profileSettingModalButton {
+    font-family: Yekan !important;
+    width: 9rem;
+    padding: 0.3rem 0.8rem;
+    background-color: transparent;
+    border: 1px solid #ffd617;
+    border-radius: 2rem;
+    outline: none !important;
+    color: #ffd617;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.profileSettingModalButton:hover {
+    padding: 0.3rem 0.8rem;
+    background-color: #ffd617;
+    border: 1px solid #ffd617;
+    color: #0b1033;
+    transition: all 0.2s ease-in;
+}
+
+@media screen and (max-width: 768px) {
+    .profileSettingModal {
+        left: calc(50% - 14rem);
+        width: 28rem;
+    }
+    .profileSettingModalHidden {
+        left: calc(50% - 14rem);
+        width: 28rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .profileSettingModal {
+        left: 5%;
+        width: 90% !important;
+    }
+    .profileSettingModalHidden {
+        left: 5%;
+        width: 90% !important;
+    }
+    .profileSettingModalInsidePaddingPaper {
+        width: 100%;
+        height: 100%;
+        padding: 2rem 1rem;
+    }
+    .profileSettingModalInside {
+        width: 100%;
+        height: 28rem;
+        overflow: hidden;
+    }
+}

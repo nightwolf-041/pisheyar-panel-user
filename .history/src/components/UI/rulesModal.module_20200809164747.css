@@ -1,0 +1,61 @@
+.rulesModal {
+    display: block;
+    position: fixed;
+    top: 10vh;
+    left: 10vw;
+    width: 80vw;
+    height: 80vh;
+    background-color: #ffffff;
+    -webkit-box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    -moz-box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    box-shadow: 0 0 12px 6px rgba(11, 16, 51, 0.1);
+    -webkit-border-radius: 1.5rem;
+    -moz-border-radius: 1.5rem;
+    border-radius: 1.5rem;
+    padding: 2rem 3rem;
+    z-index: 80;
+    -webkit-animation: showRulesModal 0.2s ease-in;
+    -moz-animation: showRulesModal 0.2s ease-in;
+    -o-animation: showRulesModal 0.2s ease-in;
+    animation: showRulesModal 0.2s ease-in;
+}
+
+@-webkit-keyframes showRulesModal {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes showRulesModal {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes showRulesModal {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes showRulesModal {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.rulesModalHidden {
+    display: none;
+}

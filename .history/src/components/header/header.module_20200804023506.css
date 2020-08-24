@@ -1,0 +1,362 @@
+    .header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5rem;
+    background-color: #0B1033;
+    z-index: 50;
+}
+
+.headerContainer {
+    width: 100%;
+    /* max-width: 1400px; */
+    height: 5rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -moz-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.headerNotificationsBox {
+    width: auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.headerNotificationKeeper {
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+    background-color: transparent;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border: 1px solid #E6E6E6;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    margin: 0 0.4rem;
+    cursor: pointer;
+}
+
+.headerNotificationKeeperTooltip {
+    position: absolute;
+    left: 105%;
+    visibility: visible;
+    width: 8rem;
+    background-color: none;
+    color: #ffffff;
+    text-align: center;
+    -webkit-border-radius: 0.4rem;
+    -moz-border-radius: 0.4rem;
+    border-radius: 0.4rem;
+    padding: 0.3rem 0;
+    z-index: 1;
+}
+
+.headerNotificationKeeperTooltip::after {
+    content: " ";
+    display: none;
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -0.3rem;
+    border-width: 0.3rem;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+}
+
+.headerNotificationKeeper:hover .headerNotificationKeeperTooltip {
+    background-color: #ffd617;
+    color: #0b1033;
+    visibility: visible;
+}
+
+.headerNotificationKeeper:hover .headerNotificationKeeperTooltip::after {
+    display: block;
+}
+
+.headerNotificationBadge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 15px;
+    height: 15px;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    background-color: #FF1F1F;
+    color: #ffffff;
+    font-size: 12px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.headerNotification {
+    width: 2.2rem;
+    height: 2.2rem;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin: 0 0.3rem;
+    cursor: pointer;
+}
+
+.headerNotificationKeeper:hover {
+    background-color: #ffd617;
+    border: 1px solid #ffd617;
+}
+
+.headerNotificationIcon {
+    color: #E6E6E6;
+    width: 1.5rem !important;
+}
+
+.headerNotificationKeeper:hover .headerNotificationIcon {
+    color: #0b1033;
+}
+
+.headerTitleBox {
+    font-size: 1.7rem;
+    text-align: center;
+    color: #ffffff;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+.headerTitleBoxLefted {
+    font-size: 1.7rem;
+    text-align: center;
+    color: #ffffff;
+    margin-left: 2rem;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+.headerLogoBox {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.headerLogoBox img {
+    width: 3.4rem;
+}
+
+.headerLogoBoxMobile {
+    display: none;
+}
+
+.hamburgerMenuIcon {
+    display: none;
+}
+
+@media screen and (max-width: 992px) {
+    .headerLogoBoxMobile {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -moz-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -moz-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        margin-left: 0;
+    }
+    .headerLogoBoxMobile img {
+        width: 2.9rem;
+    }
+    .hamburgerMenuIcon {
+        display: block;
+        color: #ffffff;
+        font-size: 1.2rem;
+        cursor: pointer;
+    }
+    .headerTitleBox {
+        display: none;
+    }
+    .headerLogoBox {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .headerContainer {
+        padding: 0 1.5rem;
+    }
+    .headerNotificationKeeper {
+        width: 1.8rem;
+        height: 1.8rem;
+        margin: 0 0.3rem;
+    }
+    .headerNotification {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    .headerNotificationIcon {
+        width: 1rem !important;
+    }
+    .headerLogoBoxMobile {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -moz-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -moz-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        margin-left: 0;
+    }
+    .headerLogoBoxMobile img {
+        width: 2.9rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .headerNotificationKeeper {
+        width: 1.5rem;
+        height: 1.5rem;
+        margin: 0 0.2rem;
+    }
+    .headerNotification {
+        width: 1.2rem;
+        height: 1.2rem;
+    }
+    .headerNotificationIcon {
+        width: 0.8rem !important;
+    }
+    .headerLogoBoxMobile {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -moz-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -moz-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        margin-left: 0;
+    }
+    .headerContainer {
+        padding: 0 1rem;
+    }
+    .headerLogoBoxMobile img {
+        width: 2.5rem;
+    }
+    .headerNotificationKeeperTooltip {
+        visibility: hidden;
+    }
